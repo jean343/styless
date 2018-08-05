@@ -1,0 +1,12 @@
+{
+  "name": "styless",
+  "version": "1.0.0",
+  "description": "Style your components declaratively with familiar less syntax",
+  "main": "index.js",
+  "repository": "https://github.com/jean343/styless.git",
+  "author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "polished": "^1.9.3"
+  }
+}
