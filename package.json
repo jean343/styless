@@ -7,8 +7,23 @@
 	"repository": "https://github.com/jean343/styless.git",
 	"author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
 	"license": "MIT",
+	"scripts": {
+		"test": "jest"
+	},
+	"jest": {
+		"testURL": "http://localhost/"
+	},
 	"dependencies": {
 		"less-vars-to-json": "^1.0.4",
 		"polished": "^1.9.3"
+	},
+	"devDependencies": {
+		"babel-jest": "^23.4.2",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"jest": "^23.4.2",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2",
+		"react-test-renderer": "^16.4.2"
 	}
 }
