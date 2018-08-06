@@ -25,7 +25,7 @@ module.exports = function( babel ){
 				if( !isStyled( path.node.tag, state ) )
 					return;
 
-				let source = path.getSource();\
+				let source = path.getSource();
 
 				if( !source.includes( "@" ) )
 					return;
