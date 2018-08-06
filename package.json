@@ -15,7 +15,8 @@
 	},
 	"dependencies": {
 		"less-vars-to-json": "^1.0.4",
-		"polished": "^1.9.3"
+		"polished": "^1.9.3",
+		"strip-json-comments": "^2.0.1"
 	},
 	"devDependencies": {
 		"babel-jest": "^23.4.2",

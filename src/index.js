@@ -1,5 +1,6 @@
 'use strict';
 const lessToJs = require( "less-vars-to-json" );
+const stripJsonComments = require( "strip-json-comments" );
 const fs = require( "fs" );
 
 function importLocalName( name, state ){
@@ -90,8 +91,7 @@ module.exports = function( babel ){
 				if( !source.includes( "@" ) )
 					return;
 
-				source = source.replace( /\/\*(.|[\r\n])*?\*\//g, '' ) // Replace multi line comments
-				source = source.replace( /\/\/.*/gm, '' ) // Replace // comments
+				source = stripJsonComments( source );
 
 				// https://regex101.com/r/WcrEPe/2
 				source = source.replace( /if\s*\(\s*([\w-#@]+)\s*,\s*([\w-#@]+)\s*(?:,\s*([\w-#@]+)\s*)?\)/g, ( match, m1, m2, m3 ) => {
