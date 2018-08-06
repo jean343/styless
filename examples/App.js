@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 
 const App = styled.div`
@@ -35,17 +35,18 @@ const Button = styled.a`
 `;
 
 export default class extends Component {
-	render(){
-		return <App>
-			<Wrapper>
-				<Title>
-					Hello World, this is my first styled <b>component</b>!
-				</Title>
-				<Title highlight="#9C5068">
-					Hello World, this is my first styled <b>component</b>!
-				</Title>
-				<Button>Click me</Button> <Button highlight="#00A65A">Or me</Button> <Button disabled>But not me</Button>
-			</Wrapper>
-		</App>
-	}
+    render() {
+        return <App>
+            <Wrapper>
+                <Title>
+                    Hello World, this is my first styled <b>component</b>!
+                </Title>
+                <Title highlight="#9C5068">
+                    Hello World, this is my first styled <b>component</b>!
+                </Title>
+                <Button>Click me</Button> <Button highlight="#00A65A">Or me</Button> <Button disabled>But not
+                me</Button>
+            </Wrapper>
+        </App>
+    }
 }
