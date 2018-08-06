@@ -1,12 +1,14 @@
 {
-  "name": "styless",
-  "version": "1.0.0",
-  "description": "Style your components declaratively with familiar less syntax",
-  "main": "index.js",
-  "repository": "https://github.com/jean343/styless.git",
-  "author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "polished": "^1.9.3"
-  }
+	"name": "babel-plugin-styless",
+	"version": "1.0.0",
+	"description": "Style your components declaratively with familiar less syntax",
+	"main": "src/index.js",
+	"source": "src/index.js",
+	"repository": "https://github.com/jean343/styless.git",
+	"author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"less-vars-to-json": "^1.0.4",
+		"polished": "^1.9.3"
+	}
 }

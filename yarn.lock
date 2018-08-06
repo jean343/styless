@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+less-vars-to-json@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/less-vars-to-json/-/less-vars-to-json-1.0.4.tgz#fec9877850dbeb5435bca835969fff840328d6d0"
+  dependencies:
+    strip-json-comments "^2.0.1"
+
 polished@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/polished/-/polished-1.9.3.tgz#d61b8a0c4624efe31e2583ff24a358932b6b75e1"
+
+strip-json-comments@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
