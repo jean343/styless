@@ -14,8 +14,8 @@ test( 'Takes the color from props', () => {
 
 test( 'Replaces single variable in linear-gradient', () => {
 	const Div = styled.div`
-		background: linear-gradient(@primary 0%, darken(@primary, 5%) 100%);
+		background: linear-gradient(@start 0%, @end 100%);
 	`;
-	const tree = renderer.create( <Div primary="red"/> ).toJSON()
+	const tree = renderer.create( <Div start="red" end="blue"/> ).toJSON()
 	expect( tree ).toMatchSnapshot();
 } );

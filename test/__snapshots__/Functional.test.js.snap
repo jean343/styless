@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Darkens the colors in linear-gradient 1`] = `
+.c0 {
+  background: linear-gradient(#f66 0%,#009 100%);
+}
+
+<div
+  className="c0"
+  end="blue"
+  start="red"
+/>
+`;
+
 exports[`Darkens the primary color 20% 1`] = `
 .c0 {
   color: #900;

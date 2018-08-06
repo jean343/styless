@@ -1,18 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sets a complex variable in an if check 1`] = `
-.c0 {
-  cursor: if(,not-allowed);
-}
-
 <div
-  className="c0"
+  className=""
 />
 `;
 
 exports[`Sets a complex variable in an if check 2`] = `
 .c0 {
-  cursor: if(true,not-allowed);
+  cursor: not-allowed;
 }
 
 <div

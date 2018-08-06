@@ -2,11 +2,13 @@
 
 exports[`Replaces single variable in linear-gradient 1`] = `
 .c0 {
-  background: linear-gradient(red 0%,darken(red,5%) 100%);
+  background: linear-gradient(red 0%,blue 100%);
 }
 
 <div
   className="c0"
+  end="blue"
+  start="red"
 />
 `;
 
