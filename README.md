@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/jean343/styless.svg?branch=master)](https://travis-ci.org/jean343/styless)
+[![npm](https://img.shields.io/npm/v/babel-plugin-styless.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-styless)
+
 # styless
 Style your components declaratively with familiar less syntax
 
