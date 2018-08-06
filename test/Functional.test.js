@@ -3,11 +3,10 @@ import renderer from 'react-test-renderer';
 import styled from 'styled-components';
 import 'jest-styled-components';
 
-test( 'Div takes the color from props', () => {
+test( 'Darkens the primary color 20%', () => {
 	const Div = styled.div`
-		background-color: chocolate;
-		color: @primary;
+		color: darken(@primary, 20%);
 	`;
-	const tree = renderer.create( <Div primary="red">Facebook</Div> ).toJSON()
+	const tree = renderer.create( <Div primary="red"/> ).toJSON()
 	expect( tree ).toMatchSnapshot();
 } );
