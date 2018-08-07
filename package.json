@@ -8,7 +8,7 @@
   "author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "test": "yarn run build && jest",
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
     "prepare": "yarn run build"
