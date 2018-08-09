@@ -13,4 +13,6 @@ export default source => {
     source = source.replace(/(@[\w-]+)/g, (match, m1) => {
         return `\${props => ${convert(m1)}}` // Replaces @a
     });
+
+    return source;
 }
