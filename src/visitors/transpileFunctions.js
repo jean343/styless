@@ -1,11 +1,14 @@
-import convert from "./convert";
+import convert, {variable} from "./convert";
+
+const functionRegex = new RegExp(`(\\w*)\\s*\\(${variable},${variable}\\)`, "g");
 
 export default source => {
-    return source.replace(/(\w*)\s*\(\s*([\w-#@]+)\s*,\s*([\w-%]+)\s*\)/g, (match, func, param1, param2) => {
+    // https://regex101.com/r/9dtrfr/2
+    return source.replace(functionRegex, (match, func, param1, param2) => {
         switch (func) {
             case "lighten":
             case "darken":
-                return `\${props => require("polished").${func}(${parseInt(param2, 10) / 100}, ${convert(param1)})}` // Replaces func(#aaabbb, 20%)
+                return `\${props => require("polished").${func}(${parseInt(param2, 10) / 100}, ${convert(param1)})}`;
         }
         return match;
     });

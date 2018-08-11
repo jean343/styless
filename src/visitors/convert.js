@@ -11,3 +11,5 @@ export default val => {
     ]
     return parts.filter(v => !!v).join(" || ");
 };
+
+export const variable = "\\s*([\\w-#@\\s%,\\(\\)]+)\\s*";

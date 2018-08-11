@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import Advanced from './Advanced';
 
 const App = styled.div`
 	color: @text;
@@ -20,6 +21,7 @@ const Wrapper = styled.section`
 `;
 
 const Button = styled.a`
+    display: inline-block;
 	cursor: pointer;
 	cursor: if(@disabled, not-allowed);
 	color: white;
@@ -35,6 +37,9 @@ const Button = styled.a`
 `;
 
 export default class extends Component {
+    state = {open: true};
+    onClick = e => this.setState({open: !this.state.open});
+
     render() {
         return <App>
             <Wrapper>
@@ -44,8 +49,8 @@ export default class extends Component {
                 <Title highlight="#9C5068">
                     Hello World, this is my first styled <b>component</b>!
                 </Title>
-                <Button>Click me</Button> <Button highlight="#00A65A">Or me</Button> <Button disabled>But not
-                me</Button>
+                <Button onClick={this.onClick}>Click me</Button> <Button highlight="#00A65A" onClick={this.onClick}>Or me</Button> <Button disabled>But not me</Button>
+                {this.state.open && <Advanced/>}
             </Wrapper>
         </App>
     }

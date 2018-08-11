@@ -7,8 +7,6 @@ export default (path, state) => {
         return;
     }
     const source = path.getSource();
-    if (!source.includes("@")) {
-        return;
-    }
+    if (!source) return;
     path.replaceWithSourceString(transpileAll(stripJsonComments(source)));
 }
