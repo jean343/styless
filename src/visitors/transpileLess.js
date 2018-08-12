@@ -1,32 +1,16 @@
 import Less from "less/lib/less/";
-import Color from "less/lib/less/tree/color";
 import Variable from "./Variable";
-import VariableNode from './VariableNode';
-
-const c = color => {
-    const value = color.toCSS();
-    if (color instanceof Color) {
-        return `"${value}"`;
-    }
-    return value;
-}
+import Condition from "./Condition";
+import * as functions from './functions';
 
 export default source => {
     const less = new Less();
-
     less.tree.Variable = Variable;
-
-    less.functions.functionRegistry.addMultiple({
-        lighten(color, amount, method) {
-            return new VariableNode(`require("polished").lighten(${amount.value / 100}, ${c(color)})`);
-        },
-        darken(color, amount, method) {
-            return new VariableNode(`require("polished").darken(${amount.value / 100}, ${c(color)})`);
-        },
-    });
-
+    less.tree.Condition = Condition;
+    less.functions.functionRegistry.addMultiple(functions);
     less.PluginLoader = class PluginLoader {
     };
+
     let root, imports, options;
     less.parse(source, {}, (e, _root, _imports, _options) => {
         root = _root;
