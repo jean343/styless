@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Returns the number of elements in a value list 1`] = `
+.c0 {
+  n: 4;
+  n2: 3;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns the value at a specified position in a list. 1`] = `
+.c0 {
+  value: coconut;
+}
+
+<div
+  className="c0"
+/>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rounds down to the next lowest integer. 1`] = `
+.c0 {
+  floor: 2;
+  floor: 2;
+}
+
+<div
+  className="c0"
+  value={2.6}
+/>
+`;
+
+exports[`Rounds up to the next highest integer. 1`] = `
+.c0 {
+  ceil: 3;
+  ceil: 3;
+}
+
+<div
+  className="c0"
+  value={2.4}
+/>
+`;
