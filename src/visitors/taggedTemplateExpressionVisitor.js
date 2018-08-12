@@ -2,7 +2,7 @@ import {isStyled} from "../utils/detectors";
 import stripJsonComments from "strip-json-comments";
 import transpileLess from "./transpileLess";
 
-const regex = /`(.*)`/s;
+const regex = /`([\s\S]*)`/;
 
 export default (path, state, {types: t}) => {
     if (!isStyled(path.node.tag, state)) {
