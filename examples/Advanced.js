@@ -12,7 +12,7 @@ export default class extends Component {
         return <div>
             {Object.keys(samples).map(key => {
                 const Comp = samples[key];
-                return <Comp>{key}</Comp>;
+                return <Comp key={key}>{key}</Comp>;
             })}
         </div>
     }

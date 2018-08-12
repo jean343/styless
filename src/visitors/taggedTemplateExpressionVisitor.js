@@ -1,12 +1,27 @@
 import {isStyled} from "../utils/detectors";
-import transpileAll from "./transpileAll";
 import stripJsonComments from "strip-json-comments";
+import transpileLess from "./transpileLess";
 
-export default (path, state) => {
+const regex = /`(.*)`/s;
+
+export default (path, state, {types: t}) => {
     if (!isStyled(path.node.tag, state)) {
         return;
     }
-    const source = path.getSource();
-    if (!source) return;
-    path.replaceWithSourceString(transpileAll(stripJsonComments(source)));
+
+    // Find the TemplateLiteral in the TaggedTemplateExpression
+    path.traverse({
+        TemplateLiteral(p) {
+            if (p.isClean) return;
+
+            const [foo, source] = regex.exec(p.getSource());
+            if (!source) return;
+            p.isClean = true;
+
+            const raw = transpileLess(stripJsonComments(source));
+
+            // p.replaceWith(t.templateLiteral([t.templateElement({raw})], []));
+            p.replaceWithSourceString('`' + raw + '`');
+        },
+    });
 }

@@ -37,7 +37,7 @@ const Button = styled.a`
 `;
 
 export default class extends Component {
-    state = {open: true};
+    state = {open: false};
     onClick = e => this.setState({open: !this.state.open});
 
     render() {

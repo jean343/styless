@@ -3,7 +3,7 @@ import taggedTemplateExpressionVisitor from './visitors/taggedTemplateExpression
 export default babel => ({
     visitor: {
         TaggedTemplateExpression(path, state) {
-            taggedTemplateExpressionVisitor(path, state);
+            taggedTemplateExpressionVisitor(path, state, babel);
         },
     }
 });
