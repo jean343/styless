@@ -1,7 +1,7 @@
 import Less from "less/lib/less/";
-import Variable from "./Variable";
-import Condition from "./Condition";
-import * as functions from './functions';
+import Variable from "../tree/Variable";
+import Condition from "../tree/Condition";
+import * as functions from '../functions';
 
 export default source => {
     const less = new Less();
