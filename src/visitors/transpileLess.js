@@ -1,6 +1,7 @@
 import Less from "less/lib/less/";
 import Color from "less/lib/less/tree/color";
 import Variable from "./Variable";
+import VariableNode from './VariableNode';
 
 const c = color => {
     const value = color.toCSS();
@@ -17,10 +18,10 @@ export default source => {
 
     less.functions.functionRegistry.addMultiple({
         lighten(color, amount, method) {
-            return `\${props => require("polished").lighten(${amount.value / 100}, ${c(color)})}`;
+            return new VariableNode(`require("polished").lighten(${amount.value / 100}, ${c(color)})`);
         },
         darken(color, amount, method) {
-            return `\${props => require("polished").darken(${amount.value / 100}, ${c(color)})}`;
+            return new VariableNode(`require("polished").darken(${amount.value / 100}, ${c(color)})`);
         },
     });
 

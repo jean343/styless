@@ -34,6 +34,15 @@ const importLocalName = (name, state) => {
 };
 
 export const isStyled = (tag, state) => {
+    /* Matches the extend blocks such as
+    const Block = Div.extend`
+        color: @color
+    `
+    */
+    if (tag.property && tag.property.name === "extend") {
+        return true;
+    }
+
     if (
         t.isCallExpression(tag) &&
         t.isMemberExpression(tag.callee) &&
