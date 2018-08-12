@@ -17,6 +17,29 @@ exports[`Sets a complex variable in an if check 2`] = `
 />
 `;
 
+exports[`Sets color to the inverse of the bg luma 1`] = `
+.c0 {
+  background: #001F3F;
+  color: white;
+}
+
+<div
+  checked={true}
+  className="c0"
+/>
+`;
+
+exports[`Sets color to the inverse of the bg luma 2`] = `
+.c0 {
+  background: lightgray;
+  color: black;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Sets conditional margins 1`] = `
 <div
   className=""

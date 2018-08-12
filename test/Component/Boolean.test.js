@@ -35,3 +35,17 @@ test('Sets conditional margins with variables', () => {
     const tree2 = renderer.create(<Div t="20px" f="0px" val/>).toJSON()
     expect(tree2).toMatchSnapshot();
 });
+
+test('Sets color to the inverse of the bg luma', () => {
+    const Div = styled.div`
+        @bg: if(@checked, @navy, lightgray);
+        @bg-light: boolean(luma(@bg) > 50%);
+        background: @bg; 
+        color: if(@bg-light, black, white);
+	`;
+    const tree = renderer.create(<Div navy="#001F3F" checked/>).toJSON()
+    expect(tree).toMatchSnapshot();
+
+    const tree2 = renderer.create(<Div navy="#001F3F"/>).toJSON()
+    expect(tree2).toMatchSnapshot();
+});

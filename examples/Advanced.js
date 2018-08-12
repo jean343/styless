@@ -21,10 +21,10 @@ const Content = styled.div`
 const samples = {
     "background-color: darken(@highlight, 30%);": S.extend`background-color: darken(@highlight, 30%);`,
     "@local: palevioletred;\n@width: if(@checked, 20px, 0);\nbackground-color: @local;\nborder-radius: @width;": withCheckbox(S.extend`
-      @local: palevioletred;
-      @width: if(@checked, 20px, 0);
-      background-color: @local;
-      border-radius: @width;
+        @local: palevioletred;
+        @width: if(@checked, 20px, 0);
+        background-color: @local;
+        border-radius: @width;
     `),
     "background-color: darken(hsl(90, 80%, 50%), 20%);": S.extend`background-color: darken(hsl(90, 80%, 50%), 20%);`,
     "background-color: darken(  rgb(  251  ,  90 , 79 ), 20% )  ;": S.extend`background-color: darken(  rgb(  251  ,  90 , 79 ), 20% )  ;`,
@@ -32,6 +32,12 @@ const samples = {
     "background-color: if(@checked, DeepPink, palevioletred)": withCheckbox(S.extend`background-color: if(@checked, DeepPink, palevioletred);`),
     "background-color: if(@checked, darken(@highlight, 30%), @highlight);": withCheckbox(S.extend`background-color: if(@checked, darken(@highlight, 30%), @highlight);`),
     "margin: if(@checked, 16px auto);": withCheckbox(S.extend`margin: if(@checked, 16px auto);`),
+    "@bg: if(@checked, @navy, @aqua);\n@bg-light: boolean(luma(@bg) > 50%);\nbackground: @bg;\ncolor: if(@bg-light, black, white);": withCheckbox(S.extend`
+        @bg: if(@checked, @navy, lightgray);
+        @bg-light: boolean(luma(@bg) > 50%);
+        background: @bg; 
+        color: if(@bg-light, black, white);
+    `),
 };
 
 export default class extends Component {
