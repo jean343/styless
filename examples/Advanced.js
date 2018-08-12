@@ -18,6 +18,7 @@ const samples = {
     "background-color: lighten(darken(hsl(90, 80%, 50%), 20%), 40%);": S.extend`background-color: lighten(darken(hsl(90, 80%, 50%), 20%), 40%);`,
     "background-color: if(@checked, DeepPink, palevioletred)": withCheckbox(S.extend`background-color: if(@checked, DeepPink, palevioletred);`),
     "background-color: if(@checked, darken(@highlight, 30%), @highlight);": withCheckbox(S.extend`background-color: if(@checked, darken(@highlight, 30%), @highlight);`),
+    "margin: if(@checked, 16px auto);": withCheckbox(S.extend`margin: if(@checked, 16px auto);`),
 };
 
 export default class extends Component {

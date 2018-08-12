@@ -3,7 +3,7 @@ import VariableNode from './VariableNode';
 
 const c = v => {
     if (!v)
-        return `""`;
+        return undefined;
     const value = v.toCSS();
     if (v instanceof VariableNode) {
         return value;

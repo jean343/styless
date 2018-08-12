@@ -16,3 +16,39 @@ exports[`Sets a complex variable in an if check 2`] = `
   disabled={true}
 />
 `;
+
+exports[`Sets conditional margins 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`Sets conditional margins 2`] = `
+.c0 {
+  margin: 6px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Sets conditional margins with variables 1`] = `
+.c0 {
+  margin: 0px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Sets conditional margins with variables 2`] = `
+.c0 {
+  margin: 20px;
+}
+
+<div
+  className="c0"
+/>
+`;
