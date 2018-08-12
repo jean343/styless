@@ -1,15 +1,5 @@
-import Color from "less/lib/less/tree/color";
 import VariableNode from './VariableNode';
-
-const c = v => {
-    if (!v)
-        return undefined;
-    const value = v.toCSS();
-    if (v instanceof VariableNode) {
-        return value;
-    }
-    return `"${value}"`;
-};
+import {convertNode as c} from "./convert";
 
 const _if = (condition, trueValue, falseValue) => {
     return new VariableNode(`${condition} ? ${c(trueValue)} : ${c(falseValue)}`);
