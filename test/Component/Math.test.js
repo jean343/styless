@@ -110,8 +110,15 @@ test('Calculates tangent function.', () => {
 test('Calculates arctangent (inverse of tangent) function.', () => {
     const Div = styled.div`
         atan: atan(-1.5574077246549023);
-        atan: atan(0);
+        atan: atan(@zero);
         atan: round(atan(22), 6); // arctangent of 22 rounded to 6 decimal places
 	`;
-    expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div zero="0"/>).toJSON()).toMatchSnapshot();
+});
+
+test('PI', () => {
+    const Div = styled.div`
+        pi: pi();
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });

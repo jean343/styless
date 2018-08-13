@@ -130,6 +130,16 @@ exports[`Converts a floating point number into a percentage string. 1`] = `
 />
 `;
 
+exports[`PI 1`] = `
+.c0 {
+  pi: 3.14159265;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Rounds down to the next lowest integer. 1`] = `
 .c0 {
   floor: 2;
