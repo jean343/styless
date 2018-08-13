@@ -38,6 +38,7 @@ const samples = {
         background: @bg; 
         color: if(@bg-light, black, white);
     `),
+    "font-size: ceil(20.5px);": S.extend`font-size: ceil(20.5px);`,
 };
 
 export default class extends Component {

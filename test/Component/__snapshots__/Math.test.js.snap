@@ -1,9 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Applies rounding. 1`] = `
+.c0 {
+  round: 2;
+  round: 2;
+  round: 2px;
+  round: 2px;
+}
+
+<div
+  className="c0"
+  value={1.67}
+/>
+`;
+
+exports[`Calculates square root of a number. Keeps units as they are. 1`] = `
+.c0 {
+  sqrt: 5cm;
+  sqrt: 5cm;
+}
+
+<div
+  className="c0"
+  value="25cm"
+/>
+`;
+
+exports[`Converts a floating point number into a percentage string. 1`] = `
+.c0 {
+  p: 50%;
+  p: 50%;
+  p: 50%;
+}
+
+<div
+  className="c0"
+  value={0.5}
+/>
+`;
+
 exports[`Rounds down to the next lowest integer. 1`] = `
 .c0 {
   floor: 2;
   floor: 2;
+  floor: 2em;
+  floor: 2em;
 }
 
 <div
@@ -16,6 +57,8 @@ exports[`Rounds up to the next highest integer. 1`] = `
 .c0 {
   ceil: 3;
   ceil: 3;
+  ceil: 3px;
+  ceil: 3px;
 }
 
 <div

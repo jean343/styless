@@ -13,10 +13,17 @@ export default source => {
 
     let root, imports, options;
     less.parse(source, {}, (e, _root, _imports, _options) => {
+        if (e) {
+            console.error(e);
+        }
         root = _root;
         imports = _imports;
         options = _options;
     });
+    if (!root) {
+        console.error("Failed to parse", source);
+        return source;
+    }
     // Disables the validation: Properties must be inside selector blocks. They cannot be in the root
     root.firstRoot = false;
 
