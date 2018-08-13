@@ -134,3 +134,13 @@ test('Returns the value of the first argument raised to the power of the second 
 	`;
     expect(renderer.create(<Div x={25} y={2}/>).toJSON()).toMatchSnapshot();
 });
+
+test('Returns the value of the first argument modulus second argument.', () => {
+    const Div = styled.div`
+        mod: mod(0cm, 0px);
+        mod: mod(11cm, 6px);
+        mod: mod(-26%, -5);
+        mod: mod(@x, @y);
+	`;
+    expect(renderer.create(<Div x={27} y={5}/>).toJSON()).toMatchSnapshot();
+});
