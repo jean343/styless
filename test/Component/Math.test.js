@@ -122,3 +122,15 @@ test('PI', () => {
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
+
+test('Returns the value of the first argument raised to the power of the second argument.', () => {
+    const Div = styled.div`
+        pow: pow(0cm, 0px);
+        pow: pow(25, -2);
+        pow: pow(25, 0.5);
+        pow: pow(-25, 0.5);
+        pow: pow(-25%, -0.5);
+        pow: pow(@x, @y);
+	`;
+    expect(renderer.create(<Div x={25} y={2}/>).toJSON()).toMatchSnapshot();
+});

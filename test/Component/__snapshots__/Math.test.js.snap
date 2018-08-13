@@ -140,6 +140,23 @@ exports[`PI 1`] = `
 />
 `;
 
+exports[`Returns the value of the first argument raised to the power of the second argument. 1`] = `
+.c0 {
+  pow: 1cm;
+  pow: 0.0016;
+  pow: 5;
+  pow: NaN;
+  pow: NaN%;
+  pow: 625;
+}
+
+<div
+  className="c0"
+  x={25}
+  y={2}
+/>
+`;
+
 exports[`Rounds down to the next lowest integer. 1`] = `
 .c0 {
   floor: 2;
