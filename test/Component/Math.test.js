@@ -49,3 +49,13 @@ test('Calculates square root of a number. Keeps units as they are.', () => {
 	`;
     expect(renderer.create(<Div value="25cm"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Calculates absolute value of a number. Keeps units as they are.', () => {
+    const Div = styled.div`
+        abs: abs(25cm);
+        abs: abs(-18.6%);
+        abs: abs(@value);
+        abs: abs(@value2);
+	`;
+    expect(renderer.create(<Div value="25cm" value2="-18.6%"/>).toJSON()).toMatchSnapshot();
+});

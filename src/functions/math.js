@@ -1,7 +1,7 @@
 import VariableNode from "../tree/VariableNode";
 import {convertNode as c} from "../tree/convert";
 
-const apply = (fn, n) => fn(parseFloat(n)) + ('' + n).replace(/[\d.]*/, "");
+const apply = (fn, n) => fn(parseFloat(n)) + ('' + n).replace(/[\d.-]*/, "");
 
 export const ceil = value => {
     return new VariableNode(`(${apply})(Math.ceil, ${c(value)})`);

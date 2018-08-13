@@ -14,6 +14,20 @@ exports[`Applies rounding. 1`] = `
 />
 `;
 
+exports[`Calculates absolute value of a number. Keeps units as they are. 1`] = `
+.c0 {
+  abs: 25cm;
+  abs: 18.6%;
+  abs: 25cm;
+  abs: 18.6%;
+}
+
+<div
+  className="c0"
+  value="25cm"
+/>
+`;
+
 exports[`Calculates square root of a number. Keeps units as they are. 1`] = `
 .c0 {
   sqrt: 5cm;
