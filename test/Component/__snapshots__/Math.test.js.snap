@@ -140,6 +140,30 @@ exports[`PI 1`] = `
 />
 `;
 
+exports[`Returns the lowest of one or more values. 1`] = `
+.c0 {
+  min: 5;
+  min: 2;
+  min: 3;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns the lowest of one or more values. 2`] = `
+.c0 {
+  max: 10;
+  max: 42;
+  max: 72;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Returns the value of the first argument modulus second argument. 1`] = `
 .c0 {
   mod: NaNcm;

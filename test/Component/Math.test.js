@@ -144,3 +144,21 @@ test('Returns the value of the first argument modulus second argument.', () => {
 	`;
     expect(renderer.create(<Div x={27} y={5}/>).toJSON()).toMatchSnapshot();
 });
+
+test('Returns the lowest of one or more values.', () => {
+    const Div = styled.div`
+        min: min(5, 10);
+        min: min(3px, 42px, 2px, 16px);
+        min: min(@a, @b, @c);
+	`;
+    expect(renderer.create(<Div a={5} b={3} c={72}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns the lowest of one or more values.', () => {
+    const Div = styled.div`
+        max: max(5, 10);
+        max: max(3%, 42%, 1%, 16%);
+        max: max(@a, @b, @c);
+	`;
+    expect(renderer.create(<Div a={5} b={3} c={72}/>).toJSON()).toMatchSnapshot();
+});
