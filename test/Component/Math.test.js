@@ -81,10 +81,10 @@ test('Calculates arcsine (inverse of sine) function.', () => {
 
 test('Calculates cosine function.', () => {
     const Div = styled.div`
-        sin: cos(@value); // sine of 1 radian
-        deg: cos(1deg); // sine of 1 degree
-        grad: cos(1grad); // sine of 1 gradian
-        turn: cos(0.2turn); // sine of 1 gradian
+        sin: cos(@value); // cos of 1 radian
+        deg: cos(1deg); // cos of 1 degree
+        grad: cos(1grad); // cos of 1 gradian
+        turn: cos(0.2turn); // cos of 1 gradian
 	`;
     expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
 });
@@ -94,6 +94,24 @@ test('Calculates arccosine (inverse of cosine) function.', () => {
         asin: acos(0.5403023058681398);
         asin: acos(@one);
         asin: acos(2);
+	`;
+    expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates tangent function.', () => {
+    const Div = styled.div`
+        tan: tan(1); // tangent of 1 radian
+        tan: tan(1deg); // tangent of 1 degree
+        tan: tan(1grad); // tangent of 1 gradian
+	`;
+    expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates arctangent (inverse of tangent) function.', () => {
+    const Div = styled.div`
+        atan: atan(-1.5574077246549023);
+        atan: atan(0);
+        atan: round(atan(22), 6); // arctangent of 22 rounded to 6 decimal places
 	`;
     expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
 });

@@ -27,7 +27,7 @@ export const abs = value => {
     return new VariableNode(`(${apply})(Math.abs, ${c(value)})`);
 };
 export const tan = value => {
-    return new VariableNode(`(${apply})(Math.tan, ${c(value)})`);
+    return new VariableNode(`(${applyAngle})(Math.tan, ${c(value)})`);
 };
 export const sin = value => {
     return new VariableNode(`(${applyAngle})(Math.sin, ${c(value)})`);
@@ -44,6 +44,6 @@ export const asin = value => {
 export const acos = value => {
     return new VariableNode(`(${applyAngle})(Math.acos, ${c(value)}, "rad")`);
 };
-export const round = value => {
-    return new VariableNode(`(${apply})(Math.round, ${c(value)})`);
+export const round = (value, fraction = {}) => {
+    return new VariableNode(`(${apply})(num => num.toFixed(${fraction.value}), ${c(value)})`);
 };

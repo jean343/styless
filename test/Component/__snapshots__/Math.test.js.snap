@@ -52,6 +52,18 @@ exports[`Calculates arcsine (inverse of sine) function. 1`] = `
 />
 `;
 
+exports[`Calculates arctangent (inverse of tangent) function. 1`] = `
+.c0 {
+  atan: -1rad;
+  atan: 0rad;
+  atan: 1.525373rad;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Calculates cosine function. 1`] = `
 .c0 {
   sin: 0.5403023058681398;
@@ -89,6 +101,19 @@ exports[`Calculates square root of a number. Keeps units as they are. 1`] = `
 <div
   className="c0"
   value="25cm"
+/>
+`;
+
+exports[`Calculates tangent function. 1`] = `
+.c0 {
+  tan: 1.5574077246549023;
+  tan: 0.017455064928217585;
+  tan: 0.015709255323664916;
+}
+
+<div
+  className="c0"
+  value={1}
 />
 `;
 
