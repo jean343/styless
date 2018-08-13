@@ -59,3 +59,22 @@ test('Calculates absolute value of a number. Keeps units as they are.', () => {
 	`;
     expect(renderer.create(<Div value="25cm" value2="-18.6%"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Calculates sine function.', () => {
+    const Div = styled.div`
+        sin: sin(@value); // sine of 1 radian
+        deg: sin(1deg); // sine of 1 degree
+        grad: sin(1grad); // sine of 1 gradian
+        turn: sin(0.2turn); // sine of 1 gradian
+	`;
+    expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates arcsine (inverse of sine) function.', () => {
+    const Div = styled.div`
+        asin: asin(-0.8414709848078965);
+        asin: asin(@zero);
+        asin: asin(2);
+	`;
+    expect(renderer.create(<Div zero="0"/>).toJSON()).toMatchSnapshot();
+});
