@@ -28,6 +28,18 @@ exports[`Calculates absolute value of a number. Keeps units as they are. 1`] = `
 />
 `;
 
+exports[`Calculates arccosine (inverse of cosine) function. 1`] = `
+.c0 {
+  asin: 1rad;
+  asin: 0rad;
+  asin: NaNrad;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Calculates arcsine (inverse of sine) function. 1`] = `
 .c0 {
   asin: -1rad;
@@ -37,6 +49,20 @@ exports[`Calculates arcsine (inverse of sine) function. 1`] = `
 
 <div
   className="c0"
+/>
+`;
+
+exports[`Calculates cosine function. 1`] = `
+.c0 {
+  sin: 0.5403023058681398;
+  deg: 0.9998476951563913;
+  grad: 0.9998766324816606;
+  turn: 0.30901699437494745;
+}
+
+<div
+  className="c0"
+  value={1}
 />
 `;
 

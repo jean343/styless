@@ -78,3 +78,22 @@ test('Calculates arcsine (inverse of sine) function.', () => {
 	`;
     expect(renderer.create(<Div zero="0"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Calculates cosine function.', () => {
+    const Div = styled.div`
+        sin: cos(@value); // sine of 1 radian
+        deg: cos(1deg); // sine of 1 degree
+        grad: cos(1grad); // sine of 1 gradian
+        turn: cos(0.2turn); // sine of 1 gradian
+	`;
+    expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates arccosine (inverse of cosine) function.', () => {
+    const Div = styled.div`
+        asin: acos(0.5403023058681398);
+        asin: acos(@one);
+        asin: acos(2);
+	`;
+    expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
+});
