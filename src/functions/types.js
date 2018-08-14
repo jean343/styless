@@ -18,3 +18,12 @@ export const isnumber = value => {
 export const isstring = value => {
     return new VariableNode(`(('' + ${c(value)})[0] === '"').toString()`);
 };
+export const ispixel = value => {
+    return new VariableNode(`(('' + ${c(value)}).endsWith("px")).toString()`);
+};
+export const ispercentage = value => {
+    return new VariableNode(`(('' + ${c(value)}).endsWith("%")).toString()`);
+};
+export const isem = value => {
+    return new VariableNode(`(('' + ${c(value)}).endsWith("em")).toString()`);
+};

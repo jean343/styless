@@ -34,6 +34,26 @@ exports[`Returns true if a value is a color, false otherwise. 2`] = `
 />
 `;
 
+exports[`Returns true if a value is a number in pixels, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a number in pixels, false otherwise. 2`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Returns true if a value is a number, false otherwise. 1`] = `
 .c0 {
   number1: false;
@@ -95,6 +115,46 @@ exports[`Returns true if a value is a string, false otherwise. 2`] = `
   string6: false;
   string7: false;
   string1: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is an em value, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is an em value, false otherwise. 2`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns: true if value is a percentage value, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns: true if value is a percentage value, false otherwise. 2`] = `
+.c0 {
+  is: true;
 }
 
 <div

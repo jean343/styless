@@ -80,3 +80,39 @@ test('Returns true if a value is a color, false otherwise.', () => {
 	`;
     expect(renderer.create(<Div2 v1="#ff0" v2="blue" v3={"\"string\""} v4="1234" v5="56px" v6="7.8%" v7="keyword" v8={'url("http://yadi")'}/>).toJSON()).toMatchSnapshot();
 });
+
+test('Returns true if a value is a number in pixels, false otherwise.', () => {
+    const Div = styled.div`
+        is: ispixel(56px);
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+
+    const Div2 = styled.div`
+        is: ispixel(@v);
+	`;
+    expect(renderer.create(<Div2 v="56px"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns true if a value is an em value, false otherwise.', () => {
+    const Div = styled.div`
+        is: isem(56em);
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+
+    const Div2 = styled.div`
+        is: isem(@v);
+	`;
+    expect(renderer.create(<Div2 v="56em"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns: true if value is a percentage value, false otherwise.', () => {
+    const Div = styled.div`
+        is: ispercentage(7.8%);
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+
+    const Div2 = styled.div`
+        is: ispercentage(@v);
+	`;
+    expect(renderer.create(<Div2 v="7.8%"/>).toJSON()).toMatchSnapshot();
+});
