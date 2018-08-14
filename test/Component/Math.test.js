@@ -91,7 +91,7 @@ test('Calculates cosine function.', () => {
 
 test('Calculates arccosine (inverse of cosine) function.', () => {
     const Div = styled.div`
-        acos: acos(0.5403023058681398);
+        acos: acos(0.5);
         acos: acos(@one);
         acos: acos(2);
 	`;

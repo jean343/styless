@@ -30,7 +30,7 @@ exports[`Calculates absolute value of a number. Keeps units as they are. 1`] = `
 
 exports[`Calculates arccosine (inverse of cosine) function. 1`] = `
 .c0 {
-  acos: 1rad;
+  acos: 1.0471975511965979rad;
   acos: 0rad;
   acos: NaNrad;
 }
