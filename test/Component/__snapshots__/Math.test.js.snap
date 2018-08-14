@@ -140,11 +140,11 @@ exports[`PI 1`] = `
 />
 `;
 
-exports[`Returns the lowest of one or more values. 1`] = `
+exports[`Returns the highest of one or more values. 1`] = `
 .c0 {
-  min: 5;
-  min: 2;
-  min: 3;
+  max: 10;
+  max: 42%;
+  max: 72cm;
 }
 
 <div
@@ -152,11 +152,11 @@ exports[`Returns the lowest of one or more values. 1`] = `
 />
 `;
 
-exports[`Returns the lowest of one or more values. 2`] = `
+exports[`Returns the lowest of one or more values. 1`] = `
 .c0 {
-  max: 10;
-  max: 42;
-  max: 72;
+  min: 5;
+  min: 2px;
+  min: 3px;
 }
 
 <div

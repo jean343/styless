@@ -151,14 +151,14 @@ test('Returns the lowest of one or more values.', () => {
         min: min(3px, 42px, 2px, 16px);
         min: min(@a, @b, @c);
 	`;
-    expect(renderer.create(<Div a={5} b={3} c={72}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a={5} b="3px" c={72}/>).toJSON()).toMatchSnapshot();
 });
 
-test('Returns the lowest of one or more values.', () => {
+test('Returns the highest of one or more values.', () => {
     const Div = styled.div`
         max: max(5, 10);
         max: max(3%, 42%, 1%, 16%);
         max: max(@a, @b, @c);
 	`;
-    expect(renderer.create(<Div a={5} b={3} c={72}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a={5} b={3} c="72cm"/>).toJSON()).toMatchSnapshot();
 });
