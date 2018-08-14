@@ -30,9 +30,9 @@ exports[`Calculates absolute value of a number. Keeps units as they are. 1`] = `
 
 exports[`Calculates arccosine (inverse of cosine) function. 1`] = `
 .c0 {
-  asin: 1rad;
-  asin: 0rad;
-  asin: NaNrad;
+  acos: 1rad;
+  acos: 0rad;
+  acos: NaNrad;
 }
 
 <div
@@ -42,7 +42,7 @@ exports[`Calculates arccosine (inverse of cosine) function. 1`] = `
 
 exports[`Calculates arcsine (inverse of sine) function. 1`] = `
 .c0 {
-  asin: -1rad;
+  asin: 0.5235987755982989rad;
   asin: 0rad;
   asin: NaNrad;
 }

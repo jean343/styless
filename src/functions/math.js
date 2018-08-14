@@ -11,7 +11,7 @@ const applyAngle = (fn, n, funit = "") => {
         turn: Math.PI * 2,
     };
     const unit = ('' + n).replace(/[\d.-]*/, "") || "rad";
-    return fn(parseFloat(n) * angle[unit]).toFixed(6) + funit;
+    return fn(parseFloat(n) * angle[unit]) + funit;
 };
 
 export const ceil = value => {

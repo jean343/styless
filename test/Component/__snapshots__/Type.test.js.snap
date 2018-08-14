@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Returns true if a value is a number, false otherwise. 1`] = `
+.c0 {
+  number1: false;
+  number2: false;
+  number3: false;
+  number4: true;
+  number5: true;
+  number6: true;
+  number7: false;
+  number8: false;
+}
+
+<div
+  className="c0"
+/>
+`;

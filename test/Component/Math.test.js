@@ -72,7 +72,7 @@ test('Calculates sine function.', () => {
 
 test('Calculates arcsine (inverse of sine) function.', () => {
     const Div = styled.div`
-        asin: asin(-0.8414709848078965);
+        asin: asin(0.5);
         asin: asin(@zero);
         asin: asin(2);
 	`;
@@ -91,9 +91,9 @@ test('Calculates cosine function.', () => {
 
 test('Calculates arccosine (inverse of cosine) function.', () => {
     const Div = styled.div`
-        asin: acos(0.5403023058681398);
-        asin: acos(@one);
-        asin: acos(2);
+        acos: acos(0.5403023058681398);
+        acos: acos(@one);
+        acos: acos(2);
 	`;
     expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
 });
