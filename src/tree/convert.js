@@ -23,7 +23,7 @@ export const convertNode = v => {
         return value;
     }
     // Deals with "strings"
-    value = value.replace(/(^"|"$)/g, '');
+    // value = value.replace(/(^"|"$)/g, '');
     value = value.replace(/"/g, '\\"');
     return `"${value}"`;
 };

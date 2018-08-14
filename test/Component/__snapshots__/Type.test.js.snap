@@ -16,3 +16,54 @@ exports[`Returns true if a value is a number, false otherwise. 1`] = `
   className="c0"
 />
 `;
+
+exports[`Returns true if a value is a number, false otherwise. 2`] = `
+.c0 {
+  number1: false;
+  number2: false;
+  number3: false;
+  number4: true;
+  number5: true;
+  number6: true;
+  number7: false;
+  number8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a string, false otherwise. 1`] = `
+.c0 {
+  string1: false;
+  string2: false;
+  string3: true;
+  string4: false;
+  string5: false;
+  string6: false;
+  string7: false;
+  string8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a string, false otherwise. 2`] = `
+.c0 {
+  string1: false;
+  string2: false;
+  string3: true;
+  string4: false;
+  string5: false;
+  string6: false;
+  string7: false;
+  string1: false;
+}
+
+<div
+  className="c0"
+/>
+`;
