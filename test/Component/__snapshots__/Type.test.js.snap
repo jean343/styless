@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Returns true if a value is a color, false otherwise. 1`] = `
+.c0 {
+  v1: true;
+  v2: true;
+  v3: false;
+  v4: false;
+  v5: false;
+  v6: false;
+  v7: false;
+  v8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a color, false otherwise. 2`] = `
+.c0 {
+  v1: true;
+  v2: true;
+  v3: false;
+  v4: false;
+  v5: false;
+  v6: false;
+  v7: false;
+  v8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Returns true if a value is a number, false otherwise. 1`] = `
 .c0 {
   number1: false;

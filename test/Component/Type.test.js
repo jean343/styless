@@ -54,3 +54,29 @@ test('Returns true if a value is a string, false otherwise.', () => {
 	`;
     expect(renderer.create(<Div2 v1="#ff0" v2="blue" v3={"\"string\""} v4="1234" v5="56px" v6="7.8%" v7="keyword" v8={'url("http://yadi")'}/>).toJSON()).toMatchSnapshot();
 });
+
+test('Returns true if a value is a color, false otherwise.', () => {
+    const Div = styled.div`
+        v1: iscolor(#ff0);     // true
+        v2: iscolor(blue);     // true
+        v3: iscolor("string"); // false
+        v4: iscolor(1234);     // false
+        v5: iscolor(56px);     // false
+        v6: iscolor(7.8%);     // false
+        v7: iscolor(keyword);  // false
+        v8: iscolor(url("http://yadi")); // false
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+
+    const Div2 = styled.div`
+        v1: iscolor(@v1);     // true
+        v2: iscolor(@v2);     // true
+        v3: iscolor(@v3);     // false
+        v4: iscolor(@v4);     // false
+        v5: iscolor(@v5);     // false
+        v6: iscolor(@v6);     // false
+        v7: iscolor(@v7);     // false
+        v8: iscolor(@v8);     // false
+	`;
+    expect(renderer.create(<Div2 v1="#ff0" v2="blue" v3={"\"string\""} v4="1234" v5="56px" v6="7.8%" v7="keyword" v8={'url("http://yadi")'}/>).toJSON()).toMatchSnapshot();
+});
