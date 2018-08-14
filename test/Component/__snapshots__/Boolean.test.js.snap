@@ -31,7 +31,7 @@ exports[`Sets color to the inverse of the bg luma 1`] = `
 
 exports[`Sets color to the inverse of the bg luma 2`] = `
 .c0 {
-  background: lightgray;
+  background: white;
   color: black;
 }
 

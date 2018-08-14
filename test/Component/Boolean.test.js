@@ -38,7 +38,7 @@ test('Sets conditional margins with variables', () => {
 
 test('Sets color to the inverse of the bg luma', () => {
     const Div = styled.div`
-        @bg: if(@checked, @navy, lightgray);
+        @bg: if(@checked, @navy, white);
         @bg-light: boolean(luma(@bg) > 50%);
         background: @bg; 
         color: if(@bg-light, black, white);
