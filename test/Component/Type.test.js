@@ -60,7 +60,7 @@ test('Returns true if a value is a color, false otherwise.', () => {
         v1: iscolor(#ff0);     // true
         v2: iscolor(blue);     // true
         v3: iscolor("string"); // false
-        v4: iscolor(1234);     // false
+        v4: iscolor(1234567);     // false
         v5: iscolor(56px);     // false
         v6: iscolor(7.8%);     // false
         v7: iscolor(keyword);  // false
@@ -78,7 +78,7 @@ test('Returns true if a value is a color, false otherwise.', () => {
         v7: iscolor(@v7);     // false
         v8: iscolor(@v8);     // false
 	`;
-    expect(renderer.create(<Div2 v1="#ff0" v2="blue" v3={"\"string\""} v4="1234" v5="56px" v6="7.8%" v7="keyword" v8={'url("http://yadi")'}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div2 v1="#ff0" v2="blue" v3={"\"string\""} v4="1234567" v5="56px" v6="7.8%" v7="keyword" v8={'url("http://yadi")'}/>).toJSON()).toMatchSnapshot();
 });
 
 test('Returns true if a value is a number in pixels, false otherwise.', () => {
