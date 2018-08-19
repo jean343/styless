@@ -159,3 +159,12 @@ test('Extracts the alpha channel of a color object.', () => {
 	`;
     expect(renderer.create(<Div r={10} g={20} b={30} color="#0a141e80"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Calculates the luma (perceptual brightness) of a color object.', () => {
+    const Div = styled.div`
+		luma: luma(rgb(100, 200, 30));
+		luma: luma(@color);
+	`;
+    expect(renderer.create(<Div color="#64c81e"/>).toJSON()).toMatchSnapshot();
+});

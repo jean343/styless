@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Calculates the luma (perceptual brightness) of a color object. 1`] = `
+.c0 {
+  luma: 44.111615679100964;
+  luma: 44.111615679100964;
+}
+
+<div
+  className="c0"
+  color="#64c81e"
+/>
+`;
+
 exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 .c0 {
   argb: #805a1794;
