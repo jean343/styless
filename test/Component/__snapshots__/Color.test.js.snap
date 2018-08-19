@@ -45,7 +45,7 @@ exports[`Creates an opaque color object from hue, saturation and lightness (HSL)
 />
 `;
 
-exports[`Creates an opaque color object from hue, saturation and value (HSV) values.. 1`] = `
+exports[`Creates an opaque color object from hue, saturation and value (HSV) values. 1`] = `
 .c0 {
   hsv1: #408000ff;
   hsv2: #408000ff;
@@ -55,5 +55,19 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 
 <div
   className="c0"
+/>
+`;
+
+exports[`Extracts the hue channel of a color object in the HSL color space. 1`] = `
+.c0 {
+  hue: 90;
+  hue: 90;
+  hue: 90;
+  hue: 90;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
 />
 `;

@@ -36,7 +36,7 @@ export const hsva = (h, s, v, a) => {
     }
 };
 export const hue = color => {
-    return new VariableNode(`require("tinycolor2")(${c(color)}).toHsl().h`);
+    return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsl().h)`);
 };
 // saturation
 // lightness

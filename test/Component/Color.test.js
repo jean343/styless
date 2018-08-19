@@ -42,7 +42,7 @@ test('Creates an opaque color object from hue, saturation and lightness (HSL) va
     expect(renderer.create(<Div h={90} s="100%" l="50%" a={0.5}/>).toJSON()).toMatchSnapshot();
 });
 
-test('Creates an opaque color object from hue, saturation and value (HSV) values..', () => {
+test('Creates an opaque color object from hue, saturation and value (HSV) values.', () => {
     const Div = styled.div`
 		hsv1: hsv(90, 100%, 50%);
 		hsv2: hsv(@h, @s, @v);
@@ -51,4 +51,14 @@ test('Creates an opaque color object from hue, saturation and value (HSV) values
 		hsva2: hsva(@h, @s, @v, @a);
 	`;
     expect(renderer.create(<Div h={90} s="100%" v="50%" a={0.5}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the hue channel of a color object in the HSL color space.', () => {
+    const Div = styled.div`
+		hue: hue(hsl(90, 100%, 50%));
+		hue: hue(#80ff00);
+		hue: hue(@color);
+		hue: hue(@color2);
+	`;
+    expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
