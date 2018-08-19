@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-styless",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Style your components declaratively with familiar less syntax",
   "main": "dist/index.js",
   "source": "src/index.js",
@@ -13,6 +13,7 @@
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
     "prepare": "yarn run build",
+    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },

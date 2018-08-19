@@ -1,0 +1,9 @@
+.idea
+*.iml
+.DS_Store
+test
+examples
+*.yml
+notes
+*.tgz
+yarn.lock
