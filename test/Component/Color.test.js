@@ -28,12 +28,15 @@ test('Creates a hex representation of a color in #AARRGGBB', () => {
     expect(renderer.create(<Div r={90} g={23} b={148} a={0.5}/>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Creates an opaque color object from hue, saturation and lightness (HSL) values.', () => {
+test('Creates an opaque color object from hue, saturation and lightness (HSL) values.', () => {
     const Div = styled.div`
 		hsl: hsl(90, 100%, 50%);
-		
+		hsl1: hsl(@h, @s, @l);
+
 		@old: hsl(90, 100%, 50%);
 		new: hsl(hue(@old), 45%, 90%);
+
+		hsla: hsla(90, 100%, 50%, 0.5);
 	`;
-    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div h={90} s="100%" l="50%" a={0.5}/>).toJSON()).toMatchSnapshot();
 });

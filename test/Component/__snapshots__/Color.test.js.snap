@@ -33,8 +33,10 @@ exports[`Creates an opaque color object from decimal red, green and blue (RGB) v
 
 exports[`Creates an opaque color object from hue, saturation and lightness (HSL) values. 1`] = `
 .c0 {
-  hsl: hsl(90,100%,50%);
-  old: hsl(89.99999999999999,100%,50%);
+  hsl: #80ff00ff;
+  hsl1: #80ff00ff;
+  new: #e6f1daff;
+  hsla: #80ff0080;
 }
 
 <div

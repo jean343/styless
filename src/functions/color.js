@@ -11,12 +11,20 @@ export const rgba = (r, g, b, a) => {
         return new VariableNode(`require("tinycolor2")(${c(r)}).toHex8String()`);
     }
 };
-// hsl
-// hsla
+export const hsl = (h, s, l) => {
+    return hsla(h, s, l, 1);
+};
+export const hsla = (h, s, l, a) => {
+    if (s) {
+        return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, l: ${c(l)}, a: ${c(a)} }).toHex8String()`);
+    } else {
+        return new VariableNode(`require("tinycolor2")(${c(h)}).toHex8String()`);
+    }
+};
 // hsv
 // hsva
 export const hue = color => {
-    return new VariableNode(`require("tinycolor2")(${c(color)}).toHsl().h * 100`);
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toHsl().h`);
 };
 // saturation
 // lightness
