@@ -120,7 +120,9 @@ export const fadeout = (color, amount, method) => {
 export const fade = (color, amount) => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).setAlpha(parseFloat(${c(amount)}) / 100).toRgbString()`);
 };
-// spin
+export const spin = (color, amount) => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toHex8String()`);
+};
 // mix
 // greyscale
 // contrast

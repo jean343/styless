@@ -257,3 +257,18 @@ test('Set the absolute opacity of a color. Can be applied to colors whether they
 	`;
     expect(renderer.create(<Div color="hsla(90, 90%, 50%, 0.5)" p="10%"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Rotate the hue angle of a color in either direction.', () => {
+    const Div = styled.div`
+        spin: spin(hsl(10, 90%, 50%), 30);
+        spin: spin(hsl(10, 90%, 50%), -30);
+
+        spin: spin(hsl(10, 90%, 50%), @v);
+        spin: spin(hsl(10, 90%, 50%), -@v);
+
+        spin: spin(hsl(10, 90%, 50%), @v2);
+        spin: spin(hsl(10, 90%, 50%), -@v2);
+	`;
+    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%"/>).toJSON()).toMatchSnapshot();
+});

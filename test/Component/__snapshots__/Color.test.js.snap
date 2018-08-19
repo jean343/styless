@@ -317,6 +317,22 @@ exports[`Increase the transparency (or decrease the opacity) of a color, making 
 />
 `;
 
+exports[`Rotate the hue angle of a color in either direction. 1`] = `
+.c0 {
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+}
+
+<div
+  className="c0"
+  color="hsl(10, 90%, 50%)"
+/>
+`;
+
 exports[`Set the absolute opacity of a color. Can be applied to colors whether they already have an opacity value or not. 1`] = `
 .c0 {
   fade: rgba(128,242,13,0.1);
