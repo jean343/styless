@@ -58,6 +58,48 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 />
 `;
 
+exports[`Extracts the alpha channel of a color object. 1`] = `
+.c0 {
+  alpha: 0.5;
+  alpha: 0.5;
+  alpha: 0.5;
+}
+
+<div
+  className="c0"
+  color="#0a141e80"
+  r={10}
+/>
+`;
+
+exports[`Extracts the blue channel of a color object. 1`] = `
+.c0 {
+  blue: 30;
+  blue: 30;
+  blue: 30;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
+/>
+`;
+
+exports[`Extracts the green channel of a color object. 1`] = `
+.c0 {
+  green: 20;
+  green: 20;
+  green: 20;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
+/>
+`;
+
 exports[`Extracts the hue channel of a color object in the HSL color space. 1`] = `
 .c0 {
   hue: 90;
@@ -98,6 +140,20 @@ exports[`Extracts the lightness  channel of a color object in the HSL color spac
 <div
   className="c0"
   color="#80ff00"
+/>
+`;
+
+exports[`Extracts the red channel of a color object. 1`] = `
+.c0 {
+  red: 10;
+  red: 10;
+  red: 10;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
 />
 `;
 

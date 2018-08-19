@@ -122,3 +122,40 @@ test('Extracts the value channel of a color object in the HSV color space.', () 
 	`;
     expect(renderer.create(<Div color="#408000" color2="hsv(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Extracts the red channel of a color object.', () => {
+    const Div = styled.div`
+		red: red(rgb(10, 20, 30));
+		red: red(rgb(@r, @g, @b));
+		red: red(@color);
+	`;
+    expect(renderer.create(<Div r={10} g={20} b={30} color="#0a141e"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the green channel of a color object.', () => {
+    const Div = styled.div`
+		green: green(rgb(10, 20, 30));
+		green: green(rgb(@r, @g, @b));
+		green: green(@color);
+	`;
+    expect(renderer.create(<Div r={10} g={20} b={30} color="#0a141e"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the blue channel of a color object.', () => {
+    const Div = styled.div`
+		blue: blue(rgb(10, 20, 30));
+		blue: blue(rgb(@r, @g, @b));
+		blue: blue(@color);
+	`;
+    expect(renderer.create(<Div r={10} g={20} b={30} color="#0a141e"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the alpha channel of a color object.', () => {
+    const Div = styled.div`
+		alpha: alpha(rgba(10, 20, 30, 0.5));
+		alpha: alpha(rgba(@r, @g, @b, 0.5));
+		alpha: alpha(@color);
+	`;
+    expect(renderer.create(<Div r={10} g={20} b={30} color="#0a141e80"/>).toJSON()).toMatchSnapshot();
+});

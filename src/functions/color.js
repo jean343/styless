@@ -56,10 +56,19 @@ export const hsvvalue = color => {
     return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsv().v * 100) + "%"`);
 };
 
-// red
-// green
-// blue
-// alpha
+export const red = color => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toRgb().r`);
+};
+export const green = color => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toRgb().g`);
+};
+export const blue = color => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toRgb().b`);
+};
+export const alpha = color => {
+    return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toRgb().a * 100) / 100`);
+};
+
 export const luma = color => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).getLuminance() * 100`);
 };
