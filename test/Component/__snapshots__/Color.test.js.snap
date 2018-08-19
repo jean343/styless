@@ -83,6 +83,19 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 />
 `;
 
+exports[`Decrease the lightness of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  darken: #4d8a0fff;
+  darken: #4d8a0fff;
+  darken: #4d8a0fff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
 exports[`Decrease the saturation of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
   desaturate: #80cc33ff;
@@ -237,6 +250,19 @@ exports[`Extracts the value channel of a color object in the HSV color space. 1`
 <div
   className="c0"
   color="#408000"
+/>
+`;
+
+exports[`Increase the lightness of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  lighten: #b3f075ff;
+  lighten: #b3f075ff;
+  lighten: #b3f075ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
 />
 `;
 

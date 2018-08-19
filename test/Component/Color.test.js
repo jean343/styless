@@ -196,3 +196,21 @@ test('Decrease the saturation of a color in the HSL color space by an absolute a
 	`;
     expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Increase the lightness of a color in the HSL color space by an absolute amount.', () => {
+    const Div = styled.div`
+		lighten: lighten(hsl(90, 80%, 50%), 20%);
+		lighten: lighten(@color, 20%);
+		lighten: lighten(@color, @p);
+	`;
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+});
+test('Decrease the lightness of a color in the HSL color space by an absolute amount.', () => {
+    const Div = styled.div`
+		darken: darken(hsl(90, 80%, 50%), 20%);
+		darken: darken(@color, 20%);
+		darken: darken(@color, @p);
+	`;
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+});
