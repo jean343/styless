@@ -246,3 +246,14 @@ test('Increase the transparency (or decrease the opacity) of a color, making it 
 	`;
     expect(renderer.create(<Div color="hsla(90, 90%, 50%, 0.5)" p="10%" r="relative"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Set the absolute opacity of a color. Can be applied to colors whether they already have an opacity value or not.', () => {
+    const Div = styled.div`
+		fade: fade(hsl(90, 90%, 50%), 10%);
+		fade: fade(hsl(90, 90%, 50%), @p);
+		fade: fade(hsl(90, 90%, 50%), 0%);
+		fade: fade(hsl(90, 90%, 50%), 150%);
+	`;
+    expect(renderer.create(<Div color="hsla(90, 90%, 50%, 0.5)" p="10%"/>).toJSON()).toMatchSnapshot();
+});

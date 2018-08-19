@@ -117,8 +117,9 @@ export const fadeout = (color, amount, method) => {
     };
     return new VariableNode(`(${compute})(require("tinycolor2")(${c(color)}), parseFloat(${c(amount)}), ${c(method)})`);
 };
-
-// fade
+export const fade = (color, amount) => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).setAlpha(parseFloat(${c(amount)}) / 100).toRgbString()`);
+};
 // spin
 // mix
 // greyscale
