@@ -8,6 +8,8 @@ node_js:
   - 6
   - 8
   - 10
+install:
+  - yarn install --ignore-engines
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
 branches:
