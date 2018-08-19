@@ -178,3 +178,21 @@ test('Calculates the value of the luma without gamma correction.', () => {
 	`;
     expect(renderer.create(<Div color="#64c81e"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Increase the saturation of a color in the HSL color space by an absolute amount.', () => {
+    const Div = styled.div`
+		saturate: saturate(hsl(90, 80%, 50%), 20%);
+		saturate: saturate(@color, 20%);
+		saturate: saturate(@color, @p);
+	`;
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+});
+test('Decrease the saturation of a color in the HSL color space by an absolute amount.', () => {
+    const Div = styled.div`
+		desaturate: desaturate(hsl(90, 80%, 50%), 20%);
+		desaturate: desaturate(@color, 20%);
+		desaturate: desaturate(@color, @p);
+	`;
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+});

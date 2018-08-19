@@ -83,6 +83,19 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 />
 `;
 
+exports[`Decrease the saturation of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  desaturate: #80cc33ff;
+  desaturate: #80cc33ff;
+  desaturate: #80cc33ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
 exports[`Extracts the alpha channel of a color object. 1`] = `
 .c0 {
   alpha: 0.5;
@@ -224,5 +237,18 @@ exports[`Extracts the value channel of a color object in the HSV color space. 1`
 <div
   className="c0"
   color="#408000"
+/>
+`;
+
+exports[`Increase the saturation of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  saturate: #80ff00ff;
+  saturate: #80ff00ff;
+  saturate: #80ff00ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
 />
 `;

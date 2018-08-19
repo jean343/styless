@@ -76,10 +76,18 @@ export const luminance = color => {
     const compute = rgb => ((0.2126 * rgb.r / 255) + (0.7152 * rgb.g / 255) + (0.0722 * rgb.b / 255)) * rgb.a;
     return new VariableNode(`(${compute})(require("tinycolor2")(${c(color)}).toRgb()) * 100`);
 };
-// saturate
-// desaturate
-// lighten
-// darken
+export const saturate = (color, amount, method) => {
+    return new VariableNode(`require('tinycolor2')(${c(color)}).saturate(parseFloat(${c(amount)})).toHex8String()`);
+};
+export const desaturate = (color, amount, method) => {
+    return new VariableNode(`require('tinycolor2')(${c(color)}).desaturate(parseFloat(${c(amount)})).toHex8String()`);
+};
+export const lighten = (color, amount, method) => {
+    return new VariableNode(`require('tinycolor2')(${c(color)}).lighten(parseFloat(${c(amount)})).toHex8String()`);
+};
+export const darken = (color, amount, method) => {
+    return new VariableNode(`require('tinycolor2')(${c(color)}).darken(parseFloat(${c(amount)})).toHex8String()`);
+};
 // fadein
 // fadeout
 // fade
