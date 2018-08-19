@@ -1,5 +1,4 @@
 import {isStyled} from "../utils/detectors";
-import stripJsonComments from "strip-json-comments";
 import transpileLess from "./transpileLess";
 
 const regex = /`([\s\S]*)`/;
@@ -18,7 +17,7 @@ export default (path, state, {types: t}) => {
             if (!source) return;
             p.isClean = true;
 
-            const raw = transpileLess(stripJsonComments(source));
+            const raw = transpileLess(source);
 
             // p.replaceWith(t.templateLiteral([t.templateElement({raw})], []));
             p.replaceWithSourceString('`' + raw + '`');

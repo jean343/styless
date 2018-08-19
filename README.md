@@ -42,6 +42,6 @@ $ yarn add --dev babel-plugin-styled-theme
 
 ```json
 {
-  "plugins": ["babel-plugin-styled-theme"]
+  "plugins": ["babel-plugin-styless"]
 }
 ```
