@@ -62,3 +62,15 @@ test('Extracts the hue channel of a color object in the HSL color space.', () =>
 	`;
     expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Extracts the saturation channel of a color object in the HSL color space.', () => {
+    const Div = styled.div`
+		saturation: saturation(hsl(90, 100%, 50%));
+		saturation: saturation(#80ff00);
+		saturation: saturation(@color);
+		saturation: saturation(@color2);
+		
+		saturation: saturation(hsl(90, 50%, 50%));
+	`;
+    expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
