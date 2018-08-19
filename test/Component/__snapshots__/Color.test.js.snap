@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
+.c0 {
+  argb: #805a1794;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Creates an opaque color object from decimal red, green and blue (RGB) values. 1`] = `
+.c0 {
+  rgb: #5a8120;
+  rgba: rgba(90,129,32,0.5);
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Creates an opaque color object from hue, saturation and lightness (HSL) values. 1`] = `
+.c0 {
+  hsl: hsl(90,100%,50%);
+  old: hsl(89.99999999999999,100%,50%);
+}
+
+<div
+  className="c0"
+/>
+`;

@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Returns true if a value is a color, false otherwise. 1`] = `
+.c0 {
+  v1: true;
+  v2: true;
+  v3: false;
+  v4: false;
+  v5: false;
+  v6: false;
+  v7: false;
+  v8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a color, false otherwise. 2`] = `
+.c0 {
+  v1: true;
+  v2: true;
+  v3: false;
+  v4: false;
+  v5: false;
+  v6: false;
+  v7: false;
+  v8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a number in pixels, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a number in pixels, false otherwise. 2`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a number, false otherwise. 1`] = `
+.c0 {
+  number1: false;
+  number2: false;
+  number3: false;
+  number4: true;
+  number5: true;
+  number6: true;
+  number7: false;
+  number8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a number, false otherwise. 2`] = `
+.c0 {
+  number1: false;
+  number2: false;
+  number3: false;
+  number4: true;
+  number5: true;
+  number6: true;
+  number7: false;
+  number8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a string, false otherwise. 1`] = `
+.c0 {
+  string1: false;
+  string2: false;
+  string3: true;
+  string4: false;
+  string5: false;
+  string6: false;
+  string7: false;
+  string8: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is a string, false otherwise. 2`] = `
+.c0 {
+  string1: false;
+  string2: false;
+  string3: true;
+  string4: false;
+  string5: false;
+  string6: false;
+  string7: false;
+  string1: false;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is an em value, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns true if a value is an em value, false otherwise. 2`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns: true if value is a percentage value, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns: true if value is a percentage value, false otherwise. 2`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;

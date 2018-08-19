@@ -18,9 +18,12 @@ export default (val, defaultValue) => {
 export const convertNode = v => {
     if (!v)
         return undefined;
-    const value = v.toCSS();
+    let value = v.toCSS();
     if (v instanceof VariableNode) {
         return value;
     }
+    // Deals with "strings"
+    // value = value.replace(/(^"|"$)/g, '');
+    value = value.replace(/"/g, '\\"');
     return `"${value}"`;
 };

@@ -2,7 +2,7 @@
 
 exports[`Darkens the colors in linear-gradient 1`] = `
 .c0 {
-  background: linear-gradient(#f66 0%,#009 100%);
+  background: linear-gradient(#ff6666 0%,#000099 100%);
 }
 
 <div
@@ -14,7 +14,7 @@ exports[`Darkens the colors in linear-gradient 1`] = `
 
 exports[`Darkens the primary color 20% 1`] = `
 .c0 {
-  color: #900;
+  color: #990000;
 }
 
 <div

@@ -28,15 +28,53 @@ exports[`Calculates absolute value of a number. Keeps units as they are. 1`] = `
 />
 `;
 
+exports[`Calculates arccosine (inverse of cosine) function. 1`] = `
+.c0 {
+  acos: 1.0471975511965979rad;
+  acos: 0rad;
+  acos: NaNrad;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Calculates arcsine (inverse of sine) function. 1`] = `
 .c0 {
-  asin: -1rad;
+  asin: 0.5235987755982989rad;
   asin: 0rad;
   asin: NaNrad;
 }
 
 <div
   className="c0"
+/>
+`;
+
+exports[`Calculates arctangent (inverse of tangent) function. 1`] = `
+.c0 {
+  atan: -1rad;
+  atan: 0rad;
+  atan: 1.525373rad;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Calculates cosine function. 1`] = `
+.c0 {
+  sin: 0.5403023058681398;
+  deg: 0.9998476951563913;
+  grad: 0.9998766324816606;
+  turn: 0.30901699437494745;
+}
+
+<div
+  className="c0"
+  value={1}
 />
 `;
 
@@ -66,6 +104,19 @@ exports[`Calculates square root of a number. Keeps units as they are. 1`] = `
 />
 `;
 
+exports[`Calculates tangent function. 1`] = `
+.c0 {
+  tan: 1.5574077246549023;
+  tan: 0.017455064928217585;
+  tan: 0.015709255323664916;
+}
+
+<div
+  className="c0"
+  value={1}
+/>
+`;
+
 exports[`Converts a floating point number into a percentage string. 1`] = `
 .c0 {
   p: 50%;
@@ -76,6 +127,72 @@ exports[`Converts a floating point number into a percentage string. 1`] = `
 <div
   className="c0"
   value={0.5}
+/>
+`;
+
+exports[`PI 1`] = `
+.c0 {
+  pi: 3.14159265;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns the highest of one or more values. 1`] = `
+.c0 {
+  max: 10;
+  max: 42%;
+  max: 72cm;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns the lowest of one or more values. 1`] = `
+.c0 {
+  min: 5;
+  min: 2px;
+  min: 3px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns the value of the first argument modulus second argument. 1`] = `
+.c0 {
+  mod: NaNcm;
+  mod: 5cm;
+  mod: -1%;
+  mod: 2;
+}
+
+<div
+  className="c0"
+  x={27}
+  y={5}
+/>
+`;
+
+exports[`Returns the value of the first argument raised to the power of the second argument. 1`] = `
+.c0 {
+  pow: 1cm;
+  pow: 0.0016;
+  pow: 5;
+  pow: NaN;
+  pow: NaN%;
+  pow: 625;
+}
+
+<div
+  className="c0"
+  x={25}
+  y={2}
 />
 `;
 

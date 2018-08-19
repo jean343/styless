@@ -72,9 +72,93 @@ test('Calculates sine function.', () => {
 
 test('Calculates arcsine (inverse of sine) function.', () => {
     const Div = styled.div`
-        asin: asin(-0.8414709848078965);
+        asin: asin(0.5);
         asin: asin(@zero);
         asin: asin(2);
 	`;
     expect(renderer.create(<Div zero="0"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates cosine function.', () => {
+    const Div = styled.div`
+        sin: cos(@value); // cos of 1 radian
+        deg: cos(1deg); // cos of 1 degree
+        grad: cos(1grad); // cos of 1 gradian
+        turn: cos(0.2turn); // cos of 1 gradian
+	`;
+    expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates arccosine (inverse of cosine) function.', () => {
+    const Div = styled.div`
+        acos: acos(0.5);
+        acos: acos(@one);
+        acos: acos(2);
+	`;
+    expect(renderer.create(<Div one="1"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates tangent function.', () => {
+    const Div = styled.div`
+        tan: tan(1); // tangent of 1 radian
+        tan: tan(1deg); // tangent of 1 degree
+        tan: tan(1grad); // tangent of 1 gradian
+	`;
+    expect(renderer.create(<Div value={1}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Calculates arctangent (inverse of tangent) function.', () => {
+    const Div = styled.div`
+        atan: atan(-1.5574077246549023);
+        atan: atan(@zero);
+        atan: round(atan(22), 6); // arctangent of 22 rounded to 6 decimal places
+	`;
+    expect(renderer.create(<Div zero="0"/>).toJSON()).toMatchSnapshot();
+});
+
+test('PI', () => {
+    const Div = styled.div`
+        pi: pi();
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns the value of the first argument raised to the power of the second argument.', () => {
+    const Div = styled.div`
+        pow: pow(0cm, 0px);
+        pow: pow(25, -2);
+        pow: pow(25, 0.5);
+        pow: pow(-25, 0.5);
+        pow: pow(-25%, -0.5);
+        pow: pow(@x, @y);
+	`;
+    expect(renderer.create(<Div x={25} y={2}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns the value of the first argument modulus second argument.', () => {
+    const Div = styled.div`
+        mod: mod(0cm, 0px);
+        mod: mod(11cm, 6px);
+        mod: mod(-26%, -5);
+        mod: mod(@x, @y);
+	`;
+    expect(renderer.create(<Div x={27} y={5}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns the lowest of one or more values.', () => {
+    const Div = styled.div`
+        min: min(5, 10);
+        min: min(3px, 42px, 2px, 16px);
+        min: min(@a, @b, @c);
+	`;
+    expect(renderer.create(<Div a={5} b="3px" c={72}/>).toJSON()).toMatchSnapshot();
+});
+
+test('Returns the highest of one or more values.', () => {
+    const Div = styled.div`
+        max: max(5, 10);
+        max: max(3%, 42%, 1%, 16%);
+        max: max(@a, @b, @c);
+	`;
+    expect(renderer.create(<Div a={5} b={3} c="72cm"/>).toJSON()).toMatchSnapshot();
 });

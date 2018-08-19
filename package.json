@@ -8,7 +8,7 @@
   "author": "Jean-Philippe Bergeron <bergeron.jeanphilippe@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "yarn run build && jest",
+    "test": "yarn run clean && yarn run build && jest",
     "watch": "jest --watch",
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
@@ -22,8 +22,8 @@
   "dependencies": {
     "less": "^3.8.1",
     "less-vars-to-json": "^1.0.4",
-    "polished": "^1.9.3",
-    "strip-json-comments": "^2.0.1"
+    "strip-json-comments": "^2.0.1",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
