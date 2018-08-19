@@ -12,7 +12,9 @@
     "watch": "jest --watch",
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
-    "prepare": "yarn run build"
+    "prepare": "yarn run build",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "jest": {
     "testURL": "http://localhost/"
@@ -33,6 +35,8 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.4.2",
-    "styled-components": "^3.4.1"
+    "semantic-release": "^15.9.9",
+    "styled-components": "^3.4.1",
+    "travis-deploy-once": "^5.0.2"
   }
 }

@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/jean343/styless.svg?branch=master)](https://travis-ci.org/jean343/styless)
-[![npm](https://img.shields.io/npm/v/babel-plugin-styless.svg?style=flat-square)](https://www.npmjs.com/package/babel-plugin-styless)
+[![npm](https://img.shields.io/npm/v/babel-plugin-styless.svg)](https://www.npmjs.com/package/babel-plugin-styless)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # styless
 Style your components declaratively with familiar less syntax
