@@ -35,6 +35,7 @@ export const hsva = (h, s, v, a) => {
         return parse(h);
     }
 };
+
 export const hue = color => {
     return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsl().h)`);
 };
@@ -44,9 +45,17 @@ export const saturation = color => {
 export const lightness = color => {
     return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsl().l * 100) + "%"`);
 };
-// hsvhue
-// hsvsaturation
-// hsvvalue
+
+export const hsvhue = color => {
+    return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsv().h)`);
+};
+export const hsvsaturation = color => {
+    return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsv().s * 100) + "%"`);
+};
+export const hsvvalue = color => {
+    return new VariableNode(`Math.round(require("tinycolor2")(${c(color)}).toHsv().v * 100) + "%"`);
+};
+
 // red
 // green
 // blue

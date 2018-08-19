@@ -53,6 +53,7 @@ test('Creates an opaque color object from hue, saturation and value (HSV) values
     expect(renderer.create(<Div h={90} s="100%" v="50%" a={0.5}/>).toJSON()).toMatchSnapshot();
 });
 
+
 test('Extracts the hue channel of a color object in the HSL color space.', () => {
     const Div = styled.div`
 		hue: hue(hsl(90, 100%, 50%));
@@ -85,4 +86,39 @@ test('Extracts the lightness  channel of a color object in the HSL color space.'
 		lightness: lightness(hsl(90, 50%, 50%));
 	`;
     expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
+
+
+test('Extracts the hue channel of a color object in the HSV color space.', () => {
+    const Div = styled.div`
+		hsvhue: hsvhue(hsv(90, 100%, 50%));
+		hsvhue: hsvhue(#80ff00);
+		hsvhue: hsvhue(@color);
+		hsvhue: hsvhue(@color2);
+	`;
+    expect(renderer.create(<Div color="#80ff00" color2="hsv(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the saturation channel of a color object in the HSV color space.', () => {
+    const Div = styled.div`
+		hsvsaturation: hsvsaturation(hsv(90, 100%, 50%));
+		hsvsaturation: hsvsaturation(#80ff00);
+		hsvsaturation: hsvsaturation(@color);
+		hsvsaturation: hsvsaturation(@color2);
+		
+		hsvsaturation: hsvsaturation(hsv(90, 50%, 50%));
+	`;
+    expect(renderer.create(<Div color="#80ff00" color2="hsv(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extracts the value channel of a color object in the HSV color space.', () => {
+    const Div = styled.div`
+		hsvvalue: hsvvalue(hsv(90, 100%, 50%));
+		hsvvalue: hsvvalue(#408000);
+		hsvvalue: hsvvalue(@color);
+		hsvvalue: hsvvalue(@color2);
+		
+		hsvvalue: hsvvalue(hsv(90, 50%, 50%));
+	`;
+    expect(renderer.create(<Div color="#408000" color2="hsv(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
