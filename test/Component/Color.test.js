@@ -74,3 +74,15 @@ test('Extracts the saturation channel of a color object in the HSL color space.'
 	`;
     expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Extracts the lightness  channel of a color object in the HSL color space.', () => {
+    const Div = styled.div`
+		lightness: lightness(hsl(90, 100%, 50%));
+		lightness: lightness(#80ff00);
+		lightness: lightness(@color);
+		lightness: lightness(@color2);
+		
+		lightness: lightness(hsl(90, 50%, 50%));
+	`;
+    expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
