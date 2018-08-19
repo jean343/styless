@@ -1,8 +1,16 @@
 import VariableNode from "../tree/VariableNode";
 import {convertNode as c} from "../tree/convert";
 
-// rgb
-// rgba
+export const rgb = (r, g, b) => {
+    return rgba(r, g, b, 1);
+};
+export const rgba = (r, g, b, a) => {
+    if (g) {
+        return new VariableNode(`require("tinycolor2")({ r: ${c(r)}, g: ${c(g)}, b: ${c(b)}, a: ${c(a)} }).toHex8String()`);
+    } else {
+        return new VariableNode(`require("tinycolor2")(${c(r)}).toHex8String()`);
+    }
+};
 // hsl
 // hsla
 // hsv
@@ -35,7 +43,9 @@ export const luma = color => {
 // greyscale
 // contrast
 // contrast
-// argb
+export const argb = color => {
+    return new VariableNode(`${c(rgba(color))}.replace(/#(\\w{6})(\\w{2})/, "#$2$1")`);
+};
 // color
 // tint
 // shade

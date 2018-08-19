@@ -18,7 +18,7 @@ export default (val, defaultValue) => {
 export const convertNode = v => {
     if (!v)
         return undefined;
-    let value = v.toCSS();
+    let value = v.toCSS ? v.toCSS() : v.toString();
     if (v instanceof VariableNode) {
         return value;
     }

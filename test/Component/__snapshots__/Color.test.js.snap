@@ -3,21 +3,31 @@
 exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 .c0 {
   argb: #805a1794;
+  argb: #805a1794;
 }
 
 <div
   className="c0"
+  r={90}
 />
 `;
 
 exports[`Creates an opaque color object from decimal red, green and blue (RGB) values. 1`] = `
 .c0 {
-  rgb: #5a8120;
-  rgba: rgba(90,129,32,0.5);
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #ffffffff;
 }
 
 <div
   className="c0"
+  r={90}
 />
 `;
 
