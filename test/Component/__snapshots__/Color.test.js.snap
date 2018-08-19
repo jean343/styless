@@ -12,6 +12,19 @@ exports[`Calculates the luma (perceptual brightness) of a color object. 1`] = `
 />
 `;
 
+exports[`Calculates the value of the luma without gamma correction. 1`] = `
+.c0 {
+  luminance: 65.28078431372549;
+  luminance: 65.28078431372549;
+  luminance: 32.768393694732794;
+}
+
+<div
+  className="c0"
+  color="#64c81e"
+/>
+`;
+
 exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 .c0 {
   argb: #805a1794;

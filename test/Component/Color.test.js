@@ -168,3 +168,13 @@ test('Calculates the luma (perceptual brightness) of a color object.', () => {
 	`;
     expect(renderer.create(<Div color="#64c81e"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Calculates the value of the luma without gamma correction.', () => {
+    const Div = styled.div`
+		luminance: luminance(rgb(100, 200, 30));
+		luminance: luminance(@color);
+		
+		luminance: luminance(rgba(100, 200, 30, 0.5));
+	`;
+    expect(renderer.create(<Div color="#64c81e"/>).toJSON()).toMatchSnapshot();
+});

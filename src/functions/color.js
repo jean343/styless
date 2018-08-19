@@ -72,7 +72,10 @@ export const alpha = color => {
 export const luma = color => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).getLuminance() * 100`);
 };
-// luminance
+export const luminance = color => {
+    const compute = rgb => ((0.2126 * rgb.r / 255) + (0.7152 * rgb.g / 255) + (0.0722 * rgb.b / 255)) * rgb.a;
+    return new VariableNode(`(${compute})(require("tinycolor2")(${c(color)}).toRgb()) * 100`);
+};
 // saturate
 // desaturate
 // lighten
