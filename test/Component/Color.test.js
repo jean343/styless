@@ -214,3 +214,35 @@ test('Decrease the lightness of a color in the HSL color space by an absolute am
 	`;
     expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colors.', () => {
+    const Div = styled.div`
+		fadein: fadein(hsla(90, 90%, 50%, 0.5), 10%);
+		fadein: fadein(@color, 10%);
+		fadein: fadein(@color, @p);
+		
+		fadein: fadein(hsla(90, 90%, 50%, 0.5), 10%, relative);
+		fadein: fadein(@color, 10%, relative);
+		fadein: fadein(@color, @p, @r);
+		
+		fadein: fadein(@color, 200%);
+		fadein: fadein(@color, 200%, relative);
+	`;
+    expect(renderer.create(<Div color="hsla(90, 90%, 50%, 0.5)" p="10%" r="relative"/>).toJSON()).toMatchSnapshot();
+});
+test('Increase the transparency (or decrease the opacity) of a color, making it less opaque.', () => {
+    const Div = styled.div`
+		fadeout: fadeout(hsla(90, 90%, 50%, 0.5), 10%);
+		fadeout: fadeout(@color, 10%);
+		fadeout: fadeout(@color, @p);
+		
+		fadeout: fadeout(hsla(90, 90%, 50%, 0.5), 10%, relative);
+		fadeout: fadeout(@color, 10%, relative);
+		fadeout: fadeout(@color, @p, @r);
+		
+		fadeout: fadeout(@color, 200%);
+		fadeout: fadeout(@color, 200%, relative);
+	`;
+    expect(renderer.create(<Div color="hsla(90, 90%, 50%, 0.5)" p="10%" r="relative"/>).toJSON()).toMatchSnapshot();
+});

@@ -109,6 +109,25 @@ exports[`Decrease the saturation of a color in the HSL color space by an absolut
 />
 `;
 
+exports[`Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colors. 1`] = `
+.c0 {
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgb(128,242,13);
+  fadein: rgb(128,242,13);
+}
+
+<div
+  className="c0"
+  color="hsla(90, 90%, 50%, 0.5)"
+  r="relative"
+/>
+`;
+
 exports[`Extracts the alpha channel of a color object. 1`] = `
 .c0 {
   alpha: 0.5;
@@ -276,5 +295,24 @@ exports[`Increase the saturation of a color in the HSL color space by an absolut
 <div
   className="c0"
   color="hsl(90, 80%, 50%)"
+/>
+`;
+
+exports[`Increase the transparency (or decrease the opacity) of a color, making it less opaque. 1`] = `
+.c0 {
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0);
+  fadeout: rgba(128,242,13,0);
+}
+
+<div
+  className="c0"
+  color="hsla(90, 90%, 50%, 0.5)"
+  r="relative"
 />
 `;
