@@ -1,6 +1,10 @@
 import VariableNode from "../tree/VariableNode";
 import {convertNode as c} from "../tree/convert";
 
+const parse = color => {
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toHex8String()`);
+};
+
 export const rgb = (r, g, b) => {
     return rgba(r, g, b, 1);
 };
@@ -8,7 +12,7 @@ export const rgba = (r, g, b, a) => {
     if (g) {
         return new VariableNode(`require("tinycolor2")({ r: ${c(r)}, g: ${c(g)}, b: ${c(b)}, a: ${c(a)} }).toHex8String()`);
     } else {
-        return new VariableNode(`require("tinycolor2")(${c(r)}).toHex8String()`);
+        return parse(r);
     }
 };
 export const hsl = (h, s, l) => {
@@ -18,11 +22,19 @@ export const hsla = (h, s, l, a) => {
     if (s) {
         return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, l: ${c(l)}, a: ${c(a)} }).toHex8String()`);
     } else {
-        return new VariableNode(`require("tinycolor2")(${c(h)}).toHex8String()`);
+        return parse(h);
     }
 };
-// hsv
-// hsva
+export const hsv = (h, s, v) => {
+    return hsva(h, s, v, 1);
+};
+export const hsva = (h, s, v, a) => {
+    if (s) {
+        return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, v: ${c(v)}, a: ${c(a)} }).toHex8String()`);
+    } else {
+        return parse(h);
+    }
+};
 export const hue = color => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).toHsl().h`);
 };

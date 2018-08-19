@@ -37,6 +37,20 @@ exports[`Creates an opaque color object from hue, saturation and lightness (HSL)
   hsl1: #80ff00ff;
   new: #e6f1daff;
   hsla: #80ff0080;
+  hsla: #80ff0080;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Creates an opaque color object from hue, saturation and value (HSV) values.. 1`] = `
+.c0 {
+  hsv1: #408000ff;
+  hsv2: #408000ff;
+  hsva1: #40800080;
+  hsva2: #40800080;
 }
 
 <div
