@@ -269,6 +269,10 @@ test('Rotate the hue angle of a color in either direction.', () => {
 
         spin: spin(hsl(10, 90%, 50%), @v2);
         spin: spin(hsl(10, 90%, 50%), -@v2);
+        
+        spin: spin(@color, @v);
+        
+        spin: spin(@color, @zero);
 	`;
-    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
 });

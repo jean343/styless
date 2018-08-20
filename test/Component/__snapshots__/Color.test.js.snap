@@ -325,6 +325,8 @@ exports[`Rotate the hue angle of a color in either direction. 1`] = `
   spin: #f20d5aff;
   spin: #f2a50dff;
   spin: #f20d5aff;
+  spin: #f2a60dff;
+  spin: #f2330dff;
 }
 
 <div

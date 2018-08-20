@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import withCheckbox from './withCheckbox';
+import withSlider from './withSlider';
 
 const Style = styled.div`
   margin-top: 20px;
@@ -39,6 +40,9 @@ const samples = {
         color: if(@bg-light, black, white);
     `),
     "font-size: ceil(20.5px);": S.extend`font-size: ceil(20.5px);`,
+    "background-color: darken(hsl(90, 80%, 50%), @value);": withSlider(S.extend`background-color: darken(hsl(90, 80%, 50%), @value);`),
+    "background-color: fade(@highlight, @value);": withSlider(S.extend`background-color: fade(@highlight, @value);`),
+    "background-color: spin(@highlight, @value);": withSlider(S.extend`background-color: spin(@highlight, @value);`, {min: -180, max: 180}),
 };
 
 export default class extends Component {
