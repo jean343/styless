@@ -276,3 +276,27 @@ test('Rotate the hue angle of a color in either direction.', () => {
 	`;
     expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
 });
+
+
+test('Mix two colors together in variable proportion. Opacity is included in the calculations.', () => {
+    const Div = styled.div`
+        mix: mix(#ff0000, #0000ff, 50%);
+        mix: mix(@a, @b, @p);
+        mix: mix(rgba(100, 0, 0, 1.0), rgba(0, 100, 0, 1.0));
+	`;
+    expect(renderer.create(<Div a="#ff0000" b="#0000ff" p="50%"/>).toJSON()).toMatchSnapshot();
+});
+test('Mix color with white in variable proportion.', () => {
+    const Div = styled.div`
+        no-alpha: tint(#007fff, 50%);
+        no-alpha: tint(@color, @p);
+	`;
+    expect(renderer.create(<Div color="#007fff" p="50%"/>).toJSON()).toMatchSnapshot();
+});
+test('Mix color with black in variable proportion.', () => {
+    const Div = styled.div`
+        no-alpha: shade(#007fff, 50%);
+        no-alpha: shade(@color, @p);
+	`;
+    expect(renderer.create(<Div color="#007fff" p="50%"/>).toJSON()).toMatchSnapshot();
+});

@@ -317,6 +317,42 @@ exports[`Increase the transparency (or decrease the opacity) of a color, making 
 />
 `;
 
+exports[`Mix color with black in variable proportion. 1`] = `
+.c0 {
+  no-alpha: #004080ff;
+  no-alpha: #004080ff;
+}
+
+<div
+  className="c0"
+  color="#007fff"
+/>
+`;
+
+exports[`Mix color with white in variable proportion. 1`] = `
+.c0 {
+  no-alpha: #80bfffff;
+  no-alpha: #80bfffff;
+}
+
+<div
+  className="c0"
+  color="#007fff"
+/>
+`;
+
+exports[`Mix two colors together in variable proportion. Opacity is included in the calculations. 1`] = `
+.c0 {
+  mix: #800080ff;
+  mix: #800080ff;
+  mix: #323200ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Rotate the hue angle of a color in either direction. 1`] = `
 .c0 {
   spin: #f2a50dff;

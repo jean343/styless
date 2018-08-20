@@ -123,7 +123,9 @@ export const fade = (color, amount) => {
 export const spin = (color, amount) => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toHex8String()`);
 };
-// mix
+export const mix = (color1, color2, weight) => {
+    return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toHex8String()`);
+};
 // greyscale
 // contrast
 // contrast
@@ -131,5 +133,9 @@ export const argb = color => {
     return new VariableNode(`${c(rgba(color))}.replace(/#(\\w{6})(\\w{2})/, "#$2$1")`);
 };
 // color
-// tint
-// shade
+export const tint = (color, weight) => {
+    return mix("#ffffff", color, weight);
+};
+export const shade = (color, weight) => {
+    return mix("#000000", color, weight);
+};
