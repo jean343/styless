@@ -300,3 +300,10 @@ test('Mix color with black in variable proportion.', () => {
 	`;
     expect(renderer.create(<Div color="#007fff" p="50%"/>).toJSON()).toMatchSnapshot();
 });
+test('Remove all saturation from a color in the HSL color space.', () => {
+    const Div = styled.div`
+        greyscale1: greyscale(hsl(90, 90%, 50%));
+        greyscale2: greyscale(@color);
+	`;
+    expect(renderer.create(<Div color="hsl(90, 90%, 50%)"/>).toJSON()).toMatchSnapshot();
+});

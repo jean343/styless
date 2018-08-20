@@ -353,6 +353,18 @@ exports[`Mix two colors together in variable proportion. Opacity is included in 
 />
 `;
 
+exports[`Remove all saturation from a color in the HSL color space. 1`] = `
+.c0 {
+  greyscale1: #808080ff;
+  greyscale2: #808080ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 90%, 50%)"
+/>
+`;
+
 exports[`Rotate the hue angle of a color in either direction. 1`] = `
 .c0 {
   spin: #f2a50dff;

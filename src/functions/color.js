@@ -126,7 +126,9 @@ export const spin = (color, amount) => {
 export const mix = (color1, color2, weight) => {
     return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toHex8String()`);
 };
-// greyscale
+export const greyscale = color => {
+    return desaturate(color, 100);
+};
 // contrast
 // contrast
 export const argb = color => {
