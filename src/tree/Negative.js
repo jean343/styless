@@ -1,5 +1,5 @@
 import node from 'less/lib/less/tree/node';
-import convert, {convertNode as c} from './convert';
+import convert from './convert';
 import VariableNode from './VariableNode';
 
 export default class Negative extends node {
