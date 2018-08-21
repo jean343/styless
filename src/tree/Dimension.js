@@ -1,5 +1,4 @@
 import dimension from 'less/lib/less/tree/dimension';
-import convert from './convert';
 import VariableNode from "./VariableNode";
 
 export default class Dimension extends dimension {
@@ -8,11 +7,11 @@ export default class Dimension extends dimension {
     }
 
     static operate(context, self, op, other) {
-        let unit = self.unit;
-        if (!unit) {
-            unit = `('' + ${self.value}).replace(/[\\d.-]*/, "")`;
-        } else {
+        let unit = (self.unit && self.unit.toString()) || (other.unit && other.unit.toString());
+        if (unit) {
             unit = `"${unit}"`;
+        } else {
+            unit = `(('' + ${self.value}).replace(/[\\d.-]*/, "") || ('' + ${other.value}).replace(/[\\d.-]*/, ""))`;
         }
         return new VariableNode(`parseFloat(${self.value}) ${op} parseFloat(${other.value}) + ${unit}`);
     }

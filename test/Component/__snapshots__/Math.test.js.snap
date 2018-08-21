@@ -137,10 +137,10 @@ exports[`Does some math. 1`] = `
   width1: 50px;
   width1: 5000px;
   width1: 2px;
-  width2: 150;
-  width2: -50;
-  width2: 5000;
-  width2: 0.5;
+  width2: 150px;
+  width2: -50px;
+  width2: 5000px;
+  width2: 0.5px;
 }
 
 <div

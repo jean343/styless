@@ -6,6 +6,7 @@ import 'jest-styled-components';
 test('Does some math.', () => {
     const Div = styled.div`
         width: 100px + 100;
+        width: 100 + 100px;
         width1: @a + @b;
         width1: @a - @b;
         width1: @a * @b;
