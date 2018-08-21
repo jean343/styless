@@ -16,6 +16,9 @@ test('Does some math.', () => {
         width2: @b - @a;
         width2: @b * @a;
         width2: @b / @a;
+        
+        width3: @a + @a + @a;
+        width3: (@a + @a + @a) / 3;
 	`;
     expect(renderer.create(<Div a="100px" b="50"/>).toJSON()).toMatchSnapshot();
 });
