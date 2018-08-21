@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel --no-cache index.html"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",

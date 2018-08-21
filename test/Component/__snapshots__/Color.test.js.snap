@@ -1,19 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Calculates the luma (perceptual brightness) of a color object. 1`] = `
+.c0 {
+  luma: 44.111615679100964;
+  luma: 44.111615679100964;
+}
+
+<div
+  className="c0"
+  color="#64c81e"
+/>
+`;
+
+exports[`Calculates the value of the luma without gamma correction. 1`] = `
+.c0 {
+  luminance: 65.28078431372549;
+  luminance: 65.28078431372549;
+  luminance: 32.768393694732794;
+}
+
+<div
+  className="c0"
+  color="#64c81e"
+/>
+`;
+
 exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 .c0 {
+  argb: #805a1794;
   argb: #805a1794;
 }
 
 <div
   className="c0"
+  r={90}
 />
 `;
 
 exports[`Creates an opaque color object from decimal red, green and blue (RGB) values. 1`] = `
 .c0 {
-  rgb: #5a8120;
-  rgba: rgba(90,129,32,0.5);
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #5a8120ff;
+  rgba: #5a812080;
+  rgb: #ffffffff;
+}
+
+<div
+  className="c0"
+  r={90}
+/>
+`;
+
+exports[`Creates an opaque color object from hue, saturation and lightness (HSL) values. 1`] = `
+.c0 {
+  hsl: #80ff00ff;
+  hsl1: #80ff00ff;
+  new: #e6f1daff;
+  hsla: #80ff0080;
+  hsla: #80ff0080;
 }
 
 <div
@@ -21,13 +70,329 @@ exports[`Creates an opaque color object from decimal red, green and blue (RGB) v
 />
 `;
 
-exports[`Creates an opaque color object from hue, saturation and lightness (HSL) values. 1`] = `
+exports[`Creates an opaque color object from hue, saturation and value (HSV) values. 1`] = `
 .c0 {
-  hsl: hsl(90,100%,50%);
-  old: hsl(89.99999999999999,100%,50%);
+  hsv1: #408000ff;
+  hsv2: #408000ff;
+  hsva1: #40800080;
+  hsva2: #40800080;
 }
 
 <div
   className="c0"
+/>
+`;
+
+exports[`Decrease the lightness of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  darken: #4d8a0fff;
+  darken: #4d8a0fff;
+  darken: #4d8a0fff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
+exports[`Decrease the saturation of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  desaturate: #80cc33ff;
+  desaturate: #80cc33ff;
+  desaturate: #80cc33ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
+exports[`Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colors. 1`] = `
+.c0 {
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.6);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgba(128,242,13,0.55);
+  fadein: rgb(128,242,13);
+  fadein: rgb(128,242,13);
+}
+
+<div
+  className="c0"
+  color="hsla(90, 90%, 50%, 0.5)"
+  r="relative"
+/>
+`;
+
+exports[`Extracts the alpha channel of a color object. 1`] = `
+.c0 {
+  alpha: 0.5;
+  alpha: 0.5;
+  alpha: 0.5;
+}
+
+<div
+  className="c0"
+  color="#0a141e80"
+  r={10}
+/>
+`;
+
+exports[`Extracts the blue channel of a color object. 1`] = `
+.c0 {
+  blue: 30;
+  blue: 30;
+  blue: 30;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
+/>
+`;
+
+exports[`Extracts the green channel of a color object. 1`] = `
+.c0 {
+  green: 20;
+  green: 20;
+  green: 20;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
+/>
+`;
+
+exports[`Extracts the hue channel of a color object in the HSL color space. 1`] = `
+.c0 {
+  hue: 90;
+  hue: 90;
+  hue: 90;
+  hue: 90;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
+/>
+`;
+
+exports[`Extracts the hue channel of a color object in the HSV color space. 1`] = `
+.c0 {
+  hsvhue: 90;
+  hsvhue: 90;
+  hsvhue: 90;
+  hsvhue: 90;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
+/>
+`;
+
+exports[`Extracts the lightness  channel of a color object in the HSL color space. 1`] = `
+.c0 {
+  lightness: 50%;
+  lightness: 50%;
+  lightness: 50%;
+  lightness: 50%;
+  lightness: 50%;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
+/>
+`;
+
+exports[`Extracts the red channel of a color object. 1`] = `
+.c0 {
+  red: 10;
+  red: 10;
+  red: 10;
+}
+
+<div
+  className="c0"
+  color="#0a141e"
+  r={10}
+/>
+`;
+
+exports[`Extracts the saturation channel of a color object in the HSL color space. 1`] = `
+.c0 {
+  saturation: 100%;
+  saturation: 100%;
+  saturation: 100%;
+  saturation: 100%;
+  saturation: 50%;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
+/>
+`;
+
+exports[`Extracts the saturation channel of a color object in the HSV color space. 1`] = `
+.c0 {
+  hsvsaturation: 100%;
+  hsvsaturation: 100%;
+  hsvsaturation: 100%;
+  hsvsaturation: 100%;
+  hsvsaturation: 50%;
+}
+
+<div
+  className="c0"
+  color="#80ff00"
+/>
+`;
+
+exports[`Extracts the value channel of a color object in the HSV color space. 1`] = `
+.c0 {
+  hsvvalue: 50%;
+  hsvvalue: 50%;
+  hsvvalue: 50%;
+  hsvvalue: 50%;
+  hsvvalue: 50%;
+}
+
+<div
+  className="c0"
+  color="#408000"
+/>
+`;
+
+exports[`Increase the lightness of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  lighten: #b3f075ff;
+  lighten: #b3f075ff;
+  lighten: #b3f075ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
+exports[`Increase the saturation of a color in the HSL color space by an absolute amount. 1`] = `
+.c0 {
+  saturate: #80ff00ff;
+  saturate: #80ff00ff;
+  saturate: #80ff00ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 80%, 50%)"
+/>
+`;
+
+exports[`Increase the transparency (or decrease the opacity) of a color, making it less opaque. 1`] = `
+.c0 {
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.4);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0.45);
+  fadeout: rgba(128,242,13,0);
+  fadeout: rgba(128,242,13,0);
+}
+
+<div
+  className="c0"
+  color="hsla(90, 90%, 50%, 0.5)"
+  r="relative"
+/>
+`;
+
+exports[`Mix color with black in variable proportion. 1`] = `
+.c0 {
+  no-alpha: #004080ff;
+  no-alpha: #004080ff;
+}
+
+<div
+  className="c0"
+  color="#007fff"
+/>
+`;
+
+exports[`Mix color with white in variable proportion. 1`] = `
+.c0 {
+  no-alpha: #80bfffff;
+  no-alpha: #80bfffff;
+}
+
+<div
+  className="c0"
+  color="#007fff"
+/>
+`;
+
+exports[`Mix two colors together in variable proportion. Opacity is included in the calculations. 1`] = `
+.c0 {
+  mix: #800080ff;
+  mix: #800080ff;
+  mix: #323200ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Remove all saturation from a color in the HSL color space. 1`] = `
+.c0 {
+  greyscale1: #808080ff;
+  greyscale2: #808080ff;
+}
+
+<div
+  className="c0"
+  color="hsl(90, 90%, 50%)"
+/>
+`;
+
+exports[`Rotate the hue angle of a color in either direction. 1`] = `
+.c0 {
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+  spin: #f2a50dff;
+  spin: #f20d5aff;
+  spin: #f2a60dff;
+  spin: #f2330dff;
+}
+
+<div
+  className="c0"
+  color="hsl(10, 90%, 50%)"
+/>
+`;
+
+exports[`Set the absolute opacity of a color. Can be applied to colors whether they already have an opacity value or not. 1`] = `
+.c0 {
+  fade: rgba(128,242,13,0.1);
+  fade: rgba(128,242,13,0.1);
+  fade: rgba(128,242,13,0);
+  fade: rgb(128,242,13);
+}
+
+<div
+  className="c0"
+  color="hsla(90, 90%, 50%, 0.5)"
 />
 `;

@@ -2,7 +2,7 @@ import VariableNode from "./VariableNode";
 
 const varRgx = /^[@$]/;
 export default (val, defaultValue) => {
-    if (!val) return val;
+    if (val === undefined) return val;
     if (!val.startsWith("@")) {
         return `"${val}"`;
     }
@@ -11,14 +11,14 @@ export default (val, defaultValue) => {
         `props["${val}"]`,
         `(props.theme || {})["${val}"]`,
         defaultValue,
-    ]
-    return parts.filter(v => !!v).join(" || ");
+    ];
+    return `[${parts.filter(v => !!v).join(",")}].find(v => v !== void 0)`;
 };
 
 export const convertNode = v => {
     if (!v)
         return undefined;
-    let value = v.toCSS();
+    let value = v.toCSS ? v.toCSS() : v.toString();
     if (v instanceof VariableNode) {
         return value;
     }

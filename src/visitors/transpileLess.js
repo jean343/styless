@@ -1,12 +1,14 @@
 import Less from "less/lib/less/";
 import Variable from "../tree/Variable";
 import Condition from "../tree/Condition";
+import Negative from "../tree/Negative";
 import * as functions from '../functions';
 
 export default source => {
     const less = new Less();
     less.tree.Variable = Variable;
     less.tree.Condition = Condition;
+    less.tree.Negative = Negative;
     less.functions.functionRegistry.addMultiple(functions);
     less.PluginLoader = class PluginLoader {
     };
