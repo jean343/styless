@@ -3,6 +3,14 @@ import renderer from 'react-test-renderer';
 import styled from 'styled-components';
 import 'jest-styled-components';
 
+test('Does some math.', () => {
+    const Div = styled.div`
+        width: 100px + 100;
+        //width: @a + @b;
+	`;
+    expect(renderer.create(<Div a="100px" b="50"/>).toJSON()).toMatchSnapshot();
+});
+
 test('Rounds up to the next highest integer.', () => {
     const Div = styled.div`
         ceil: ceil(2.4);
