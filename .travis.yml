@@ -3,8 +3,10 @@ cache:
   directories:
     - ~/.npm
 node_js:
+  - 6
+  - 8
   - 10
 install:
   - yarn install --ignore-engines
 after_success:
-  - npm run semantic-release
+  - npm run travis-deploy-once "npm run semantic-release"
