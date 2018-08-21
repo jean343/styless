@@ -25,6 +25,20 @@ exports[`Calculates the value of the luma without gamma correction. 1`] = `
 />
 `;
 
+exports[`Choose which of two colors provides the greatest contrast with another. 1`] = `
+.c0 {
+  a: #000;
+  b: #FFF;
+  c: #dddddd;
+  d: #000000;
+  e: #ffffff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 .c0 {
   argb: #805a1794;

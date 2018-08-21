@@ -129,8 +129,35 @@ export const mix = (color1, color2, weight) => {
 export const greyscale = color => {
     return desaturate(color, 100);
 };
-// contrast
-// contrast
+
+export const contrast = (color, dark, light, threshold) => {
+    const compute = (t, color, dark, light, threshold) => {
+        if (typeof light === 'undefined') {
+            light = "#FFF";
+        }
+        if (typeof dark === 'undefined') {
+            dark = "#000";
+        }
+        // Figure out which is actually light and dark:
+        if (t(dark).getLuminance() > t(light).getLuminance()) {
+            const t = light;
+            light = dark;
+            dark = t;
+        }
+        if (typeof threshold === 'undefined') {
+            threshold = 0.43;
+        } else {
+            threshold = parseFloat(threshold) / 100;
+        }
+        if (t(color).getLuminance() < threshold) {
+            return light;
+        } else {
+            return dark;
+        }
+    };
+    return new VariableNode(`(${compute})(require("tinycolor2"), ${c(color)}, ${c(dark)}, ${c(light)}, ${c(threshold)})`);
+};
+
 export const argb = color => {
     return new VariableNode(`${c(rgba(color))}.replace(/#(\\w{6})(\\w{2})/, "#$2$1")`);
 };

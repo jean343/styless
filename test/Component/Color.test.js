@@ -307,3 +307,13 @@ test('Remove all saturation from a color in the HSL color space.', () => {
 	`;
     expect(renderer.create(<Div color="hsl(90, 90%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
+test('Choose which of two colors provides the greatest contrast with another.', () => {
+    const Div = styled.div`
+        a: contrast(#bbbbbb);
+        b: contrast(#222222, #101010);
+        c: contrast(#222222, #101010, #dddddd);
+        d: contrast(hsl(90, 100%, 50%), #000000, #ffffff, 30%);
+        e: contrast(hsl(90, 100%, 50%), #000000, #ffffff, 80%);
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
