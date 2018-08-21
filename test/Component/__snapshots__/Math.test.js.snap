@@ -133,6 +133,16 @@ exports[`Converts a floating point number into a percentage string. 1`] = `
 exports[`Does some math. 1`] = `
 .c0 {
   width: 200px;
+  width1: 150px;
+  width1: 50px;
+  width1: 5000px;
+  width1: 2px;
+  width2: 150px;
+  width2: -50px;
+  width2: 5000px;
+  width2: 0.5px;
+  width3: 300px;
+  width3: 100px;
 }
 
 <div

@@ -2,6 +2,7 @@ import Less from "less/lib/less/";
 import Variable from "../tree/Variable";
 import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
+import Dimension from "../tree/Dimension";
 import * as functions from '../functions';
 
 export default source => {
@@ -9,12 +10,13 @@ export default source => {
     less.tree.Variable = Variable;
     less.tree.Condition = Condition;
     less.tree.Negative = Negative;
+    less.tree.Dimension = Dimension;
     less.functions.functionRegistry.addMultiple(functions);
     less.PluginLoader = class PluginLoader {
     };
 
     let root, imports, options;
-    less.parse(source, {}, (e, _root, _imports, _options) => {
+    less.parse(source, {math: 0}, (e, _root, _imports, _options) => {
         if (e) {
             console.error(e);
         }

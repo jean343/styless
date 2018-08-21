@@ -1,4 +1,5 @@
 import Node from 'less/lib/less/tree/node';
+import Dimension from "./Dimension";
 
 export default class VariableNode extends Node {
     constructor(value, longValue) {
@@ -12,5 +13,9 @@ export default class VariableNode extends Node {
 
     toCSS(context, doNotCompress) {
         return this.value;
+    }
+
+    operate(context, op, other) {
+        return Dimension.operate(context, this, op, other);
     }
 }
