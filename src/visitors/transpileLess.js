@@ -7,10 +7,58 @@ import * as functions from '../functions';
 
 export default source => {
     const less = new Less();
+    Object.defineProperty(less.tree.Node.prototype, 'parse', {
+        set: self => {
+            const old_declaration = self.parsers.declaration;
+            self.parsers.declaration = function () {
+                const val = old_declaration.call(self.parsers);
+                if (val)
+                    return val;
+
+                let name;
+                self.parserInput.save();
+                if (self.parserInput.currentChar() === '$' && (name = self.parserInput.$re(/^\${[\s\S]*?}/))) {
+                    return new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
+                }
+                self.parserInput.restore();
+            };
+
+            const old_variable = self.parsers.entities.variable;
+            self.parsers.entities.variable = function () {
+                const val = old_variable.call(self);
+                if (val)
+                    return val;
+
+                let name;
+                self.parserInput.save();
+                if (self.parserInput.currentChar() === '$' && (name = self.parserInput.$re(/^\${[\s\S]*?}/))) {
+                    const anonymous = new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
+                    anonymous.noSpacing = self.parserInput.prevChar() !== " ";
+                    return anonymous;
+                }
+                self.parserInput.restore();
+            };
+        },
+        enumerable: true,
+        configurable: true
+    });
     less.tree.Variable = Variable;
     less.tree.Condition = Condition;
     less.tree.Negative = Negative;
     less.tree.Dimension = Dimension;
+    less.tree.Expression.prototype.genCSS = function (context, output) {
+        for (var i = 0; i < this.value.length; i++) {
+            this.value[i].genCSS(context, output);
+            if (!(this.noSpacing || this.value[i].noSpacing) && i + 1 < this.value.length) {
+                output.add(' ');
+            }
+        }
+    };
+    less.tree.Anonymous.prototype.eval = function () {
+        const anonymous = new less.tree.Anonymous(this.value, this._index, this._fileInfo, this.mapLines, this.rulesetLike, this.visibilityInfo());
+        anonymous.noSpacing = this.noSpacing;
+        return anonymous;
+    };
     less.functions.functionRegistry.addMultiple(functions);
     less.PluginLoader = class PluginLoader {
     };

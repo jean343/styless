@@ -13,7 +13,10 @@ export default (path, state, {types: t}) => {
         TemplateLiteral(p) {
             if (p.isClean) return;
 
-            const [foo, source] = regex.exec(p.getSource());
+            const rawSource = p.getSource();
+            if (!rawSource) return;
+
+            const [foo, source] = regex.exec(rawSource);
             if (!source) return;
             p.isClean = true;
 
