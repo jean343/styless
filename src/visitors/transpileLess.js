@@ -9,23 +9,8 @@ export default source => {
     const less = new Less();
     Object.defineProperty(less.tree.Node.prototype, 'parse', {
         set: self => {
-            const old_declaration = self.parsers.declaration;
-            self.parsers.declaration = function () {
-                const val = old_declaration.call(self.parsers);
-                if (val)
-                    return val;
-
-                let name;
-                self.parserInput.save();
-                if (self.parserInput.currentChar() === '$' && (name = self.parserInput.$re(/^\${[\s\S]*?}/))) {
-                    return new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
-                }
-                self.parserInput.restore();
-            };
-
-            const old_variable = self.parsers.entities.variable;
-            self.parsers.entities.variable = function () {
-                const val = old_variable.call(self);
+            const parseJS = orig => {
+                const val = orig();
                 if (val)
                     return val;
 
@@ -38,8 +23,10 @@ export default source => {
                 }
                 self.parserInput.restore();
             };
+
+            self.parsers.declaration = parseJS.bind(null, self.parsers.declaration.bind(self.parsers));
+            self.parsers.entities.variable = parseJS.bind(null, self.parsers.entities.variable.bind(self.parsers));
         },
-        enumerable: true,
         configurable: true
     });
     less.tree.Variable = Variable;
