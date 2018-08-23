@@ -20,7 +20,8 @@ const Content = styled.div`
 `;
 
 const samples = {
-    "width: 400px + @value;": withSlider(S.extend`background-color: @highlight; width: 400px + @value;`),
+    "width: 700px + @value;": withSlider(S.extend`background-color: @highlight; width: 700px + @value;`),
+    "width: ${props => 700 + parseFloat(props.value)}px;": withSlider(S.extend`background-color: @highlight; width: ${props => 700 + parseFloat(props.value)}px;`),
     "background-color: darken(@highlight, 30%);": S.extend`background-color: darken(@highlight, 30%);`,
     "@local: palevioletred;\n@width: if(@checked, 20px, 0);\nbackground-color: @local;\nborder-radius: @width;": withCheckbox(S.extend`
         @local: palevioletred;

@@ -3,7 +3,7 @@ import Dimension from "./Dimension";
 
 export default class VariableNode extends Node {
     constructor(value, longValue) {
-        super()
+        super();
         this.value = value;
     }
 

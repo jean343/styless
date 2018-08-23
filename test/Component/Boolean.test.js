@@ -7,10 +7,10 @@ test('Sets a complex variable in an if check', () => {
     const Div = styled.div`
 		cursor: if(@disabled, not-allowed);
 	`;
-    const tree = renderer.create(<Div/>).toJSON()
+    const tree = renderer.create(<Div/>).toJSON();
     expect(tree).toMatchSnapshot();
 
-    const tree2 = renderer.create(<Div disabled/>).toJSON()
+    const tree2 = renderer.create(<Div disabled/>).toJSON();
     expect(tree2).toMatchSnapshot();
 });
 
@@ -18,10 +18,10 @@ test('Sets conditional margins', () => {
     const Div = styled.div`
 		margin: if(@val, 6px);
 	`;
-    const tree = renderer.create(<Div/>).toJSON()
+    const tree = renderer.create(<Div/>).toJSON();
     expect(tree).toMatchSnapshot();
 
-    const tree2 = renderer.create(<Div val/>).toJSON()
+    const tree2 = renderer.create(<Div val/>).toJSON();
     expect(tree2).toMatchSnapshot();
 });
 
@@ -29,10 +29,10 @@ test('Sets conditional margins with variables', () => {
     const Div = styled.div`
 		margin: if(@val, @t, @f);
 	`;
-    const tree = renderer.create(<Div t="20px" f="0px"/>).toJSON()
+    const tree = renderer.create(<Div t="20px" f="0px"/>).toJSON();
     expect(tree).toMatchSnapshot();
 
-    const tree2 = renderer.create(<Div t="20px" f="0px" val/>).toJSON()
+    const tree2 = renderer.create(<Div t="20px" f="0px" val/>).toJSON();
     expect(tree2).toMatchSnapshot();
 });
 
@@ -43,9 +43,9 @@ test('Sets color to the inverse of the bg luma', () => {
         background: @bg; 
         color: if(@bg-light, black, white);
 	`;
-    const tree = renderer.create(<Div navy="#001F3F" checked/>).toJSON()
+    const tree = renderer.create(<Div navy="#001F3F" checked/>).toJSON();
     expect(tree).toMatchSnapshot();
 
-    const tree2 = renderer.create(<Div navy="#001F3F"/>).toJSON()
+    const tree2 = renderer.create(<Div navy="#001F3F"/>).toJSON();
     expect(tree2).toMatchSnapshot();
 });
