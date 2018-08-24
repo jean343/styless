@@ -5,27 +5,42 @@
 
 # :gem:Styless:gem:
 
-Styless allows you to enable less syntax in your [styled-components](https://www.styled-components.com).
+Styless enables less syntax in your [styled-components](https://www.styled-components.com)
+
+## Installation
+```sh
+$ yarn add --dev babel-plugin-styless
+```
+
+**.babelrc**
+
+```json
+{
+  "plugins": ["babel-plugin-styless"]
+}
+```
 
 ## Key features
 - Simplifies the code
-use `@main` instead of `${props => props.theme.main}`
+
+    use `@main` instead of `${props => props.theme.main}`
 
 - Uses variables directly in your styled components
-```
+```less
     @size: if(@small, 4px, 10px);
 ```
 
 - Uses operations directly in your styled components
-use `@size * 3` instead of `${props => parseFloat(props.size) * 3 + "px"}`
+
+    use `@size * 3` instead of `${props => parseFloat(props.size) * 3 + "px"}`
 
 - Uses functions directly in your styled components.
 ```less
-    darken(@highlight, 5%)
+    color: darken(@highlight, 5%);
 ```
 There is no need to import `darken`.
 
-- Supports rgb, hsl and hsv color spaces
+- Supports `rgb`, `hsl` and `hsv` color spaces
 ```less
     color: hsv(0, 0%, 99%);
 ```
@@ -40,14 +55,18 @@ There is no need to import `darken`.
         @highlight: blue;                           // can be overwritten by theme or props
         background: darken(@highlight, 5%);         // make green darken by 5%
     `;
-    
+```
+
+```javascript   
     <ThemeProvider theme={{highlight: "red"}}>
         <Button highlight="green">click me</Button> // green (set in props) overwrites red (set in theme)
     </ThemeProvider>
 ```
 
-- Still supports the Tagged Template Literal syntax for more complex jobs!
-
+- Still supports the styled-components syntax for more complex jobs!
+```javascript
+    `${props => props.main}`
+```
 
 ## Advanced Styless component example
 ```javascript
@@ -99,18 +118,7 @@ Note that those examples were simplified, the actual code is below:
 https://github.com/jean343/styless/blob/master/src/functions/color.js#L91
 https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9
 
-## Installation
-```sh
-$ yarn add --dev babel-plugin-styless
-```
 
-**.babelrc**
-
-```json
-{
-  "plugins": ["babel-plugin-styless"]
-}
-```
 
 ###To use a less constants file in your theme
 ```javascript
