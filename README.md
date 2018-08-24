@@ -39,11 +39,15 @@ const Button = styled.button`
 
 This is what you'll see in your browser :tada:
 
-<div align="center">
-    <img alt="Screenshot of the above code ran in a browser" src="https://i.imgur.com/01eETHm.png" />
-</div>
+![](https://i.imgur.com/01eETHm.png)
 
-## Why?
+-----
+
+Note that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
+we get syntax highlighting, color preview and ctrl+click access to variables!
+![](https://i.imgur.com/t8Qw6ty.png")
+
+## What is our motivation?
 - The syntax is familiar to less developers `darken(@highlight, 5%)` and it removes the need to add an import of `darken`.
 There is no confusion when transitioning from less to styled-components caused by `width: 3px * 2`.
 - Supports rgb, hsl and hsv color spaces.
@@ -76,6 +80,10 @@ $ yarn add --dev babel-plugin-styless
   "plugins": ["babel-plugin-styless"]
 }
 ```
+
+###To use a less constants file in your theme
+```javascript
+````
 
 ## Special thanks
 Thanks for the awesome [less](http://lesscss.org/) syntax and extensible compiler.
