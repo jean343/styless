@@ -102,7 +102,7 @@ This is what you'll see in your browser :tada:
 -----
 
 
-jsfiddle link (TBD)
+https://codesandbox.io/s/6zq4jyo5qz
 
 
 Note that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
