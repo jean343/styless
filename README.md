@@ -37,7 +37,7 @@ const Button = styled.button`
 </ThemeProvider>
 ```
 
-This is what you'll see in your browser:
+This is what you'll see in your browser :tada:
 
 <div align="center">
     <img alt="Screenshot of the above code ran in a browser" src="https://i.imgur.com/01eETHm.png" />
@@ -51,6 +51,14 @@ There is no confusion when transitioning from less to styled-components caused b
 - Supports props from variables, theme, and props, overwritten in that order.
 One can replace the less variable or theme variable with a React props.
 - Still supports the Tagged Template Literal syntax for more complex jobs!
+
+## Cool, how does it work :question:
+The {less} parser is used to generate an abstract syntax tree (AST) of the styled component source, all less functions that would operate on variables were modified to generate dynamic code.
+
+For example, `darken(@color, 15%)` could be converted to `${props => require("color").darken(props.color || props.theme.color || default, "15%")}`. An if statement `if(@c, @t, @f)` would be converted to `${props => props.a ? props.b ：props.c}`.
+Note that those examples were simplified, the actual code is below:
+https://github.com/jean343/styless/blob/master/src/functions/color.js#L91
+https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9
 
 ## Installation
 ```sh
