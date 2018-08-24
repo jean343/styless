@@ -1,14 +1,21 @@
-import * as t from 'babel-types';
+const VALID_TOP_LEVEL_IMPORT_PATHS = [
+    'styled-components',
+    'styled-components/no-tags',
+    'styled-components/native',
+    'styled-components/primitives',
+];
+
+export const isValidTopLevelImport = x => VALID_TOP_LEVEL_IMPORT_PATHS.includes(x);
 
 const importLocalName = (name, state) => {
-    let localName = name === 'default' ? 'styled' : name
+    let localName = name === 'default' ? 'styled' : name;
 
     state.file.path.traverse({
         ImportDeclaration: {
             exit(path) {
-                const {node} = path
+                const {node} = path;
 
-                if (node.source.value === 'styled-components') {
+                if (isValidTopLevelImport(node.source.value)) {
                     for (const specifier of path.get('specifiers')) {
                         if (specifier.isImportDefaultSpecifier()) {
                             localName = specifier.node.local.name
@@ -33,7 +40,7 @@ const importLocalName = (name, state) => {
     return localName
 };
 
-export const isStyled = (tag, state) => {
+export const isStyled = t => (tag, state) => {
     /* Matches the extend blocks such as
     const Block = Div.extend`
         color: @color
@@ -49,7 +56,7 @@ export const isStyled = (tag, state) => {
         tag.callee.property.name !== 'default' /** ignore default for #93 below */
     ) {
         // styled.something()
-        return isStyled(tag.callee.object, state)
+        return isStyled(t)(tag.callee.object, state)
     } else {
         return (
             (t.isMemberExpression(tag) &&
@@ -77,14 +84,12 @@ export const isStyled = (tag, state) => {
     }
 }
 
-export const isCSSHelper = (tag, state) =>
-    t.isIdentifier(tag) && tag.name === importLocalName('css', state)
+export const isCSSHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('css', state);
 
-export const isInjectGlobalHelper = (tag, state) =>
-    t.isIdentifier(tag) && tag.name === importLocalName('injectGlobal', state)
+export const isCreateGlobalStyleHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('createGlobalStyle', state);
 
-export const isKeyframesHelper = (tag, state) =>
-    t.isIdentifier(tag) && tag.name === importLocalName('keyframes', state)
+export const isInjectGlobalHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('injectGlobal', state);
 
-export const isHelper = (tag, state) =>
-    isCSSHelper(tag, state) || isKeyframesHelper(tag, state)
+export const isKeyframesHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('keyframes', state);
+
+export const isHelper = t => (tag, state) => isCSSHelper(t)(tag, state) || isKeyframesHelper(t)(tag, state);

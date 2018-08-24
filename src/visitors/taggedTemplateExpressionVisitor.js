@@ -4,7 +4,7 @@ import transpileLess from "./transpileLess";
 const regex = /`([\s\S]*)`/;
 
 export default (path, state, {types: t}) => {
-    if (!isStyled(path.node.tag, state)) {
+    if (!isStyled(t)(path.node.tag, state)) {
         return;
     }
 
