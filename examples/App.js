@@ -20,16 +20,17 @@ const Wrapper = styled.section`
 	background-color: @background;
 `;
 
-const Button = styled.a`
-    display: inline-block;
+const Button = styled.button`
+    @faded: fade(black, 21%);
+    @size: if(@small, 4px, 10px);
 	cursor: pointer;
 	cursor: if(@disabled, not-allowed);
-	color: white;
-	padding: 10px 30px;
-	border: 1px solid rgba(0, 0, 0, 0.21);
-	border-bottom: 4px solid rgba(0, 0, 0, 0.21);
-	border-radius: 4px;
-	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+	color: hsv(0, 0%, 99%);
+	padding: @size @size * 3;
+	border: 1px solid @faded;
+	border-bottom: 4px solid @faded;
+	border-radius: ${4}px;
+	text-shadow: 0 1px 0 @faded;
 	background: linear-gradient(@highlight 0%, darken(@highlight, 5%) 100%);
 	&:active {
 		background: darken(@highlight, 10%);
@@ -49,7 +50,7 @@ export default class extends Component {
                 <Title highlight="#9C5068">
                     Hello World, this is my first styled <b>component</b>!
                 </Title>
-                <Button onClick={this.onClick}>Click me</Button> <Button highlight="#00A65A" onClick={this.onClick}>Or me</Button> <Button disabled>But not me</Button>
+                <Button onClick={this.onClick}>Click me</Button> <Button highlight="hsl(153, 100%, 33%)" onClick={this.onClick}>Or me</Button> <Button disabled small>But not me</Button>
                 {this.state.open && <Advanced/>}
             </Wrapper>
         </App>
