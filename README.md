@@ -4,13 +4,52 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 # :gem:Styless:gem:
-Style your components declaratively with the familiar less syntax.
 
-## Idea
-Instead of writing the Tagged Template Literals `${props => props.theme.main}`, let's leave that job to a babel plugin and let's use the {less} syntax `@main`!
-The entire Less syntax has been implemented, letting us use variables, operations, functions, etc. directly in the style component.
+Styless allows you to enable less syntax in your [styled-components](https://www.styled-components.com).
 
-## Your first Styless component
+## Key features
+- Simplifies the code
+use `@main` instead of `${props => props.theme.main}`
+
+- Uses variables directly in your styled components
+```
+    @size: if(@small, 4px, 10px);
+```
+
+- Uses operations directly in your styled components
+use `@size * 3` instead of `${props => parseFloat(props.size) * 3 + "px"}`
+
+- Uses functions directly in your styled components.
+```less
+    darken(@highlight, 5%)
+```
+There is no need to import `darken`.
+
+- Supports rgb, hsl and hsv color spaces
+```less
+    color: hsv(0, 0%, 99%);
+```
+
+- Supports migrate less to styled-components seamlessly. 
+
+    There is no confusion when transitioning from less to styled-components caused by `width: 3px * 2`.
+
+- Supports variable overwritten
+```javascript
+    const Button = styled.button`
+        @highlight: blue;                           // can be overwritten by theme or props
+        background: darken(@highlight, 5%);         // make green darken by 5%
+    `;
+    
+    <ThemeProvider theme={{highlight: "red"}}>
+        <Button highlight="green">click me</Button> // green (set in props) overwrites red (set in theme)
+    </ThemeProvider>
+```
+
+- Still supports the Tagged Template Literal syntax for more complex jobs!
+
+
+## Advanced Styless component example
 ```javascript
 const Button = styled.button`
     @faded: fade(black, 21%);
@@ -43,18 +82,14 @@ This is what you'll see in your browser :tada:
 
 -----
 
+
+jsfiddle link (TBD)
+
+
 Note that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
 we get syntax highlighting, color preview and ctrl+click access to variables!
 ![](https://i.imgur.com/t8Qw6ty.png")
 
-## What is our motivation?
-- The syntax is familiar to less developers `darken(@highlight, 5%)` and it removes the need to add an import of `darken`.
-There is no confusion when transitioning from less to styled-components caused by `width: 3px * 2`.
-- Supports rgb, hsl and hsv color spaces.
-- Does the math for you, try `@size * 3` instead of `${props => parseFloat(props.size) * 3 + "px"}`.
-- Supports props from variables, theme, and props, overwritten in that order.
-One can replace the less variable or theme variable with a React props.
-- Still supports the Tagged Template Literal syntax for more complex jobs!
 
 ## Cool, how does it work :question:
 The {less} parser is used to generate an abstract syntax tree (AST) of the styled component source, all less functions that would operate on variables were modified to generate dynamic code.
@@ -69,10 +104,6 @@ https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9
 $ yarn add --dev babel-plugin-styless
 ```
 
-## Usage
-
-### Via `.babelrc` (Recommended)
-
 **.babelrc**
 
 ```json
@@ -83,9 +114,4 @@ $ yarn add --dev babel-plugin-styless
 
 ###To use a less constants file in your theme
 ```javascript
-````
-
-## Special thanks
-Thanks for the awesome [less](http://lesscss.org/) syntax and extensible compiler.
-
-Thanks to [styled-components](https://www.styled-components.com) for making this plugin possible.
+```
