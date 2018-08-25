@@ -1,5 +1,5 @@
 import Node from 'less/lib/less/tree/node';
-import Dimension from "./Dimension";
+import operate from "./operate";
 
 export default class VariableNode extends Node {
     constructor(value, longValue) {
@@ -16,6 +16,6 @@ export default class VariableNode extends Node {
     }
 
     operate(context, op, other) {
-        return Dimension.operate(context, this, op, other);
+        return new VariableNode(operate(context, this, op, other));
     }
 }
