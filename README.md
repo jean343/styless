@@ -50,7 +50,7 @@ There is no need to import `darken`.
     There is no confusion when transitioning from less to styled-components caused by `width: 3px * 2`.
 
 - Supports variable overwritten
-```javascript
+```less
     const Button = styled.button`
         @highlight: blue;                           // can be overwritten by theme or props
         background: darken(@highlight, 5%);         // make green darken by 5%
@@ -69,7 +69,7 @@ There is no need to import `darken`.
 ```
 
 ## Advanced Styless component example
-```javascript
+```less
 const Button = styled.button`
     @faded: fade(black, 21%);
     @size: if(@small, 4px, 10px);
@@ -95,21 +95,16 @@ const Button = styled.button`
 </ThemeProvider>
 ```
 
-This is what you'll see in your browser :tada:
+This is what you'll see in your browser :tada:, play with it on [codesandbox](https://codesandbox.io/s/6zq4jyo5qz)
 
 ![](https://i.imgur.com/01eETHm.png)
-
------
-
-
-https://codesandbox.io/s/6zq4jyo5qz
 
 
 Note that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
 we get syntax highlighting, color preview and ctrl+click access to variables!
 ![](https://i.imgur.com/t8Qw6ty.png")
 
-#FAQ
- - How to use a `constants.less` file, see the receipe for [theme](docs/receipe-theme.md).
+## FAQ
+ - How to refer to a `constants.less` file, see the receipe for [theme](docs/receipe-theme.md).
  - Cool, how does it work :question:
 head over to the [explanations](docs/explanation.md). 
