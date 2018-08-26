@@ -4,7 +4,7 @@ all less functions that would operate on variables are modified to generate dyna
 
 For example, `color: darken(@color, 15%)`; is converted to the following snippet. Note that it is using `tinycolor2` for the color conversion,
 and that the `props` and `props.theme` are searched for the `@color`. 
-```javascript
+```jsx
 color: require('tinycolor2')([props["color"],(props.theme || {})["color"]].filter(v => v !== void 0)[0]).darken(parseFloat("15%")).toHex8String();
 ```
 

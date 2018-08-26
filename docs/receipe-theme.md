@@ -3,7 +3,7 @@
 Styless is using the `ThemeProvider` from `styled-components`, and as we can see in the following example, the theme is a JSON object defining
 the less variables.
 
-```javascript
+```jsx
 <ThemeProvider theme={{highlight: "red"}}>
     <Button>click me</Button>
 </ThemeProvider>
@@ -11,7 +11,7 @@ the less variables.
 
 One can use [less-vars-to-js](https://www.npmjs.com/package/less-vars-to-js) to parse a less file congaing variables and populate the theme.
 
-```javascript
+```jsx
 import {ThemeProvider} from 'styled-components';
 import lessToJs from 'less-vars-to-js';
 import fs from 'fs';

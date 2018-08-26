@@ -57,14 +57,14 @@ There is no need to import `darken`.
     `;
 ```
 
-```javascript   
+```jsx   
     <ThemeProvider theme={{highlight: "red"}}>
         <Button highlight="green">click me</Button> // green (set in props) overwrites red (set in theme)
     </ThemeProvider>
 ```
 
 - Still supports the styled-components syntax for more complex jobs!
-```javascript
+```jsx
     `${props => props.main}`
 ```
 
@@ -82,6 +82,8 @@ const Button = styled.button`
     color: @main;
     border: 2px solid @main;
 `;
+```
+```jsx
 <Button>Normal</Button>
 <Button main="mediumseagreen">Themed</Button>
 ```
@@ -106,7 +108,8 @@ const Button = styled.button`
         background: darken(@highlight, 10%);
     }
 `;
-
+```
+```jsx
 // Notice that the @highlight variable is resolved from the theme, and overwritten from a props in the second button.
 <ThemeProvider theme={{highlight: "palevioletred"}}>
     <Button>Click me</Button>
