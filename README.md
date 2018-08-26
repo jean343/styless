@@ -119,10 +119,11 @@ const Button = styled.button`
 ```
 
 This is what you'll see in your browser :tada:, play with it on [codesandbox](https://codesandbox.io/s/6zq4jyo5qz)
+
 ![](https://i.imgur.com/01eETHm.png)
 
 
-Note that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
+*Note* that with [webstorm-styled-components](https://github.com/styled-components/webstorm-styled-components),
 we get syntax highlighting, color preview and ctrl+click access to variables!
 ![](https://i.imgur.com/t8Qw6ty.png")
 
