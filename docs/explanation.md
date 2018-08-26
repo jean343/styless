@@ -12,7 +12,7 @@ As this code is executed at run time, I am looking at ways to shorten the code a
 
 ----
 
-An if statement `if(@c, green, red);` would be converted to the following, See the [boolean](https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9) code.
+An if statement `if(@c, green, red);` would be converted to the following, see the [boolean](https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9) code.
 ```jsx
 ([props["c"],(props.theme || {})["c"]].filter(v => v !== void 0)[0] === true) ? "green" : "red"
 ```
