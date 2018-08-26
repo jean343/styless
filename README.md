@@ -109,17 +109,7 @@ Note that with [webstorm-styled-components](https://github.com/styled-components
 we get syntax highlighting, color preview and ctrl+click access to variables!
 ![](https://i.imgur.com/t8Qw6ty.png")
 
-
-## Cool, how does it work :question:
-The {less} parser is used to generate an abstract syntax tree (AST) of the styled component source, all less functions that would operate on variables were modified to generate dynamic code.
-
-For example, `darken(@color, 15%)` could be converted to `${props => require("color").darken(props.color || props.theme.color || default, "15%")}`. An if statement `if(@c, @t, @f)` would be converted to `${props => props.a ? props.b ：props.c}`.
-Note that those examples were simplified, the actual code is below:
-https://github.com/jean343/styless/blob/master/src/functions/color.js#L91
-https://github.com/jean343/styless/blob/master/src/functions/boolean.js#L9
-
-
-
-###To use a less constants file in your theme
-```javascript
-```
+#FAQ
+ - How to use a `constants.less` file, see the receipe for [theme](docs/receipe-theme.md).
+ - Cool, how does it work :question:
+head over to the [explanations](docs/explanation.md). 
