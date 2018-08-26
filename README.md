@@ -38,14 +38,14 @@ $ yarn add --dev babel-plugin-styless
 ```less
     color: darken(@highlight, 5%);
 ```
-There is no need to import `darken`.
+    There is no need to import `darken`.
 
 - Supports `rgb`, `hsl` and `hsv` color spaces
 ```less
-    color: hsv(0, 0%, 99%);
+    color: hsv(90, 100%, 50%);
 ```
 
-- Supports migrate less to styled-components seamlessly. 
+- Migrate less to styled-components seamlessly.
 
     There is no confusion when transitioning from less to styled-components caused by `width: 3px * 2`.
 
