@@ -129,5 +129,4 @@ we get syntax highlighting, color preview and ctrl+click access to variables!
 
 ## FAQ
  - How to refer to a `constants.less` file, see the receipe for [theme](docs/receipe-theme.md).
- - Cool, how does it work :question:
-head over to the [explanations](docs/explanation.md). 
+ - Cool, how does it work? Head over to the [explanations](docs/explanation.md). 
