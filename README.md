@@ -68,6 +68,26 @@ There is no need to import `darken`.
     `${props => props.main}`
 ```
 
+## Your first Styless component
+```less
+const Button = styled.button`
+    @main: palevioletred;
+    @size: 1em;
+    
+    font-size: @size;
+    margin: @size;
+    padding: @size / 4 @size;
+    border-radius: 4px;
+    
+    color: @main;
+    border: 2px solid @main;
+`;
+<Button>Normal</Button>
+<Button main="mediumseagreen">Themed</Button>
+```
+
+This is what you'll see in your browser :tada:, play with it on [codesandbox](https://codesandbox.io/s/p30ywzqkr7)
+
 ## Advanced Styless component example
 ```less
 const Button = styled.button`
@@ -96,7 +116,6 @@ const Button = styled.button`
 ```
 
 This is what you'll see in your browser :tada:, play with it on [codesandbox](https://codesandbox.io/s/6zq4jyo5qz)
-
 ![](https://i.imgur.com/01eETHm.png)
 
 
