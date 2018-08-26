@@ -77,18 +77,22 @@ const Button = styled.button`
     font-size: @size;
     margin: @size;
     padding: @size / 4 @size;
-    border-radius: 4px;
+    border-radius: @size / 2;
     
     color: @main;
     border: 2px solid @main;
+    background-color: white;
 `;
 ```
 ```jsx
 <Button>Normal</Button>
 <Button main="mediumseagreen">Themed</Button>
+<Button main="mediumseagreen" size="1.5em">Themed large</Button>
 ```
 
 This is what you'll see in your browser :tada:, play with it on [codesandbox](https://codesandbox.io/s/p30ywzqkr7)
+
+![](https://i.imgur.com/vb7wo7i.png)
 
 ## Advanced Styless component example
 ```less
