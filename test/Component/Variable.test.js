@@ -19,3 +19,11 @@ test('Replaces single variable in linear-gradient', () => {
     const tree = renderer.create(<Div start="red" end="blue"/>).toJSON();
     expect(tree).toMatchSnapshot();
 });
+
+test('Use the color defiened in the component', () => {
+    const Div = styled.div`
+        @main: palevioletred;
+        color: @main;
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});

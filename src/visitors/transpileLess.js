@@ -7,8 +7,11 @@ import * as functions from '../functions';
 
 export default source => {
     const less = new Less();
+    let lastSelf;
     Object.defineProperty(less.tree.Node.prototype, 'parse', {
+        get: () => lastSelf,
         set: self => {
+            lastSelf = self;
             const parseJS = orig => {
                 const val = orig();
                 if (val)

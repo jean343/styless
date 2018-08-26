@@ -22,3 +22,13 @@ exports[`Takes the color from props 1`] = `
   className="c0"
 />
 `;
+
+exports[`Use the color defiened in the component 1`] = `
+.c0 {
+  color: palevioletred;
+}
+
+<div
+  className="c0"
+/>
+`;
