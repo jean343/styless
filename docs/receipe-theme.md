@@ -1,4 +1,4 @@
-##To use a less constants file in your theme
+## To use a less constants file in your theme
 
 Styless is using the `ThemeProvider` from `styled-components`, and as we can see in the following example, the theme is a JSON object defining
 the less variables.
