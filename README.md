@@ -5,7 +5,7 @@
 
 # :gem:Styless:gem:
 
-Styless enables less syntax in your [styled-components](https://www.styled-components.com)
+Styless enables [less](http://lesscss.org/) syntax in your [styled-components](https://www.styled-components.com)
 
 ## Installation
 ```sh
