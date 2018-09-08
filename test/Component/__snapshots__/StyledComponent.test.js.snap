@@ -44,6 +44,19 @@ exports[`Attaching additional props 1`] = `
 </div>
 `;
 
+exports[`Support @media queries 1`] = `
+@media screen and (min-width:900px) {
+  .c0 article {
+    padding: 1rem;
+  }
+}
+
+<div
+  className="c0"
+  media="foo"
+/>
+`;
+
 exports[`Support the styled-components css 1`] = `
 .c0 {
   -webkit-flex-direction: column;
