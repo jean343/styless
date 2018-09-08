@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support inline mixins 1`] = `
+.c0 .my-mixin {
+  color: red;
+}
+
+.c0 .class {
+  color: red;
+  background: white;
+}
+
+<div
+  className="c0"
+  color="red"
+/>
+`;
