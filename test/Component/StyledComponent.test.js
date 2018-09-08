@@ -55,3 +55,14 @@ test.skip('Support the styled-components css', () => {
     expect(renderer.create(<Div direction="column" border="red"/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div bordered direction="column" border="red"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Support @media queries', () => {
+    const Div = styled.div`
+		@media screen and (min-width: 900px) {
+            article {
+              padding: @padding;
+            }
+        }
+	`;
+    expect(renderer.create(<Div padding="1rem" media="foo"/>).toJSON()).toMatchSnapshot();
+});
