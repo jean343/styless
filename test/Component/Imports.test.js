@@ -10,6 +10,7 @@ test('Support import', () => {
         .foo;
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="red"/>).toJSON()).toMatchSnapshot();
 });
 
 test('Support import reference', () => {
@@ -19,4 +20,5 @@ test('Support import reference', () => {
         .foo;
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="red"/>).toJSON()).toMatchSnapshot();
 });
