@@ -1,12 +1,15 @@
+import path from "path";
+import deasync from "deasync";
 import Less from "less/lib/less/";
+import FileManager from "less/lib/less-node/file-manager";
 import Variable from "../tree/Variable";
 import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
 import Dimension from "../tree/Dimension";
 import * as functions from '../functions';
 
-export default source => {
-    const less = new Less();
+export default (source, filename) => {
+    const less = new Less(undefined, [new FileManager()]);
     let lastSelf;
     Object.defineProperty(less.tree.Node.prototype, 'parse', {
         get: () => lastSelf,
@@ -53,15 +56,8 @@ export default source => {
     less.PluginLoader = class PluginLoader {
     };
 
-    let root, imports, options;
-    less.parse(source, {math: 0}, (e, _root, _imports, _options) => {
-        if (e) {
-            console.error(e);
-        }
-        root = _root;
-        imports = _imports;
-        options = _options;
-    });
+    const parse = deasync((input, options, callback) => less.parse(input, options, (e, root, imports, options) => callback(e, {root, imports, options})));
+    const {root, imports, options} = parse(source, {math: 0, paths: path.dirname(filename)});
     if (!root) {
         console.error("Failed to parse", source);
         return source;

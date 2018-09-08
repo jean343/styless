@@ -63,6 +63,14 @@ $ yarn add --dev babel-plugin-styless
     </ThemeProvider>
 ```
 
+- Supports imports and mixins
+```less
+    const Button = styled.button`
+        @import (reference) "variables";
+        .bg-light-blue;
+    `;
+```
+
 - Still supports the styled-components syntax for more complex jobs!
 ```jsx
     `${props => props.main}`

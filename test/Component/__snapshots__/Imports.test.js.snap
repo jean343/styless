@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support import 1`] = `
+.c0 {
+  color: green;
+  background: #900;
+  border: 1px solid green;
+}
+
+.c0 .foo {
+  background: #900;
+  border: 1px solid green;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Support import 2`] = `
+.c0 {
+  color: red;
+  background: #900;
+  border: 1px solid red;
+}
+
+.c0 .foo {
+  background: #900;
+  border: 1px solid red;
+}
+
+<div
+  className="c0"
+  color="red"
+/>
+`;
+
+exports[`Support import reference 1`] = `
+.c0 {
+  color: green;
+  background: #900;
+  border: 1px solid green;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Support import reference 2`] = `
+.c0 {
+  color: red;
+  background: #900;
+  border: 1px solid red;
+}
+
+<div
+  className="c0"
+  color="red"
+/>
+`;
