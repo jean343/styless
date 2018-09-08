@@ -20,7 +20,7 @@ export default (path, state, {types: t}) => {
             if (!source) return;
             p.isClean = true;
 
-            const raw = transpileLess(source);
+            const raw = transpileLess(source, state.file.opts.filename);
 
             // p.replaceWith(t.templateLiteral([t.templateElement({raw})], []));
             p.replaceWithSourceString('`' + raw + '`');
