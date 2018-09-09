@@ -2,6 +2,7 @@ import path from "path";
 import deasync from "deasync";
 import Less from "less/lib/less/";
 import FileManager from "less/lib/less-node/file-manager";
+import utils from "less/lib/less/utils";
 import Variable from "../tree/Variable";
 import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
@@ -56,6 +57,7 @@ export default (source, filename) => {
     // Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
     const Paren = less.tree.Paren;
     const Selector = less.tree.Selector;
+    const Element = less.tree.Element;
     const joinSelector = less.tree.Ruleset.prototype.joinSelector.toString().replace("if (el.value !== '&') {", "if (el.value !== '&' || context.length === 0) {");
     eval(`less.tree.Ruleset.prototype.joinSelector = ${joinSelector}`);
 

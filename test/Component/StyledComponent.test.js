@@ -80,3 +80,15 @@ test('Support &&&', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div bold="bold"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Support Element', () => {
+    const Div = styled.div`
+        a {
+            color: red;
+            &.is-focused:not(.is-open) > .Select-control {
+                cursor: text;
+            }
+        }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});

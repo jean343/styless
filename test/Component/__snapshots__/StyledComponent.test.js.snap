@@ -86,6 +86,20 @@ exports[`Support @media queries 1`] = `
 />
 `;
 
+exports[`Support Element 1`] = `
+.c0 a {
+  color: red;
+}
+
+.c0 a.is-focused:not(.is-open) > .Select-control {
+  cursor: text;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Support the styled-components css 1`] = `
 .c0 {
   -webkit-flex-direction: column;
