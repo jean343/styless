@@ -44,6 +44,35 @@ exports[`Attaching additional props 1`] = `
 </div>
 `;
 
+exports[`Support &&& 1`] = `
+.c0.c0.c0 {
+  color: palevioletred;
+}
+
+.c0.c0.c0second {
+  color: red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Support &&& 2`] = `
+.c0.c0.c0 {
+  color: palevioletred;
+  font-weight: bold;
+}
+
+.c0.c0.c0second {
+  color: red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Support @media queries 1`] = `
 @media screen and (min-width:900px) {
   .c0 article {

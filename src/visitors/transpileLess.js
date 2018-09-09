@@ -52,6 +52,13 @@ export default (source, filename) => {
         anonymous.noSpacing = this.noSpacing;
         return anonymous;
     };
+
+    // Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
+    const Paren = less.tree.Paren;
+    const Selector = less.tree.Selector;
+    const joinSelector = less.tree.Ruleset.prototype.joinSelector.toString().replace("if (el.value !== '&') {", "if (el.value !== '&' || context.length === 0) {");
+    eval(`less.tree.Ruleset.prototype.joinSelector = ${joinSelector}`);
+
     less.functions.functionRegistry.addMultiple(functions);
     less.PluginLoader = class PluginLoader {
     };
