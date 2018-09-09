@@ -73,6 +73,9 @@ test('Support &&&', () => {
             color: palevioletred; 
             font-weight: @bold;
         }
+        &&&second {
+            color: red;
+        }
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div bold="bold"/>).toJSON()).toMatchSnapshot();
