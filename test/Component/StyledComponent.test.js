@@ -66,3 +66,14 @@ test('Support @media queries', () => {
 	`;
     expect(renderer.create(<Div padding="1rem" media="foo"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Support &&&', () => {
+    const Div = styled.div`
+        &&& {
+            color: palevioletred; 
+            font-weight: @bold;
+        }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div bold="bold"/>).toJSON()).toMatchSnapshot();
+});
