@@ -1,9 +1,42 @@
 import {isStyled} from "../utils/detectors";
 import transpileLess from "./transpileLess";
+import {parse} from "babylon";
+import generate from 'babel-generator';
 
 const regex = /`([\s\S]*)`/;
 
-export default (path, state, {types: t}) => {
+function preProcess(source, sourceFilename, traverse) {
+    const parsed = parse(source, {sourceFilename});
+
+    traverse(parsed, {
+        ArrowFunctionExpression(path) {
+            path.traverse({
+                TemplateLiteral(p) {
+                    if (p.isClean) return;
+
+                    const rawSource = source.slice(p.node.start, p.node.end);
+                    if (!rawSource) return;
+
+                    processNode(p, rawSource, sourceFilename);
+                },
+            });
+        }
+    });
+
+    const {code} = generate(parsed, {}, source);
+    return code;
+}
+
+const processNode = (p, rawSource, sourceFilename) => {
+    const [foo, source] = regex.exec(rawSource) || [];
+    if (!source) return;
+    p.isClean = true;
+
+    const raw = transpileLess(source, sourceFilename);
+    p.replaceWithSourceString('`' + raw + '`');
+};
+
+export default (path, state, {types: t, traverse}) => {
     if (!isStyled(t)(path.node.tag, state)) {
         return;
     }
@@ -13,17 +46,12 @@ export default (path, state, {types: t}) => {
         TemplateLiteral(p) {
             if (p.isClean) return;
 
-            const rawSource = p.getSource();
+            let rawSource = p.getSource();
             if (!rawSource) return;
 
-            const [foo, source] = regex.exec(rawSource);
-            if (!source) return;
-            p.isClean = true;
+            rawSource = preProcess(rawSource, state.file.opts.filename, traverse);
 
-            const raw = transpileLess(source, state.file.opts.filename);
-
-            // p.replaceWith(t.templateLiteral([t.templateElement({raw})], []));
-            p.replaceWithSourceString('`' + raw + '`');
+            processNode(p, rawSource, state.file.opts.filename);
         },
     });
 }
