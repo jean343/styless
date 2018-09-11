@@ -4,7 +4,7 @@ import generate from 'babel-generator';
 
 const regex = /`([\s\S]*)`/;
 
-export default (path, state, {types: t, traverse}) => {
+export default (path, state, {types: t}) => {
     if (!isStyled(t)(path.node.tag, state)) {
         return;
     }
@@ -23,7 +23,7 @@ export default (path, state, {types: t, traverse}) => {
                 rawSource = code;
             }
 
-            const [foo, source] = regex.exec(rawSource) || [];
+            const [foo, source] = regex.exec(rawSource);
             if (!source) return;
             p.isClean = true;
 
