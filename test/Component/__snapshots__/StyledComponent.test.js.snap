@@ -102,28 +102,22 @@ exports[`Support Element 1`] = `
 
 exports[`Support the styled-components css 1`] = `
 .c0 {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  padding: 1rem;
 }
 
 <div
   className="c0"
-  direction="column"
 />
 `;
 
 exports[`Support the styled-components css 2`] = `
 .c0 {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  padding: 1rem;
   border: 1px solid red;
 }
 
 <div
   className="c0"
-  direction="column"
 />
 `;
 

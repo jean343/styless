@@ -9,6 +9,74 @@ import Negative from "../tree/Negative";
 import Dimension from "../tree/Dimension";
 import * as functions from '../functions';
 
+const consumeBrackets = parserInput => {
+    let inComment = false;
+    let blockDepth = 0;
+    const blockStack = [];
+    const input = parserInput.getInput();
+    const length = input.length;
+    const lastPos = parserInput.i;
+    let i = parserInput.i;
+    let prevChar, nextChar;
+
+    do {
+        prevChar, nextChar = input.charAt(i);
+        if (blockDepth === 0 && prevChar === "}") {
+            return input.substr(lastPos, i - lastPos);
+        } else {
+            if (inComment) {
+                if (nextChar === '*' &&
+                    input.charAt(i + 1) === '/') {
+                    i++;
+                    blockDepth--;
+                    inComment = false;
+                }
+                i++;
+                continue;
+            }
+            switch (nextChar) {
+                case '/':
+                    if (input.charAt(i + 1) === '*') {
+                        i++;
+                        inComment = true;
+                        blockDepth++;
+                    }
+                    break;
+                case "'":
+                case '"':
+                    let quote = parserInput.$quoted(i);
+                    if (quote) {
+                        i += quote[1].length - 1;
+                    }
+                    break;
+                case '{':
+                    blockStack.push('}');
+                    blockDepth++;
+                    break;
+                case '(':
+                    blockStack.push(')');
+                    blockDepth++;
+                    break;
+                case '[':
+                    blockStack.push(']');
+                    blockDepth++;
+                    break;
+                case '}':
+                case ')':
+                case ']':
+                    var expected = blockStack.pop();
+                    if (nextChar === expected) {
+                        blockDepth--;
+                    } else {
+                        return expected;
+                    }
+            }
+            i++;
+        }
+        prevChar = nextChar;
+    } while (i <= length);
+};
+
 export default (source, filename) => {
     const less = new Less(undefined, [new FileManager()]);
     let lastSelf;
@@ -23,7 +91,8 @@ export default (source, filename) => {
 
                 let name;
                 self.parserInput.save();
-                if (self.parserInput.currentChar() === '$' && (name = self.parserInput.$re(/^\${[\s\S]*?}/))) {
+                if (self.parserInput.currentChar() === '$' && (name = consumeBrackets(self.parserInput))) {
+                    self.parserInput.$str(name);
                     const anonymous = new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
                     anonymous.noSpacing = self.parserInput.prevChar() !== " ";
                     return anonymous;

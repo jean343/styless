@@ -45,15 +45,15 @@ test('Attaching additional props', () => {
     </div>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Support the styled-components css', () => {
+test('Support the styled-components css', () => {
     const Div = styled.div`
-		flex-direction: @direction;
-		${props => props.bordered && css`
-			border: 1px solid @border;
-		`}
+        padding: @padding;
+        ${props => props.bordered && css`
+          border: 1px solid @border;
+        `}
 	`;
-    expect(renderer.create(<Div direction="column" border="red"/>).toJSON()).toMatchSnapshot();
-    expect(renderer.create(<Div bordered direction="column" border="red"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div padding="1rem" border="red"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div bordered padding="1rem" border="red"/>).toJSON()).toMatchSnapshot();
 });
 
 test('Support @media queries', () => {
