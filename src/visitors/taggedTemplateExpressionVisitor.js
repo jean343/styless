@@ -1,6 +1,6 @@
 import {isStyled} from "../utils/detectors";
 import transpileLess from "./transpileLess";
-import generate from 'babel-generator';
+import generate from '@babel/generator';
 
 const regex = /`([\s\S]*)`/;
 
