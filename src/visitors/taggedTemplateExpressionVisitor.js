@@ -27,9 +27,13 @@ export default (path, state, {types: t}) => {
             if (!source) return;
             p.isClean = true;
 
-            const raw = transpileLess(source, state.file.opts.filename);
-            if (source !== raw) {
-                p.replaceWithSourceString('`' + raw + '`');
+            try {
+                const raw = transpileLess(source, state.file.opts.filename);
+                if (source !== raw) {
+                    p.replaceWithSourceString('`' + raw + '`');
+                }
+            } catch (e) {
+                console.error("Error converting the less syntax", e);
             }
         },
     });
