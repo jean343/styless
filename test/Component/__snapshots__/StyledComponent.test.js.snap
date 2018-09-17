@@ -100,6 +100,54 @@ exports[`Support Element 1`] = `
 />
 `;
 
+exports[`Support placeholder on the root 1`] = `
+.c0::-webkit-input-placeholder {
+  color: #98a3b3ff;
+}
+
+.c0::-moz-placeholder {
+  color: #98a3b3ff;
+}
+
+.c0:-ms-input-placeholder {
+  color: #98a3b3ff;
+}
+
+.c0::placeholder {
+  color: #98a3b3ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Support styling other components 1`] = `
+.c2 {
+  color: brown;
+}
+
+.c4 {
+  color: red;
+}
+
+.c0 .c1,
+.c0 .c3 {
+  width: 400px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1 c2"
+  />
+  <div
+    className="c3 c4"
+  />
+</div>
+`;
+
 exports[`Support the styled-components css 1`] = `
 .c0 {
   padding: 1rem;

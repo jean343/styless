@@ -84,7 +84,7 @@ export default (source, filename) => {
         get: () => lastSelf,
         set: self => {
             lastSelf = self;
-            const parseJS = orig => {
+            const parseJS = (orig, treeConstructor, isDeclaration) => {
                 const val = orig();
                 if (val)
                     return val;
@@ -92,16 +92,28 @@ export default (source, filename) => {
                 let name;
                 self.parserInput.save();
                 if (self.parserInput.currentChar() === '$' && (name = consumeBrackets(self.parserInput))) {
+                    // Makes the assumption that all nested code blocks have css in them.
+                    if (isDeclaration && !name.includes("css")) {
+                        return;
+                    }
                     self.parserInput.$str(name);
                     const anonymous = new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
                     anonymous.noSpacing = self.parserInput.prevChar() !== " ";
-                    return anonymous;
+                    if (treeConstructor) {
+                        return treeConstructor(anonymous);
+                    } else {
+                        return anonymous;
+                    }
                 }
                 self.parserInput.restore();
             };
 
-            self.parsers.declaration = parseJS.bind(null, self.parsers.declaration.bind(self.parsers));
+            self.parsers.declaration = parseJS.bind(null, self.parsers.declaration.bind(self.parsers), undefined, true);
             self.parsers.entities.variable = parseJS.bind(null, self.parsers.entities.variable.bind(self.parsers));
+            self.parsers.element = parseJS.bind(null, self.parsers.element.bind(self.parsers), anonymous => {
+                const c = self.parsers.combinator();
+                return new (less.tree.Element)(c, anonymous, true, self.parserInput.i, self.fileInfo);
+            });
         },
         configurable: true
     });

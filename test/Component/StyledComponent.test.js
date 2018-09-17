@@ -70,7 +70,7 @@ test('Support @media queries', () => {
 test('Support &&&', () => {
     const Div = styled.div`
         &&& {
-            color: palevioletred; 
+            color: palevioletred;
             font-weight: @bold;
         }
         &&&second {
@@ -91,4 +91,29 @@ test('Support Element', () => {
         }
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('Support placeholder on the root', () => {
+    const Div = styled.div`
+        &::placeholder {
+            color: HSL(216, 15%, 65%);
+        }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('Support styling other components', () => {
+    const Child1 = styled.div`
+        color: brown;
+	`;
+    const Child2 = styled.div`
+        color: red;
+	`;
+    const Div = styled.div`
+        ${Child1},
+        ${Child2}{
+            width: 400px;
+        }
+	`;
+    expect(renderer.create(<Div><Child1/><Child2/></Div>).toJSON()).toMatchSnapshot();
 });
