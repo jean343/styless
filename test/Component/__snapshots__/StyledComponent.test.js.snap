@@ -101,24 +101,34 @@ exports[`Support Element 1`] = `
 `;
 
 exports[`Support SC mixins 1`] = `
-.c0 {
+.c1 {
   border-bottom: red;
 }
 
-.c0:hover {
+.c1:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.c0:hover {
+.c1:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-<div
-  className="c0"
-  color="red"
-/>
+.c1:hover,
+.c1:hover.c0 {
+  color: inherit;
+}
+
+<span>
+  <div
+    className="c0 "
+  />
+  <div
+    className="c1"
+    color="red"
+  />
+</span>
 `;
 
 exports[`Support placeholder on the root 1`] = `
@@ -200,6 +210,7 @@ exports[`Support the styled-components syntax 1`] = `
   color: white;
   color2: #5cb85c;
   color3: red;
+  box-shadow: inset 0 0 0 30px rgba(255,255,255,0.3);
 }
 
 <div
