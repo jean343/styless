@@ -110,6 +110,11 @@ exports[`Support SC mixins 1`] = `
   text-decoration: underline;
 }
 
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
 <div
   className="c0"
   color="red"

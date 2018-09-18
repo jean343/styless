@@ -126,6 +126,7 @@ test('Support SC mixins', () => {
     `;
     const Div = styled.div`
 	    ${hover};
+	    ${props => hover};
 	    border-bottom: @color;
 	`;
     expect(renderer.create(<Div color="red"/>).toJSON()).toMatchSnapshot();
