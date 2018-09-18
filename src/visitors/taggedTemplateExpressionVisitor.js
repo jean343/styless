@@ -33,7 +33,7 @@ export default (path, state, {types: t}) => {
                     p.replaceWithSourceString('`' + raw + '`');
                 }
             } catch (e) {
-                console.error("Error converting the less syntax", e);
+                console.error("Error converting the less syntax for the file:", state.file.opts.filename, rawSource, e);
             }
         },
     });

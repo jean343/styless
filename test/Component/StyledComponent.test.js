@@ -117,3 +117,16 @@ test('Support styling other components', () => {
 	`;
     expect(renderer.create(<Div><Child1/><Child2/></Div>).toJSON()).toMatchSnapshot();
 });
+
+test('Support SC mixins', () => {
+    const hover = css`
+        &:hover {
+            text-decoration: underline;
+        }
+    `;
+    const Div = styled.div`
+	    ${hover};
+	    border-bottom: @color;
+	`;
+    expect(renderer.create(<Div color="red"/>).toJSON()).toMatchSnapshot();
+});

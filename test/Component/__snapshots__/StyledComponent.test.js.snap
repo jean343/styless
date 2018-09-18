@@ -100,6 +100,22 @@ exports[`Support Element 1`] = `
 />
 `;
 
+exports[`Support SC mixins 1`] = `
+.c0 {
+  border-bottom: red;
+}
+
+.c0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+  className="c0"
+  color="red"
+/>
+`;
+
 exports[`Support placeholder on the root 1`] = `
 .c0::-webkit-input-placeholder {
   color: #98a3b3ff;
