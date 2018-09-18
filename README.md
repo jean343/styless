@@ -141,4 +141,12 @@ we get syntax highlighting, color preview and ctrl+click access to variables!
 
 ## FAQ
  - How to refer to a `constants.less` file, see the receipe for [theme](docs/receipe-theme.md).
- - Cool, how does it work? Head over to the [explanations](docs/explanation.md). 
+ - Cool, how does it work? Head over to the [explanations](docs/explanation.md).
+ - The styled-components mixins such as `${hover};` must be terminated with a semi colon. The following will not work.
+ 
+```less
+const Button = styled.button`
+  ${hover}
+  color: red;
+`;
+```

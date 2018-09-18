@@ -92,10 +92,16 @@ export default (source, filename) => {
                 let name;
                 self.parserInput.save();
                 if (self.parserInput.currentChar() === '$' && (name = consumeBrackets(self.parserInput))) {
-                    // Makes the assumption that all nested code blocks have css in them.
+                    // Makes the assumption that all nested code blocks have css in them, or ends with a ;.
                     if (isDeclaration && !name.includes("css")) {
-                        return;
+                        self.parserInput.save();
+                        self.parserInput.$str(name);
+                        if (self.parserInput.currentChar() !== ';') {
+                            self.parserInput.restore();
+                            return;
+                        }
                     }
+
                     self.parserInput.$str(name);
                     const anonymous = new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
                     anonymous.noSpacing = self.parserInput.prevChar() !== " ";

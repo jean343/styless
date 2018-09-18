@@ -13,6 +13,7 @@ test('Support the styled-components syntax', () => {
         color: ${props => props.primary ? 'white' : 'palevioletred'};
 		color2: ${props => props.noChild && "#5cb85c"}; // @brand-success
 		color3: @color;
+		${props => props.disabled ? "" : "box-shadow: inset 0 0 0 30px rgba(255, 255, 255, 0.3)"};
 	`;
     expect(renderer.create(<Div color="red" primary noChild/>).toJSON()).toMatchSnapshot();
 });
@@ -116,4 +117,24 @@ test('Support styling other components', () => {
         }
 	`;
     expect(renderer.create(<Div><Child1/><Child2/></Div>).toJSON()).toMatchSnapshot();
+});
+
+test('Support SC mixins', () => {
+    const hover = css`
+        &:hover {
+            text-decoration: underline;
+        }
+    `;
+    const Icon = styled.div`
+	`;
+    const Div = styled.div`
+	    ${hover};
+	    ${props => hover};
+	    border-bottom: @color;
+	    
+		&:hover, &:hover ${Icon} {
+			color: inherit;
+		}
+	`;
+    expect(renderer.create(<span><Icon/><Div color="red"/></span>).toJSON()).toMatchSnapshot();
 });
