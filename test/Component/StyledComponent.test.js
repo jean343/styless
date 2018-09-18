@@ -138,3 +138,11 @@ test('Support SC mixins', () => {
 	`;
     expect(renderer.create(<span><Icon/><Div color="red"/></span>).toJSON()).toMatchSnapshot();
 });
+
+test('#20, not', () => {
+    const Div = styled.div`
+	    box-shadow: if(not (@disabled), inset 0 0 0 30px red);
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div disabled/>).toJSON()).toMatchSnapshot();
+});
