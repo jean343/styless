@@ -1,5 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#20, not 1`] = `
+.c0 {
+  box-shadow: inset 0 0 0 30px red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`#20, not 2`] = `
+<div
+  className=""
+  disabled={true}
+/>
+`;
+
 exports[`Attaching additional props 1`] = `
 .c0 {
   color: palevioletred;

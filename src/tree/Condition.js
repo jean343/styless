@@ -26,6 +26,10 @@ export default class Condition {
             }
         })(this.op, this.lvalue.eval(context), this.rvalue.eval(context));
 
-        return this.negate ? !result : result;
+        if (this.negate) {
+            return `!${result}`;
+        } else {
+            return result;
+        }
     }
 }
