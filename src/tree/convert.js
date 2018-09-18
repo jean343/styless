@@ -15,15 +15,19 @@ export default (val, defaultValue) => {
     return `[${parts.filter(v => !!v).join(",")}].filter(v => v !== void 0)[0]`;
 };
 
-export const convertNode = v => {
+export const convertNode = (v, stringify = true) => {
     if (!v)
         return undefined;
     let value = v.toCSS ? v.toCSS() : v.toString();
     if (v instanceof VariableNode) {
         return value;
     }
-    // Deals with "strings"
-    // value = value.replace(/(^"|"$)/g, '');
-    value = value.replace(/"/g, '\\"');
-    return `"${value}"`;
+    if (stringify) {
+        // Deals with "strings"
+        // value = value.replace(/(^"|"$)/g, '');
+        value = value.replace(/"/g, '\\"');
+        return `"${value}"`;
+    } else {
+        return value;
+    }
 };

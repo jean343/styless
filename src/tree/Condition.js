@@ -1,3 +1,5 @@
+import {convertNode as c} from './convert';
+
 export default class Condition {
     constructor(op, l, r, i, negate) {
         this.op = op.trim();
@@ -14,15 +16,17 @@ export default class Condition {
 
     eval(context) {
         var result = (function (op, a, b) {
+            a = c(a, false);
+            b = c(b, false);
             switch (op) {
                 case 'and':
-                    return `${a.value} && ${b.value}`;
+                    return `${a} && ${b}`;
                 case 'or':
-                    return `${a.value} || ${b.value}`;
+                    return `${a} || ${b}`;
                 case '=':
-                    return `${a.value} === ${b.value}`;
+                    return `${a} === ${b}`;
                 default:
-                    return `${a.value} ${op} ${b.value}`;
+                    return `${a} ${op} ${b}`;
             }
         })(this.op, this.lvalue.eval(context), this.rvalue.eval(context));
 

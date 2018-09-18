@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test and 1`] = `
+.c0 {
+  opacity1: 0;
+  opacity2: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test and 2`] = `
+.c0 {
+  opacity1: 0;
+  opacity2: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test and 3`] = `
+.c0 {
+  opacity1: 0;
+  opacity2: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test and 4`] = `
+.c0 {
+  opacity1: 1;
+  opacity2: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test or 1`] = `
+.c0 {
+  opacity1: 0;
+  opacity2: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test or 2`] = `
+.c0 {
+  opacity1: 1;
+  opacity2: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test or 3`] = `
+.c0 {
+  opacity1: 1;
+  opacity2: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test or 4`] = `
+.c0 {
+  opacity1: 1;
+  opacity2: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
