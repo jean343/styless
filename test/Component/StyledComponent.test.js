@@ -125,8 +125,7 @@ test('Support SC mixins', () => {
             text-decoration: underline;
         }
     `;
-    const Icon = styled.div`
-	`;
+    const Icon = styled.div``;
     const Div = styled.div`
 	    ${hover};
 	    ${props => hover};
