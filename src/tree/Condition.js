@@ -1,4 +1,5 @@
 import {convertNode as c} from './convert';
+import VariableNode from "./VariableNode";
 
 export default class Condition {
     constructor(op, l, r, i, negate) {
@@ -15,25 +16,28 @@ export default class Condition {
     }
 
     eval(context) {
-        var result = (function (op, a, b) {
-            a = c(a, false);
-            b = c(b, false);
-            switch (op) {
-                case 'and':
-                    return `${a} && ${b}`;
-                case 'or':
-                    return `${a} || ${b}`;
-                case '=':
-                    return `${a} === ${b}`;
-                default:
-                    return `${a} ${op} ${b}`;
-            }
-        })(this.op, this.lvalue.eval(context), this.rvalue.eval(context));
+        let a = c(this.lvalue.eval(context));
+        let b = c(this.rvalue.eval(context));
+        let result;
+        switch (this.op) {
+            case 'and':
+                result = `${a} && ${b}`;
+                break;
+            case 'or':
+                result = `${a} || ${b}`;
+                break;
+            case '=':
+                result = `${a} === ${b}`;
+                break;
+            default:
+                result = `${a} ${this.op} ${b}`;
+                break;
+        }
 
         if (this.negate) {
-            return `!${result}`;
+            return new VariableNode(`!${result}`);
         } else {
-            return result;
+            return new VariableNode(result);
         }
     }
 }
