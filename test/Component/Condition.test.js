@@ -34,3 +34,14 @@ test('Test =', () => {
     expect(renderer.create(<Div a="lala" b="lala"/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div a="lala" b={false}/>).toJSON()).toMatchSnapshot();
 });
+
+test('Test greater than', () => {
+    const Div = styled.div`
+	    opacity: if(luma(@bg) > 50%, 1, 0);
+	    opacity: if(luma(@bg) >= 50%, 1, 0);
+	    opacity: if(luma(@bg) < 50%, 1, 0);
+	    opacity: if(luma(@bg) <= 50%, 1, 0);
+	`;
+    expect(renderer.create(<Div bg="black"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div bg="white"/>).toJSON()).toMatchSnapshot();
+});
