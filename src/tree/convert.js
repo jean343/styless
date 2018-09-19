@@ -23,6 +23,9 @@ export const convertNode = v => {
         return value;
     }
     // Deals with "strings"
+    if (value.startsWith('`')){
+        return value;
+    }
     value = value.replace(/"/g, '\\"');
     return `"${value}"`;
 };
