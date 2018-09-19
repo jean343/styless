@@ -1,3 +1,6 @@
+import {convertNode as c} from './convert';
+import VariableNode from "./VariableNode";
+
 export default class Condition {
     constructor(op, l, r, i, negate) {
         this.op = op.trim();
@@ -13,23 +16,30 @@ export default class Condition {
     }
 
     eval(context) {
-        var result = (function (op, a, b) {
-            switch (op) {
-                case 'and':
-                    return `${a.value} && ${b.value}`;
-                case 'or':
-                    return `${a.value} || ${b.value}`;
-                case '=':
-                    return `${a.value} === ${b.value}`;
-                default:
-                    return `${a.value} ${op} ${b.value}`;
-            }
-        })(this.op, this.lvalue.eval(context), this.rvalue.eval(context));
+        let a = this.lvalue.eval(context);
+        let b = this.rvalue.eval(context);
+        a = a.value ? a.value : c(a);
+        b = b.value ? b.value : c(b);
+        let result;
+        switch (this.op) {
+            case 'and':
+                result = `${a} && ${b}`;
+                break;
+            case 'or':
+                result = `${a} || ${b}`;
+                break;
+            case '=':
+                result = `${a} == ${b}`;
+                break;
+            default:
+                result = `${a} ${this.op} ${b}`;
+                break;
+        }
 
         if (this.negate) {
-            return `!${result}`;
+            return new VariableNode(`!${result}`);
         } else {
-            return result;
+            return new VariableNode(result);
         }
     }
 }
