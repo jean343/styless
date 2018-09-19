@@ -24,3 +24,13 @@ test('Test or', () => {
     expect(renderer.create(<Div warning/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div errorText warning/>).toJSON()).toMatchSnapshot();
 });
+
+test('Test =', () => {
+    const Div = styled.div`
+	    opacity1: if(@a = @b, 1, 0);
+	`;
+    expect(renderer.create(<Div a={1} b={1}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a={1} b={0}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a="lala" b="lala"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a="lala" b={false}/>).toJSON()).toMatchSnapshot();
+});

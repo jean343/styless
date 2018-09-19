@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test = 1`] = `
+.c0 {
+  opacity1: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test = 2`] = `
+.c0 {
+  opacity1: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test = 3`] = `
+.c0 {
+  opacity1: 1;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test = 4`] = `
+.c0 {
+  opacity1: 0;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Test and 1`] = `
 .c0 {
   opacity1: 0;
