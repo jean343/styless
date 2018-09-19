@@ -16,8 +16,10 @@ export default class Condition {
     }
 
     eval(context) {
-        let a = c(this.lvalue.eval(context));
-        let b = c(this.rvalue.eval(context));
+        let a = this.lvalue.eval(context);
+        let b = this.rvalue.eval(context);
+        a = a.value ? a.value : c(a);
+        b = b.value ? b.value : c(b);
         let result;
         switch (this.op) {
             case 'and':
@@ -27,7 +29,7 @@ export default class Condition {
                 result = `${a} || ${b}`;
                 break;
             case '=':
-                result = `${a} === ${b}`;
+                result = `${a} == ${b}`;
                 break;
             default:
                 result = `${a} ${this.op} ${b}`;

@@ -23,9 +23,6 @@ export const convertNode = v => {
         return value;
     }
     // Deals with "strings"
-    if (["true", "false"].includes(value)) {
-        return value;
-    }
     value = value.replace(/"/g, '\\"');
     return `"${value}"`;
 };
