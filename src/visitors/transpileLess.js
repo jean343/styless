@@ -130,11 +130,11 @@ export default (source, filename) => {
     less.tree.Dimension = Dimension;
     less.tree.Expression.prototype.genCSS = function (context, output) {
         const cssFragment = context.cssFragment && this.value.some(v => v instanceof VariableNode);
-        if (cssFragment) output.add('`');
+        if (cssFragment) output.add('`/*styless*/');
         for (let i = 0; i < this.value.length; i++) {
             const value = this.value[i];
             if (cssFragment && value instanceof VariableNode) {
-                output.add(`\${${value.value}}`);
+                output.add(`\${${value.toCSS()}}`);
             } else {
                 value.genCSS(context, output);
             }
