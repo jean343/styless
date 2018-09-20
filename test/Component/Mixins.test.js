@@ -19,24 +19,7 @@ test('Support inline mixins', () => {
     expect(renderer.create(<Div color="red" background="white"/>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Test mixin guards 1', () => {
-	const Div = styled.div`
-        .theme (@mode) when (@mode = "dark") {
-        	background-color: darkblue;
-        }
-        .theme (@mode) when (@mode = "light") {
-        	background-color: lightblue;
-        }
-        .theme (@mode) when (default()) {
-  			background-color: @mode;
-		}
-  		.theme(@scheme);
-    `;
-	expect(renderer.create(<Div scheme="dark"/>).toJSON()).toMatchSnapshot();
-});
-
-
-test.skip('Test mixin guards 2', () => {
+test.skip('Test mixin guards', () => {
 	const Div = styled.div`
 		.mixin(@a) when (lightness(@a) >= 50%) {
 		  background-color: black;
@@ -52,3 +35,19 @@ test.skip('Test mixin guards 2', () => {
     `;
 	expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
+
+// test.skip('Test Less loops', () => {
+// 	const Div = styled.div`
+// 		.make-variants(@i:1) when (@i =< 3) {
+// 			.variant-@{i} {
+// 				width: @i * 40px;
+// 				height: @i * 20px;
+// 				background-color: orange;
+// 				margin-bottom: 10px;
+// 			}
+// 		  .make-variants(@i + 1); // increment function
+// 		}
+// 		.make-variants();
+// 	`;
+// 	expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+// });
