@@ -6,6 +6,9 @@ export const boolean = condition => {
 };
 
 const _if = (condition, trueValue, falseValue) => {
-    return new VariableNode(`(${c(condition)}) ? ${c(trueValue)} : ${c(falseValue)}`);
+    const flags = {
+        cssFragment: true
+    };
+    return new VariableNode(`(${c(condition)}) ? ${c(trueValue, flags)} : ${c(falseValue, flags)}`);
 };
 export {_if as if};

@@ -8,6 +8,7 @@ import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
 import Dimension from "../tree/Dimension";
 import * as functions from '../functions';
+import VariableNode from "../tree/VariableNode";
 
 const consumeBrackets = parserInput => {
     let inComment = false;
@@ -128,12 +129,20 @@ export default (source, filename) => {
     less.tree.Negative = Negative;
     less.tree.Dimension = Dimension;
     less.tree.Expression.prototype.genCSS = function (context, output) {
-        for (var i = 0; i < this.value.length; i++) {
-            this.value[i].genCSS(context, output);
-            if (!(this.noSpacing || this.value[i].noSpacing) && i + 1 < this.value.length) {
+        const cssFragment = context.cssFragment && this.value.some(v => v instanceof VariableNode);
+        if (cssFragment) output.add('`/*styless*/');
+        for (let i = 0; i < this.value.length; i++) {
+            const value = this.value[i];
+            if (cssFragment && value instanceof VariableNode) {
+                output.add(`\${${value.toCSS()}}`);
+            } else {
+                value.genCSS(context, output);
+            }
+            if (!(this.noSpacing || value.noSpacing) && i + 1 < this.value.length) {
                 output.add(' ');
             }
         }
+        if (cssFragment) output.add('`');
     };
     less.tree.Anonymous.prototype.eval = function () {
         const anonymous = new less.tree.Anonymous(this.value, this._index, this._fileInfo, this.mapLines, this.rulesetLike, this.visibilityInfo());

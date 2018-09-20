@@ -25,6 +25,7 @@ export default (path, state, {types: t}) => {
 
             const [foo, source] = regex.exec(rawSource);
             if (!source) return;
+            if (source.startsWith("/*styless*/")) return;
             p.isClean = true;
 
             try {

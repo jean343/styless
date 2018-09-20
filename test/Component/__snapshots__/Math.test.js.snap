@@ -130,6 +130,17 @@ exports[`Converts a floating point number into a percentage string. 1`] = `
 />
 `;
 
+exports[`Does some conditional math. 1`] = `
+.c0 {
+  a: 8;
+  b: 2;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Does some math. 1`] = `
 .c0 {
   width: 200px;

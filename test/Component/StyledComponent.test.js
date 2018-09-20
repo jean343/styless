@@ -145,3 +145,11 @@ test('#20, not', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div disabled/>).toJSON()).toMatchSnapshot();
 });
+
+test('#20, box-shadow', () => {
+    const Div = styled.div`
+        box-shadow: if(not @disabled, inset 0 0 0 30px rgba(255, 255, 255, 0.5));
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div disabled/>).toJSON()).toMatchSnapshot();
+});

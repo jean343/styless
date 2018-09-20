@@ -142,6 +142,50 @@ exports[`Decrease the transparency (or increase the opacity) of a color, making 
 />
 `;
 
+exports[`Extract and reconstruct an hsl color. 1`] = `
+.c0 {
+  col-before: #80bf40ff;
+  col-after: #80bf40ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Extract and reconstruct an hsl color. 2`] = `
+.c0 {
+  col-before: #80ff00;
+  col-after: #80ff00ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Extract and reconstruct an hsv color. 1`] = `
+.c0 {
+  col-before: #608040ff;
+  col-after: #608040ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Extract and reconstruct an hsv color. 2`] = `
+.c0 {
+  col-before: #80ff00;
+  col-after: #80ff00ff;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Extracts the alpha channel of a color object. 1`] = `
 .c0 {
   alpha: 0.5;
@@ -212,7 +256,7 @@ exports[`Extracts the hue channel of a color object in the HSV color space. 1`] 
 />
 `;
 
-exports[`Extracts the lightness  channel of a color object in the HSL color space. 1`] = `
+exports[`Extracts the lightness channel of a color object in the HSL color space. 1`] = `
 .c0 {
   lightness: 50%;
   lightness: 50%;

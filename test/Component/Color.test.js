@@ -76,7 +76,7 @@ test('Extracts the saturation channel of a color object in the HSL color space.'
     expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
 });
 
-test('Extracts the lightness  channel of a color object in the HSL color space.', () => {
+test('Extracts the lightness channel of a color object in the HSL color space.', () => {
     const Div = styled.div`
 		lightness: lightness(hsl(90, 100%, 50%));
 		lightness: lightness(#80ff00);
@@ -86,6 +86,16 @@ test('Extracts the lightness  channel of a color object in the HSL color space.'
 		lightness: lightness(hsl(90, 50%, 50%));
 	`;
     expect(renderer.create(<Div color="#80ff00" color2="hsl(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extract and reconstruct an hsl color.', () => {
+    const Div = styled.div`
+        @col: hsl(90, 50%, 50%);
+        col-before: @col;
+        col-after: hsl(hue(@col), saturation(@col), lightness(@col));
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div col="#80ff00"/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -121,6 +131,16 @@ test('Extracts the value channel of a color object in the HSV color space.', () 
 		hsvvalue: hsvvalue(hsv(90, 50%, 50%));
 	`;
     expect(renderer.create(<Div color="#408000" color2="hsv(90, 100%, 50%)"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Extract and reconstruct an hsv color.', () => {
+    const Div = styled.div`
+        @col: hsv(90, 50%, 50%);
+        col-before: @col;
+        col-after: hsv(hsvhue(@col), hsvsaturation(@col), hsvvalue(@col));
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div col="#80ff00"/>).toJSON()).toMatchSnapshot();
 });
 
 

@@ -182,3 +182,11 @@ test('Returns the highest of one or more values.', () => {
 	`;
     expect(renderer.create(<Div a={5} b={3} c="72cm"/>).toJSON()).toMatchSnapshot();
 });
+
+test('Does some conditional math.', () => {
+    const Div = styled.div`
+        a: if(boolean(true), @a + @b, @a - @b);
+        b: if(boolean(false), @a + @b, @a - @b);
+	`;
+    expect(renderer.create(<Div a={5} b={3}/>).toJSON()).toMatchSnapshot();
+});
