@@ -142,6 +142,27 @@ exports[`Returns true if a value is an em value, false otherwise. 2`] = `
 />
 `;
 
+exports[`Returns: true if value is a number in specific units, false otherwise. 1`] = `
+.c0 {
+  is: true;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Returns: true if value is a number in specific units, false otherwise. 2`] = `
+.c0 {
+  is: false;
+  width: 7.8%;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Returns: true if value is a percentage value, false otherwise. 1`] = `
 .c0 {
   is: true;
