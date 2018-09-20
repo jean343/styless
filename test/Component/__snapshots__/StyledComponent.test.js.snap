@@ -8,7 +8,7 @@ exports[`#20, box-shadow 1`] = `
 
 exports[`#20, box-shadow 2`] = `
 .c0 {
-  box-shadow: if(not @disabled,inset 0 0 0 30px rgba(255,255,255,0.5));
+  box-shadow: inset 0 0 0 30px #ffffff80;
 }
 
 <div
