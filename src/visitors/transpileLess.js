@@ -23,7 +23,7 @@ const transpile = (less, source, filename) => {
     const parseTree = new less.ParseTree(root, imports);
     const {css} = parseTree.toCSS(options);
     return css;
-}
+};
 
 export default (source, filename) => {
     const less = new Less(undefined, [new FileManager()]);
