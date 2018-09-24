@@ -1,5 +1,5 @@
-import vm from "vm";
 import {isStyled} from "../utils/detectors";
+import transpileLess from "./transpileLess";
 import generate from '@babel/generator';
 
 const regex = /`([\s\S]*)`/;
@@ -29,14 +29,7 @@ export default (path, state, {types: t}) => {
             p.isClean = true;
 
             try {
-                const raw = vm.runInNewContext(`
-                    const transpileLess = require("./transpileLess").default;
-                    transpileLess(source, state.file.opts.filename);
-                `, {
-                    source: source,
-                    state: state,
-                    require: require,
-                });
+                const raw = transpileLess(source, state.file.opts.filename);
                 if (source !== raw) {
                     p.replaceWithSourceString('`' + raw + '`');
                 }
