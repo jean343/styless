@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Less should still compile normally 1`] = `
+"div {
+  color: red;
+  darken: #990000;
+}
+"
+`;
