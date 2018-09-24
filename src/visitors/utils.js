@@ -1,6 +1,6 @@
 import VariableNode from "../tree/VariableNode";
 
-export const consumeBrackets = parserInput => {
+const consumeBrackets = parserInput => {
     let inComment = false;
     let blockDepth = 0;
     const blockStack = [];
@@ -89,3 +89,48 @@ export const anonymousEval = less => function () {
     anonymous.noSpacing = this.noSpacing;
     return anonymous;
 };
+
+let lastSelf;
+export const nodeParse = less => ({
+    get: () => lastSelf,
+    set: self => {
+        lastSelf = self;
+        const parseJS = (orig, treeConstructor, isDeclaration) => {
+            const val = orig();
+            if (val)
+                return val;
+
+            let name;
+            self.parserInput.save();
+            if (self.parserInput.currentChar() === '$' && (name = consumeBrackets(self.parserInput))) {
+                // Makes the assumption that all nested code blocks have css in them, or ends with a ;.
+                if (isDeclaration && !name.includes("css")) {
+                    self.parserInput.save();
+                    self.parserInput.$str(name);
+                    if (self.parserInput.currentChar() !== ';') {
+                        self.parserInput.restore();
+                        return;
+                    }
+                }
+
+                self.parserInput.$str(name);
+                const anonymous = new (less.tree.Anonymous)(name, self.parserInput.i, self.fileInfo);
+                anonymous.noSpacing = self.parserInput.prevChar() !== " ";
+                if (treeConstructor) {
+                    return treeConstructor(anonymous);
+                } else {
+                    return anonymous;
+                }
+            }
+            self.parserInput.restore();
+        };
+
+        self.parsers.declaration = parseJS.bind(null, self.parsers.declaration.bind(self.parsers), undefined, true);
+        self.parsers.entities.variable = parseJS.bind(null, self.parsers.entities.variable.bind(self.parsers));
+        self.parsers.element = parseJS.bind(null, self.parsers.element.bind(self.parsers), anonymous => {
+            const c = self.parsers.combinator();
+            return new (less.tree.Element)(c, anonymous, true, self.parserInput.i, self.fileInfo);
+        });
+    },
+    configurable: true
+});
