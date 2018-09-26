@@ -10,22 +10,25 @@ import Dimension from "../tree/Dimension";
 import * as functions from '../functions';
 import {genCSS, anonymousEval, nodeParse} from "./utils";
 
-const transpile = (less, source, filename) => {
+const transpile = (less, source, filename, opts = {}) => {
+    let banner = "";
+    if (opts.import) {
+        banner += `@import (reference) "${opts.import}";`;
+    }
     const parse = deasync((input, options, callback) => less.parse(input, options, (e, root, imports, options) => callback(e, {root, imports, options})));
-    const {root, imports, options} = parse(source, {math: 0, paths: path.dirname(filename)});
+    const {root, imports, options} = parse(source, {math: 0, paths: path.dirname(filename), banner});
     if (!root) {
         console.error("Failed to parse", source);
         return source;
     }
     // Disables the validation: Properties must be inside selector blocks. They cannot be in the root
     root.firstRoot = false;
-
     const parseTree = new less.ParseTree(root, imports);
     const {css} = parseTree.toCSS(options);
     return css;
 };
 
-export default (source, filename) => {
+export default (source, filename, opts) => {
     const less = new Less(undefined, [new FileManager()]);
     const oldGenCSS = less.tree.Expression.prototype.genCSS;
     const oldEval = less.tree.Anonymous.prototype.eval;
@@ -50,7 +53,7 @@ export default (source, filename) => {
         less.PluginLoader = class PluginLoader {
         };
 
-        return transpile(less, source, filename);
+        return transpile(less, source, filename, opts);
     } finally {
         delete less.tree.Node.prototype.parse;
         Object.assign(less.tree, oldTree);

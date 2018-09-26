@@ -29,7 +29,7 @@ export default (path, state, {types: t}) => {
             p.isClean = true;
 
             try {
-                const raw = transpileLess(source, state.file.opts.filename);
+                const raw = transpileLess(source, state.file.opts.filename, state.opts);
                 if (source !== raw) {
                     p.replaceWithSourceString('`' + raw + '`');
                 }
