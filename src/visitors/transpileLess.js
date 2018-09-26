@@ -16,7 +16,7 @@ const transpile = (less, source, filename, opts = {}) => {
         banner += `@import (reference) "${opts.import}";`;
     }
     const parse = deasync((input, options, callback) => less.parse(input, options, (e, root, imports, options) => callback(e, {root, imports, options})));
-    const {root, imports, options} = parse(source, {math: 0, paths: path.dirname(filename), banner});
+    const {root, imports, options} = parse(source, {math: 0, paths: [path.dirname(filename), process.cwd()], banner});
     if (!root) {
         console.error("Failed to parse", source);
         return source;
