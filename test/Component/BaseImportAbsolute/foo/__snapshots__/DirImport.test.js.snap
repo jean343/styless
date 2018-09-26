@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`It should find the base import in sub folders 1`] = `
+exports[`It should find the base import in sub folders with absolute paths 1`] = `
 .c0 {
   color: #b5483d;
   background: #39688f;

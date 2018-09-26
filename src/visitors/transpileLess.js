@@ -1,4 +1,5 @@
 import path from "path";
+import findBabelConfig from 'find-babel-config';
 import deasync from "deasync";
 import Less from "less/lib/less/";
 import FileManager from "less/lib/less-node/file-manager";
@@ -15,8 +16,22 @@ const transpile = (less, source, filename, opts = {}) => {
     if (opts.import) {
         banner += `@import (reference) "${opts.import}";`;
     }
+    const paths = [path.dirname(filename)];
+
+    switch (opts.cwd) {
+        case "babelrc":
+            paths.push(path.dirname(findBabelConfig.sync(filename).file));
+            break;
+        default:
+        case "cwd":
+            paths.push(process.cwd());
+            break;
+    }
+
+    console.log("paths", filename, paths)
+
     const parse = deasync((input, options, callback) => less.parse(input, options, (e, root, imports, options) => callback(e, {root, imports, options})));
-    const {root, imports, options} = parse(source, {math: 0, paths: [path.dirname(filename), process.cwd()], banner});
+    const {root, imports, options} = parse(source, {math: 0, paths, banner});
     if (!root) {
         console.error("Failed to parse", source);
         return source;

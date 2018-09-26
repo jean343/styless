@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import styled from 'styled-components';
 import 'jest-styled-components';
 
-test('It should fall back to base import variables', () => {
+test('It should fall back to base import variables with absolute paths', () => {
     const Div = styled.div`
 		color: @base-color;
 		.base-mixin;

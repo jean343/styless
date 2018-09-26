@@ -7,7 +7,8 @@
     [
       "../../../",
       {
-        "import": "test/Component/base.less"
+        "cwd": "babelrc",
+        "import": "../base.less"
       }
     ]
   ]
