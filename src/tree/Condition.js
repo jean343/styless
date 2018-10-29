@@ -29,7 +29,11 @@ export default class Condition {
                 result = `${a} || ${b}`;
                 break;
             case '=':
-                result = `${a} == ${b}`;
+                if (b === "true") {
+                    result = `!!${a}`;
+                } else {
+                    result = `${a} == ${b}`;
+                }
                 break;
             default:
                 result = `${a} ${this.op} ${b}`;

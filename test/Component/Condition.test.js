@@ -45,3 +45,10 @@ test('Test greater than', () => {
     expect(renderer.create(<Div bg="black"/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div bg="white"/>).toJSON()).toMatchSnapshot();
 });
+
+test('If with function', () => {
+    const Div = styled.div`
+	  cursor: if(@onClick, pointer);
+	`;
+    expect(renderer.create(<Div onClick={() => false}/>).toJSON()).toMatchSnapshot();
+});

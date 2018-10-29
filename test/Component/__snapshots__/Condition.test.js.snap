@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`If with function 1`] = `
+.c0 {
+  cursor: pointer;
+}
+
+<div
+  className="c0"
+  onClick={[Function]}
+/>
+`;
+
 exports[`Test = 1`] = `
 .c0 {
   opacity1: 1;
