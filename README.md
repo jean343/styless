@@ -156,7 +156,7 @@ const Button = styled.button`
    "styless",
    {
      "cwd": "babelrc",
-     "import": "../../InvestigatorUI/ui/less/common.less"
+     "import": "../less/common.less"
    }
  ]
 ```
