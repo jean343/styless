@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#29, nested imports 1`] = `
+.c0 .test2 {
+  color: test2;
+}
+
+.c0 .test {
+  color: test;
+}
+
+.c0 .tmp {
+  color: tmp;
+}
+
+.c0.light {
+  color: pink;
+  background: #222;
+}
+
+.c0.dark {
+  background: #333;
+  color: #444;
+}
+
+<div
+  className="c0"
+/>
+`;
