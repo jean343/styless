@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support javascript 1`] = `
+.c0 {
+  color: green;
+  background: #403d3c;
+  border: 1px solid #403d3c;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Support javascript 2`] = `
+.c0 {
+  color: red;
+  background: #403d3c;
+  border: 1px solid #403d3c;
+}
+
+<div
+  className="c0"
+  color="red"
+/>
+`;

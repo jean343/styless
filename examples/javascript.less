@@ -1,0 +1,16 @@
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+
+.echoColor() {
+  @functions: ~`(function(colorStr) {
+    return colorStr;
+  }
+  )()`;
+}
+
+// It is hacky way to make this function will be compiled preferentially by less
+.echoColor();
+
+
+@blue-6: #1890ff;
+@primary-color : @blue-6;
+@primary-1: color(~`echoColor("@{primary-color}", 1)`);

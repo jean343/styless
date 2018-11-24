@@ -8,6 +8,7 @@ import Variable from "../tree/Variable";
 import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
 import Dimension from "../tree/Dimension";
+import JavaScript from "../tree/JavaScript";
 import * as functions from '../functions';
 import {genCSS, anonymousEval, nodeParse} from "./utils";
 
@@ -28,8 +29,18 @@ const transpile = (less, source, filename, opts = {}) => {
             break;
     }
 
-    const parse = deasync((input, options, callback) => less.parse(input, options, (e, root, imports, options) => callback(e, {root, imports, options})));
-    const {root, imports, options} = parse(source, {math: 0, paths, banner});
+    const parse = deasync((input, options, callback) =>
+      less.parse(input, options, (e, root, imports, options) =>
+        callback(e, {root, imports, options})));
+
+    const parseOpts = Object.assign(
+      {},
+      { math: 0, paths, banner },
+      opts.lessOptions
+    );
+
+    const { root, imports, options } = parse(source, parseOpts);
+
     if (!root) {
         console.error("Failed to parse", source);
         return source;
@@ -54,6 +65,7 @@ export default (source, filename, opts) => {
         less.tree.Condition = Condition;
         less.tree.Negative = Negative;
         less.tree.Dimension = Dimension;
+        less.tree.JavaScript = JavaScript;
         less.tree.Expression.prototype.genCSS = genCSS(less);
         less.tree.Anonymous.prototype.eval = anonymousEval(less);
 
