@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "styless",
+    ["../dist", { "lessOptions": { "javascriptEnabled": true } }],
     "transform-class-properties",
     "transform-object-rest-spread"
   ]

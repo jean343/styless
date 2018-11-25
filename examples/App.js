@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Advanced from './Advanced';
 
 const App = styled.div`
-	color: @text;
+  color: @text;
 `;
 
 const Title = styled.h1`
@@ -37,12 +37,19 @@ const Button = styled.button`
 	}
 `;
 
+const Box = styled.div`
+  @import "javascript.less";
+  color: @echoColor(green);
+  background: @primary-1;
+  border: 1px solid @primary-2;
+`;
+
 export default class extends Component {
     state = {open: false};
     onClick = e => this.setState({open: !this.state.open});
 
     render() {
-        return <App>
+         return <App>
             <Wrapper>
                 <Title>
                     Hello World, this is my first styled <b>component</b>!
@@ -51,6 +58,7 @@ export default class extends Component {
                     Hello World, this is my first styled <b>component</b>!
                 </Title>
                 <Button onClick={this.onClick}>Click me</Button> <Button highlight="hsl(153, 100%, 33%)" onClick={this.onClick}>Or me</Button> <Button disabled small>But not me</Button>
+                <Box>We can also use javascript functions</Box>
                 {this.state.open && <Advanced/>}
             </Wrapper>
         </App>

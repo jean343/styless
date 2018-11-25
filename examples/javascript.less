@@ -11,6 +11,12 @@
 .echoColor();
 
 
+@import 'color/colorPalette';
+
+// color palettes
+@blue-5: ~`colorPalette("@{blue-6}", 5)`;
 @blue-6: #1890ff;
-@primary-color : @blue-6;
-@primary-1: color(~`echoColor("@{primary-color}", 1)`);
+
+@primary-color: @blue-6;
+@primary-1: ~`colorPalette("@{primary-color}", 1)`;
+@primary-2: color(~`colorPalette("@{primary-color}", 6)`);
