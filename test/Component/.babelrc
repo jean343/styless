@@ -1,9 +1,4 @@
 {
-	"presets": [
-		"env",
-		"react"
-	],
-	"plugins": [
-		"../../"
-	]
+  "presets": ["env", "react"],
+  "plugins": [["../../", { "lessOptions": { "javascriptEnabled": true } }]]
 }

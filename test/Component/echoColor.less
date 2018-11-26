@@ -1,0 +1,13 @@
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+
+.echoColorMixin() {
+@functions: ~`(function() {
+  this.echoColor = function(color, index) {
+    return color;
+  }
+}
+)()`;
+}
+
+// It is hacky way to make this function will be compiled preferentially by less
+.echoColorMixin();
