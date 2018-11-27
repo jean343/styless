@@ -31,22 +31,25 @@ const transpile = async (less, source, filename, opts = {}) => {
     return css;
 };
 
-Object.defineProperty(less.tree.Node.prototype, 'parse', nodeParse(less));
-less.tree.Variable = Variable;
-less.tree.Condition = Condition;
-less.tree.Negative = Negative;
-less.tree.Dimension = Dimension;
-less.tree.JavaScript = JavaScript;
-less.tree.Expression.prototype.genCSS = genCSS(less);
-less.tree.Anonymous.prototype.eval = anonymousEval(less);
+(async () => {
+    Object.defineProperty(less.tree.Node.prototype, 'parse', nodeParse(less));
+    less.tree.Variable = Variable;
+    less.tree.Condition = Condition;
+    less.tree.Negative = Negative;
+    less.tree.Dimension = Dimension;
+    less.tree.JavaScript = JavaScript;
+    less.tree.Expression.prototype.genCSS = genCSS(less);
+    less.tree.Anonymous.prototype.eval = anonymousEval(less);
 
-// Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
-const {Paren, Selector, Element} = less.tree;
-const joinSelector = less.tree.Ruleset.prototype.joinSelector.toString().replace("if (el.value !== '&') {", "if (el.value !== '&' || context.length === 0) {");
-eval(`less.tree.Ruleset.prototype.joinSelector = ${joinSelector}`);
+    // Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
+    const {Paren, Selector, Element} = less.tree;
+    const joinSelector = less.tree.Ruleset.prototype.joinSelector.toString().replace("if (el.value !== '&') {", "if (el.value !== '&' || context.length === 0) {");
+    eval(`less.tree.Ruleset.prototype.joinSelector = ${joinSelector}`);
 
-less.functions.functionRegistry.addMultiple(functions);
-less.PluginLoader = class PluginLoader {
-};
+    less.functions.functionRegistry.addMultiple(functions);
+    less.PluginLoader = class PluginLoader {
+    };
 
-transpile(less, source, "filename", {}).then(console.log.bind(console));
+    const transpiled = await transpile(less, source, "filename", {});
+    console.info("transpiled", transpiled);
+})();
