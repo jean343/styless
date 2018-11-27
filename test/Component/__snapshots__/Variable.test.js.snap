@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#32, Fail to escape variable with string and variable 1`] = `
+.c0 {
+  font-family: "Monospaced Number","Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Nested variables 1`] = `
+.c0 {
+  font-family: "root","Monospaced","Number","Third";
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Nested variables 2`] = `
+.c0 {
+  font-family: "root","Monospaced","Number",Arial;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Replaces single variable in linear-gradient 1`] = `
 .c0 {
   background: linear-gradient(red 0%,blue 100%);
