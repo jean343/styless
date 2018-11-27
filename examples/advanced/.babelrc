@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "styless",
+    ["styless", { "lessOptions": { "javascriptEnabled": true } }],
     "@babel/plugin-proposal-class-properties"
   ]
 }

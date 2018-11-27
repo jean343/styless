@@ -27,3 +27,32 @@ test('Use the color defiened in the component', () => {
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
+
+test('#32, Fail to escape variable with string and variable', () => {
+    const Div = styled.div`
+        @font-family-no-number : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        @font-family : "Monospaced Number", @font-family-no-number;
+        font-family: @font-family;
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('#32, Fail to escape variable with string and variable from import', () => {
+    const Div = styled.div`
+        @import (reference) "import.less";
+        font-family: @font-family;
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div font-family-no-number="font-family-no-number"/>).toJSON()).toMatchSnapshot();
+});
+
+test('Nested variables', () => {
+    const Div = styled.div`
+        @font-family3 : "Third";
+        @font-family2 : "Number", @font-family3;
+        @font-family1 : "Monospaced", @font-family2;
+        font-family: "root", @font-family1;
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div font-family3="Arial"/>).toJSON()).toMatchSnapshot();
+});

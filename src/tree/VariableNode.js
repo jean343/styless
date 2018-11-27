@@ -8,7 +8,11 @@ export default class VariableNode extends Node {
     }
 
     genCSS(context, output) {
-        output.add(`\${props => ${this.value}}`);
+        if (context && context.cssFragment) {
+            output.add(`\${${this.value}}`);
+        } else {
+            output.add(`\${props => ${this.value}}`);
+        }
     }
 
     toCSS(context, doNotCompress) {

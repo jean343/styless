@@ -5,7 +5,7 @@ export default WrappedComponent => {
         state = {checked: false};
         onChange = e => {
             this.setState({checked: !!e.target.checked});
-        }
+        };
 
         render() {
             const {children, ...props} = this.props;
