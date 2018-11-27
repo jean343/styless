@@ -5,9 +5,18 @@ const VALID_TOP_LEVEL_IMPORT_PATHS = [
     'styled-components/primitives',
 ];
 
-export const isValidTopLevelImport = x => VALID_TOP_LEVEL_IMPORT_PATHS.includes(x);
+export const isValidTopLevelImport = x =>
+    VALID_TOP_LEVEL_IMPORT_PATHS.includes(x);
+
+const localNameCache = {};
 
 const importLocalName = (name, state) => {
+    const cacheKey = name + state.file.opts.filename;
+
+    if (localNameCache[cacheKey]) {
+        return localNameCache[cacheKey]
+    }
+
     let localName = name === 'default' ? 'styled' : name;
 
     state.file.path.traverse({
@@ -36,7 +45,7 @@ const importLocalName = (name, state) => {
             },
         },
     });
-
+    localNameCache[cacheKey] = localName
     return localName
 };
 
@@ -82,7 +91,7 @@ export const isStyled = t => (tag, state) => {
                 tag.callee.object.name === state.styledRequired)
         )
     }
-}
+};
 
 export const isCSSHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('css', state);
 
@@ -93,3 +102,5 @@ export const isInjectGlobalHelper = t => (tag, state) => t.isIdentifier(tag) && 
 export const isKeyframesHelper = t => (tag, state) => t.isIdentifier(tag) && tag.name === importLocalName('keyframes', state);
 
 export const isHelper = t => (tag, state) => isCSSHelper(t)(tag, state) || isKeyframesHelper(t)(tag, state);
+
+export const isPureHelper = t => (tag, state) => isCSSHelper(t)(tag, state) || isKeyframesHelper(t)(tag, state) || isCreateGlobalStyleHelper(t)(tag, state);
