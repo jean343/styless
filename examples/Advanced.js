@@ -20,6 +20,12 @@ const Content = styled.div`
 `;
 
 const samples = {
+    "use javascript function": S.extend`
+        @import "javascript.less";
+        color: @echoColor(green);
+        background: @primary-1;
+        border: 1px solid @primary-2;
+    `,
     "width: 700px + @value;": withSlider(S.extend`background-color: @highlight; width: 700px + @value;`),
     "width: ${props => 700 + parseFloat(props.value)}px;": withSlider(S.extend`background-color: @highlight; width: ${props => 700 + parseFloat(props.value)}px;`),
     "background-color: darken(@highlight, 30%);": S.extend`background-color: darken(@highlight, 30%);`,
