@@ -15,7 +15,7 @@ export default class Variable extends variable {
         try {
             localVariable = super.eval(context);
         } finally {
-            return new VariableNode(convert(this.name, c(localVariable)));
+            return new VariableNode(convert(this.name, c(localVariable, {cssFragment: true})));
         }
     }
 }
