@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "browserslist": "last 2 chrome versions",
   "scripts": {
     "start": "parcel --no-cache index.html"
   },
