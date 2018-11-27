@@ -10,6 +10,26 @@ exports[`#32, Fail to escape variable with string and variable 1`] = `
 />
 `;
 
+exports[`#32, Fail to escape variable with string and variable from import 1`] = `
+.c0 {
+  font-family: "Monospaced Number less","Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`#32, Fail to escape variable with string and variable from import 2`] = `
+.c0 {
+  font-family: "Monospaced Number less",font-family-no-number;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Nested variables 1`] = `
 .c0 {
   font-family: "root","Monospaced","Number","Third";
