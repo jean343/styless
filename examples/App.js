@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import Advanced from './Advanced';
+import Advanced from './advanced/Advanced';
 
 const App = styled.div`
     color: @text;

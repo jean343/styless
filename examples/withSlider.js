@@ -5,7 +5,7 @@ export default (WrappedComponent, {min = 0, max = 100} = {}) => {
         state = {value: 0};
         onChange = e => {
             this.setState({value: e.target.value});
-        }
+        };
 
         render() {
             const {children, ...props} = this.props;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import withCheckbox from './withCheckbox';
-import withSlider from './withSlider';
+import withCheckbox from '../withCheckbox';
+import withSlider from '../withSlider';
 
 const Style = styled.div`
   margin-top: 20px;
@@ -21,7 +21,7 @@ const Content = styled.div`
 
 const samples = {
     "use javascript function": S.extend`
-        @import "javascript.less";
+        @import "./javascript.less";
         color: @echoColor(green);
         background: @primary-1;
         border: 1px solid @primary-2;
@@ -30,7 +30,7 @@ const samples = {
     "width: ${props => 700 + parseFloat(props.value)}px;": withSlider(S.extend`background-color: @highlight; width: ${props => 700 + parseFloat(props.value)}px;`),
     "background-color: darken(@highlight, 30%);": S.extend`background-color: darken(@highlight, 30%);`,
     "@import (reference) \"variables\";\n.bg-light-blue;": S.extend`
-        @import (reference) "variables";
+        @import (reference) "../variables";
         .bg-light-blue;`,
     "@local: palevioletred;\n@width: if(@checked, 20px, 0);\nbackground-color: @local;\nborder-radius: @width;": withCheckbox(S.extend`
         @local: palevioletred;
