@@ -26,6 +26,6 @@ export const convertNode = (v, {cssFragment} = {}) => {
     if (value.startsWith('`')) {
         return value;
     }
-    value = value.replace(/"/g, '\\"');
-    return `"${value}"`;
+
+    return `\`${value}\``;
 };

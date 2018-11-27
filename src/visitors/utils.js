@@ -70,7 +70,7 @@ const consumeBrackets = parserInput => {
 
 export const genCSS = less => function (context, output) {
     const cssFragment = context && context.cssFragment && this.value.some(v => v instanceof VariableNode);
-    if (cssFragment) output.add('`/*styless*/');
+    if (cssFragment) output.add('`');
     for (let i = 0; i < this.value.length; i++) {
         const value = this.value[i];
         if (cssFragment && value instanceof VariableNode) {
