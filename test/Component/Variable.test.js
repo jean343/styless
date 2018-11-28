@@ -62,12 +62,13 @@ test('#34', () => {
     const antBtnClassName = "ant-btn";
     const size = {xlarge: "3.2rem"};
     const AntButton = styled(Link)`
+      fluid: @fluid;
       &.${antBtnClassName} {
         font-size: ${size.xlarge};
         font-weight: 700;
         width: 40px;
         text-decoration: none;
-        padding: 0;
+        padding: @padding;
 
         &,
         &:hover,
@@ -85,5 +86,5 @@ test('#34', () => {
       }
     `;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
-    expect(renderer.create(<Div fluid/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div fluid padding="1rem"/>).toJSON()).toMatchSnapshot();
 });

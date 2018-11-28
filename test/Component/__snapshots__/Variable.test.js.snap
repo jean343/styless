@@ -37,7 +37,6 @@ exports[`#34 1`] = `
   width: 40px;
   -webkit-text-decoration: none;
   text-decoration: none;
-  padding: 0;
 }
 
 .c1.ant-btn,
@@ -65,7 +64,7 @@ exports[`#34 2`] = `
   width: 40px;
   -webkit-text-decoration: none;
   text-decoration: none;
-  padding: 0;
+  padding: 1rem;
 }
 
 .c1.ant-btn,
