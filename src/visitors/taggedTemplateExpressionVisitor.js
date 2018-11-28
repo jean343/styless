@@ -2,33 +2,40 @@ import {isStyled, isHelper} from "../utils/detectors";
 import transpileLess from "./transpileLess";
 import generate from '@babel/generator';
 
-const regex = /([\s\S]*?`)([\s\S]*)(`[\s\S]*?)/;
+const regex = /`([\s\S]*)`/;
 
 export default (path, state, {types: t}) => {
     if (!(isStyled(t)(path.node.tag, state) || isHelper(t)(path.node.tag, state))) {
         return;
     }
-    if (path.isClean) return;
 
-    let rawSource = path.getSource();
-    if (!rawSource) {
-        const {code} = generate({
-            type: 'Program',
-            body: [path.node]
-        });
-        rawSource = code;
-    }
+    // Find the TemplateLiteral in the TaggedTemplateExpression
+    path.traverse({
+        TemplateLiteral(p) {
+            if (p.isClean) return;
+            p.stop(); // Only traverse the first TemplateLiteral of TaggedTemplateExpression
 
-    const [foo, prefix, source, suffix] = regex.exec(rawSource);
-    if (!source) return;
-    path.isClean = true;
+            let rawSource = p.getSource();
+            if (!rawSource) {
+                const {code} = generate({
+                    type: 'Program',
+                    body: [path.node]
+                });
+                rawSource = code;
+            }
 
-    try {
-        const raw = transpileLess(source, state.file.opts.filename, state.opts);
-        if (source !== raw) {
-            path.replaceWithSourceString(prefix + raw + suffix);
-        }
-    } catch (e) {
-        console.error("Error converting the less syntax for the file:", state.file.opts.filename, rawSource, e);
-    }
+            const [foo, source] = regex.exec(rawSource);
+            if (!source) return;
+            p.isClean = true;
+
+            try {
+                const raw = transpileLess(source, state.file.opts.filename, state.opts);
+                if (source !== raw) {
+                    p.replaceWithSourceString('`' + raw + '`');
+                }
+            } catch (e) {
+                console.error("Error converting the less syntax for the file:", state.file.opts.filename, rawSource, e);
+            }
+        },
+    });
 }

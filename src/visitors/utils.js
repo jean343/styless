@@ -95,6 +95,12 @@ export const nodeParse = less => ({
     get: () => lastSelf,
     set: self => {
         lastSelf = self;
+        const $re = (parserInput, tok) => {
+            parserInput.save();
+            const ret = parserInput.$re(tok);
+            parserInput.restore();
+            return ret;
+        };
         const parseJS = (orig, treeConstructor, isDeclaration) => {
             const val = orig();
             if (val)
@@ -102,7 +108,7 @@ export const nodeParse = less => ({
 
             let name;
             self.parserInput.save();
-            if (self.parserInput.currentChar() === '$' && (name = consumeBrackets(self.parserInput))) {
+            if ($re(self.parserInput, /^\.?\$/) && (name = consumeBrackets(self.parserInput))) {
                 // Makes the assumption that all nested code blocks have css in them, or ends with a ;.
                 if (isDeclaration && !name.includes("css")) {
                     self.parserInput.save();

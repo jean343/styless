@@ -56,3 +56,35 @@ test('Nested variables', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div font-family3="Arial"/>).toJSON()).toMatchSnapshot();
 });
+
+test('#34', () => {
+    const Link = styled.div``;
+    const antBtnClassName = "ant-btn";
+    const size = {xlarge: "3.2rem"};
+    const AntButton = styled(Link)`
+      fluid: @fluid;
+      &.${antBtnClassName} {
+        font-size: ${size.xlarge};
+        font-weight: 700;
+        width: 40px;
+        text-decoration: none;
+        padding: @padding;
+
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          background: none;
+          border-color: transparent;
+        }
+      }
+    `;
+    const Div = styled(({fluid, ...rest}) => <AntButton {...rest} />)`
+      && {
+        width: if(@fluid, 100%, auto);
+      }
+    `;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div fluid padding="1rem"/>).toJSON()).toMatchSnapshot();
+});
