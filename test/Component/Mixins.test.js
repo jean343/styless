@@ -44,7 +44,7 @@ test('Test mixin variable', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Test mixin guards', () => {
+test('Test mixin guards', () => {
     const Div = styled.div`
         .mixin(@a) when (lightness(@a) >= 50%) {
           background-color: black;
@@ -57,8 +57,10 @@ test.skip('Test mixin guards', () => {
         }
         .class1 { .mixin(#ddd) }
         .class2 { .mixin(#555) }
+        .class1v { .mixin(@c1) }
+        .class2v { .mixin(@c2) }
     `;
-    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div c1="#ddd" c2="#555"/>).toJSON()).toMatchSnapshot();
 });
 
 // test.skip('Test Less loops', () => {

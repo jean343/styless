@@ -36,7 +36,7 @@ export default class Condition {
                 }
                 break;
             default:
-                result = `${a} ${this.op} ${b}`;
+                result = `parseFloat(${a}) ${this.op} parseFloat(${b})`;
                 break;
         }
 

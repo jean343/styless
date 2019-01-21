@@ -16,6 +16,32 @@ exports[`Support inline mixins 1`] = `
 />
 `;
 
+exports[`Test mixin guards 1`] = `
+.c0 .class1 {
+  background-color: black;
+  color: #ddd;
+}
+
+.c0 .class2 {
+  background-color: white;
+  color: #555;
+}
+
+.c0 .class1v {
+  background-color: black;
+  color: #ddd;
+}
+
+.c0 .class2v {
+  background-color: white;
+  color: #555;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Test mixin variable 1`] = `
 .c0 .class1 {
   color: red;
