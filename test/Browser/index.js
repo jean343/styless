@@ -5,6 +5,7 @@ import Condition from "../../src/tree/Condition";
 import Negative from "../../src/tree/Negative";
 import Dimension from "../../src/tree/Dimension";
 import {anonymousEval, genCSS, nodeParse} from "../../src/visitors/utils";
+import mixin from "../../src/visitors/mixin";
 import JavaScript from "../../src/tree/JavaScript";
 
 const less = new Less();
@@ -40,6 +41,7 @@ const transpile = async (less, source, filename, opts = {}) => {
     less.tree.JavaScript = JavaScript;
     less.tree.Expression.prototype.genCSS = genCSS(less);
     less.tree.Anonymous.prototype.eval = anonymousEval(less);
+    mixin(less);
 
     // Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
     const {Paren, Selector, Element} = less.tree;

@@ -9,6 +9,7 @@ import Condition from "../tree/Condition";
 import Negative from "../tree/Negative";
 import Dimension from "../tree/Dimension";
 import JavaScript from "../tree/JavaScript";
+import mixin from "./mixin";
 import * as functions from '../functions';
 import {genCSS, anonymousEval, nodeParse} from "./utils";
 
@@ -30,16 +31,16 @@ const transpile = (less, source, filename, opts = {}) => {
     }
 
     const parse = deasync((input, options, callback) =>
-      less.parse(input, options, (e, root, imports, options) =>
-        callback(e, {root, imports, options})));
+        less.parse(input, options, (e, root, imports, options) =>
+            callback(e, {root, imports, options})));
 
     const parseOpts = Object.assign(
-      {},
-      { math: 0, paths, banner },
-      opts.lessOptions
+        {},
+        {math: 0, paths, banner},
+        opts.lessOptions
     );
 
-    const { root, imports, options } = parse(source, parseOpts);
+    const {root, imports, options} = parse(source, parseOpts);
 
     if (!root) {
         console.error("Failed to parse", source);
@@ -68,6 +69,7 @@ export default (source, filename, opts) => {
         less.tree.JavaScript = JavaScript;
         less.tree.Expression.prototype.genCSS = genCSS(less);
         less.tree.Anonymous.prototype.eval = anonymousEval(less);
+        mixin(less);
 
         // Changes the function joinSelector to allow & selectors in the root element. Useful for overriding styles with higher specificity.
         const {Paren, Selector, Element} = less.tree;
