@@ -145,6 +145,7 @@ exports[`Returns true if a value is an em value, false otherwise. 2`] = `
 exports[`Returns: true if value is a number in specific units, false otherwise. 1`] = `
 .c0 {
   is: true;
+  isNot: false;
 }
 
 <div
@@ -154,7 +155,8 @@ exports[`Returns: true if value is a number in specific units, false otherwise. 
 
 exports[`Returns: true if value is a number in specific units, false otherwise. 2`] = `
 .c0 {
-  is: false;
+  is: true;
+  isNot: false;
   width: 7.8%;
 }
 

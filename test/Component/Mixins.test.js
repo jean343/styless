@@ -19,25 +19,50 @@ test('Support inline mixins', () => {
     expect(renderer.create(<Div color="red" background="white"/>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Test mixin guards', () => {
-	const Div = styled.div`
-		.mixin(@a) when (lightness(@a) >= 50%) {
-		  background-color: black;
-		}
-		.mixin(@a) when (lightness(@a) < 50%) {
-		  background-color: white;
-		}
-		.mixin(@a) {
-		  color: @a;
-		}
-		.class1 { .mixin(#ddd) }
-		.class2 { .mixin(#555) }
+test('Test simple mixin guards', () => {
+
+    const Div = styled.div`
+        .false(@a) when ((1 = 1) and (2 = 3)) {
+          color: red;
+        }
+        .true(@a) when ((1 = 1) and (2 = 2)) {
+          color: green;
+        }
+        .classFalse { .false(red) }
+        .classTrue { .true(red) }
     `;
-	expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('Test mixin variable', () => {
+    const Div = styled.div`
+        .mixin(@a) {
+          color: @a;
+        }
+        .class1 { .mixin(red) }
+    `;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test.skip('Test mixin guards', () => {
+    const Div = styled.div`
+        .mixin(@a) when (lightness(@a) >= 50%) {
+          background-color: black;
+        }
+        .mixin(@a) when (lightness(@a) < 50%) {
+          background-color: white;
+        }
+        .mixin(@a) {
+          color: @a;
+        }
+        .class1 { .mixin(#ddd) }
+        .class2 { .mixin(#555) }
+    `;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
 
 // test.skip('Test Less loops', () => {
-// 	const Div = styled.div`
+//     const Div = styled.div`
 // 		.make-variants(@i:1) when (@i =< 3) {
 // 			.variant-@{i} {
 // 				width: @i * 40px;
@@ -49,5 +74,5 @@ test.skip('Test mixin guards', () => {
 // 		}
 // 		.make-variants();
 // 	`;
-// 	expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+//     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 // });

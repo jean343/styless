@@ -58,7 +58,7 @@ export default less => {
                 for (let m = 0; m < mixins.length; m++) {
                     let mixin = mixins[m].rule;
                     const match = mixin.matchCondition(args, context);
-                    
+
                     try {
                         if (!(mixin instanceof less.tree.mixin.Definition)) {
                             const originalRuleset = mixin.originalRuleset || mixin;

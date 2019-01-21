@@ -117,15 +117,17 @@ test('Returns: true if value is a percentage value, false otherwise.', () => {
     expect(renderer.create(<Div2 v="7.8%"/>).toJSON()).toMatchSnapshot();
 });
 
-test.skip('Returns: true if value is a number in specific units, false otherwise.', () => {
-	const Div = styled.div`
+test('Returns: true if value is a number in specific units, false otherwise.', () => {
+    const Div = styled.div`
         is: isunit(11px, px);
+        isNot: isunit(11px, %);
 	`;
-	expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 
-	const Div2 = styled.div`
+    const Div2 = styled.div`
         is: isunit(@v, %);
+        isNot: isunit(@v, px);
         width: @v;
 	`;
-	expect(renderer.create(<Div2 v="7.8%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div2 v="7.8%"/>).toJSON()).toMatchSnapshot();
 });

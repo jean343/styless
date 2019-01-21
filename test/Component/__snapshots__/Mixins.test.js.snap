@@ -15,3 +15,23 @@ exports[`Support inline mixins 1`] = `
   color="red"
 />
 `;
+
+exports[`Test mixin variable 1`] = `
+.c0 .class1 {
+  color: red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Test simple mixin guards 1`] = `
+.c0 .classTrue {
+  color: green;
+}
+
+<div
+  className="c0"
+/>
+`;

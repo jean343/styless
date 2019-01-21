@@ -19,3 +19,6 @@ export const ispercentage = value => {
 export const isem = value => {
     return new VariableNode(`(('' + ${c(value)}).endsWith("em")).toString()`);
 };
+export const isunit = (value, unit) => {
+    return new VariableNode(`(('' + ${c(value)}).endsWith("${unit.value}")).toString()`);
+};
