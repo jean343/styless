@@ -3,6 +3,22 @@ import renderer from 'react-test-renderer';
 import styled, {css} from "styled-components";
 import 'jest-styled-components';
 
+test('Not Outputting the Mixin', () => {
+    const Div = styled.div`
+        .my-mixin {
+          color: black;
+        }
+        .my-other-mixin() {
+          background: white;
+        }
+        .class {
+            .my-mixin();
+            .my-other-mixin();
+        }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
 test('Support inline mixins', () => {
     const Div = styled.div`
         .my-mixin {

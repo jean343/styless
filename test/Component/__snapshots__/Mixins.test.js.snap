@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Not Outputting the Mixin 1`] = `
+.c0 .my-mixin {
+  color: black;
+}
+
+.c0 .class {
+  color: black;
+  background: white;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Support inline mixins 1`] = `
 .c0 .my-mixin {
   color: red;
