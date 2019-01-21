@@ -19,6 +19,41 @@ test('Not Outputting the Mixin', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
 
+test('Namespaces', () => {
+    const Div = styled.div`
+        #outer() {
+            .inner {
+              color: red;
+            }
+        }
+        
+        .c {
+          #outer > .inner();
+        }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
+
+test('Guarded Namespaces', () => {
+    const Div = styled.div`
+        #namespace when (@mode = huge) {
+          .mixin1() {
+              color: red1;
+          }
+        }
+        
+        #namespace {
+          .mixin2() when (@mode = huge) {
+              color: red2;
+          }
+        }
+        #namespace.mixin1();
+        #namespace.mixin2();
+	`;
+    expect(renderer.create(<Div mode="large"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div mode="huge"/>).toJSON()).toMatchSnapshot();
+});
+
 test('Support inline mixins', () => {
     const Div = styled.div`
         .my-mixin {

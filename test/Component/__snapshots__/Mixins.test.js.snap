@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Guarded Namespaces 1`] = `
+.c0 {
+}
+
+<div
+  className="c0"
+  mode="large"
+/>
+`;
+
+exports[`Guarded Namespaces 2`] = `
+.c0 {
+  color: red1;
+  color: red2;
+}
+
+<div
+  className="c0"
+  mode="huge"
+/>
+`;
+
+exports[`Namespaces 1`] = `
+.c0 .c {
+  color: red;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Not Outputting the Mixin 1`] = `
 .c0 .my-mixin {
   color: black;

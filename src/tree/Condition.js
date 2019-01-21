@@ -1,5 +1,6 @@
 import {convertNode as c} from './convert';
 import VariableNode from "./VariableNode";
+import Keyword from 'less/lib/less/tree/keyword';
 
 export default class Condition {
     constructor(op, l, r, i, negate) {
@@ -16,10 +17,15 @@ export default class Condition {
     }
 
     eval(context) {
-        let a = this.lvalue.eval(context);
-        let b = this.rvalue.eval(context);
-        a = a.value ? a.value : c(a);
-        b = b.value ? b.value : c(b);
+        const convert = o => {
+            if (o instanceof Keyword && o.value !== "true" && o.value !== "false") {
+                return `"${o.value}"`;
+            }
+            return o.value ? o.value : c(a);
+        };
+
+        let a = convert(this.lvalue.eval(context));
+        let b = convert(this.rvalue.eval(context));
         let result;
         switch (this.op) {
             case 'and':
@@ -31,6 +37,8 @@ export default class Condition {
             case '=':
                 if (b === "true") {
                     result = `!!${a}`;
+                } else if (b === "false") {
+                    result = `!${a}`;
                 } else {
                     result = `${a} == ${b}`;
                 }
