@@ -99,9 +99,9 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 
 exports[`Decrease the lightness of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  darken: #4d8a0f;
-  darken: #4d8a0f;
-  darken: #4d8a0f;
+  darken: rgb(77,138,15);
+  darken: rgb(77,138,15);
+  darken: rgb(77,138,15);
 }
 
 <div
@@ -112,9 +112,9 @@ exports[`Decrease the lightness of a color in the HSL color space by an absolute
 
 exports[`Decrease the saturation of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  desaturate: #80cc33;
-  desaturate: #80cc33;
-  desaturate: #80cc33;
+  desaturate: rgb(128,204,51);
+  desaturate: rgb(128,204,51);
+  desaturate: rgb(128,204,51);
 }
 
 <div
@@ -332,9 +332,9 @@ exports[`Extracts the value channel of a color object in the HSV color space. 1`
 
 exports[`Increase the lightness of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  lighten: #b3f075;
-  lighten: #b3f075;
-  lighten: #b3f075;
+  lighten: rgb(179,240,117);
+  lighten: rgb(179,240,117);
+  lighten: rgb(179,240,117);
 }
 
 <div
@@ -345,9 +345,9 @@ exports[`Increase the lightness of a color in the HSL color space by an absolute
 
 exports[`Increase the saturation of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  saturate: #80ff00;
-  saturate: #80ff00;
-  saturate: #80ff00;
+  saturate: rgb(128,255,0);
+  saturate: rgb(128,255,0);
+  saturate: rgb(128,255,0);
 }
 
 <div
@@ -413,8 +413,8 @@ exports[`Mix two colors together in variable proportion. Opacity is included in 
 
 exports[`Remove all saturation from a color in the HSL color space. 1`] = `
 .c0 {
-  greyscale1: #808080;
-  greyscale2: #808080;
+  greyscale1: rgb(128,128,128);
+  greyscale2: rgb(128,128,128);
 }
 
 <div

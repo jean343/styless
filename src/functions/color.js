@@ -90,17 +90,17 @@ export const luminance = color => {
 };
 
 export const saturate = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).saturate(parseFloat(${c(amount)})).toHexString()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).saturate(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const desaturate = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).desaturate(parseFloat(${c(amount)})).toHexString()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).desaturate(parseFloat(${c(amount)})).toRgbString()`);
 };
 
 export const lighten = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).lighten(parseFloat(${c(amount)})).toHexString()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).lighten(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const darken = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).darken(parseFloat(${c(amount)})).toHexString()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).darken(parseFloat(${c(amount)})).toRgbString()`);
 };
 
 export const fadein = (color, amount, method) => {
