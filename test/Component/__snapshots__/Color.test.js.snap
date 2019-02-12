@@ -102,6 +102,9 @@ exports[`Decrease the lightness of a color in the HSL color space by an absolute
   darken: rgb(77,138,15);
   darken: rgb(77,138,15);
   darken: rgb(77,138,15);
+  darkena: rgba(77,138,15,0.5);
+  darkena: rgba(77,138,15,0.5);
+  darkena: rgba(77,138,15,0.5);
 }
 
 <div
@@ -115,6 +118,9 @@ exports[`Decrease the saturation of a color in the HSL color space by an absolut
   desaturate: rgb(128,204,51);
   desaturate: rgb(128,204,51);
   desaturate: rgb(128,204,51);
+  desaturatea: rgba(128,204,51,0.5);
+  desaturatea: rgba(128,204,51,0.5);
+  desaturatea: rgba(128,204,51,0.5);
 }
 
 <div
@@ -335,6 +341,9 @@ exports[`Increase the lightness of a color in the HSL color space by an absolute
   lighten: rgb(179,240,117);
   lighten: rgb(179,240,117);
   lighten: rgb(179,240,117);
+  lightena: rgba(179,240,117,0.5);
+  lightena: rgba(179,240,117,0.5);
+  lightena: rgba(179,240,117,0.5);
 }
 
 <div
@@ -348,6 +357,9 @@ exports[`Increase the saturation of a color in the HSL color space by an absolut
   saturate: rgb(128,255,0);
   saturate: rgb(128,255,0);
   saturate: rgb(128,255,0);
+  saturatea: rgba(128,255,0,0.5);
+  saturatea: rgba(128,255,0,0.5);
+  saturatea: rgba(128,255,0,0.5);
 }
 
 <div

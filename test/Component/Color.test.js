@@ -205,16 +205,24 @@ test('Increase the saturation of a color in the HSL color space by an absolute a
 		saturate: saturate(hsl(90, 80%, 50%), 20%);
 		saturate: saturate(@color, 20%);
 		saturate: saturate(@color, @p);
+		
+		saturatea: saturate(hsla(90, 80%, 50%, 0.5), 20%);
+		saturatea: saturate(@colora, 20%);
+		saturatea: saturate(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 test('Decrease the saturation of a color in the HSL color space by an absolute amount.', () => {
     const Div = styled.div`
 		desaturate: desaturate(hsl(90, 80%, 50%), 20%);
 		desaturate: desaturate(@color, 20%);
 		desaturate: desaturate(@color, @p);
+		
+		desaturatea: desaturate(hsla(90, 80%, 50%, 0.5), 20%);
+		desaturatea: desaturate(@colora, 20%);
+		desaturatea: desaturate(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -223,16 +231,24 @@ test('Increase the lightness of a color in the HSL color space by an absolute am
 		lighten: lighten(hsl(90, 80%, 50%), 20%);
 		lighten: lighten(@color, 20%);
 		lighten: lighten(@color, @p);
+		
+		lightena: lighten(hsla(90, 80%, 50%, 0.5), 20%);
+		lightena: lighten(@colora, 20%);
+		lightena: lighten(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 test('Decrease the lightness of a color in the HSL color space by an absolute amount.', () => {
     const Div = styled.div`
 		darken: darken(hsl(90, 80%, 50%), 20%);
 		darken: darken(@color, 20%);
 		darken: darken(@color, @p);
+		
+		darkena: darken(hsla(90, 80%, 50%, 0.5), 20%);
+		darkena: darken(@colora, 20%);
+		darkena: darken(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 
 
