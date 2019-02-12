@@ -16,7 +16,7 @@ exports[`Calculates the value of the luma without gamma correction. 1`] = `
 .c0 {
   luminance: 65.28078431372549;
   luminance: 65.28078431372549;
-  luminance: 32.768393694732794;
+  luminance: 32.640392156862745;
 }
 
 <div
@@ -53,15 +53,15 @@ exports[`Creates a hex representation of a color in #AARRGGBB 1`] = `
 
 exports[`Creates an opaque color object from decimal red, green and blue (RGB) values. 1`] = `
 .c0 {
-  rgb: #5a8120ff;
-  rgba: #5a812080;
-  rgb: #5a8120ff;
-  rgba: #5a812080;
-  rgb: #5a8120ff;
-  rgba: #5a812080;
-  rgb: #5a8120ff;
-  rgba: #5a812080;
-  rgb: #ffffffff;
+  rgb: #5a8120;
+  rgba: rgba(90,129,32,0.5);
+  rgb: #5a8120;
+  rgba: rgba(90,129,32,0.5);
+  rgb: rgb(90,129,32);
+  rgba: rgba(90,129,32,0.5);
+  rgb: rgb(90,129,32);
+  rgba: rgba(90,129,32,0.5);
+  rgb: rgb(255,255,255);
 }
 
 <div
@@ -72,11 +72,11 @@ exports[`Creates an opaque color object from decimal red, green and blue (RGB) v
 
 exports[`Creates an opaque color object from hue, saturation and lightness (HSL) values. 1`] = `
 .c0 {
-  hsl: #80ff00ff;
-  hsl1: #80ff00ff;
-  new: #e6f1daff;
-  hsla: #80ff0080;
-  hsla: #80ff0080;
+  hsl: #80ff00;
+  hsl1: #80ff00;
+  new: #e6f1da;
+  hsla: rgba(128,255,0,0.5);
+  hsla: rgba(128,255,0,0.5);
 }
 
 <div
@@ -86,10 +86,10 @@ exports[`Creates an opaque color object from hue, saturation and lightness (HSL)
 
 exports[`Creates an opaque color object from hue, saturation and value (HSV) values. 1`] = `
 .c0 {
-  hsv1: #408000ff;
-  hsv2: #408000ff;
-  hsva1: #40800080;
-  hsva2: #40800080;
+  hsv1: #408000;
+  hsv2: #408000;
+  hsva1: rgba(64,128,0,0.5);
+  hsva2: rgba(64,128,0,0.5);
 }
 
 <div
@@ -99,9 +99,9 @@ exports[`Creates an opaque color object from hue, saturation and value (HSV) val
 
 exports[`Decrease the lightness of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  darken: #4d8a0fff;
-  darken: #4d8a0fff;
-  darken: #4d8a0fff;
+  darken: #4d8a0f;
+  darken: #4d8a0f;
+  darken: #4d8a0f;
 }
 
 <div
@@ -112,9 +112,9 @@ exports[`Decrease the lightness of a color in the HSL color space by an absolute
 
 exports[`Decrease the saturation of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  desaturate: #80cc33ff;
-  desaturate: #80cc33ff;
-  desaturate: #80cc33ff;
+  desaturate: #80cc33;
+  desaturate: #80cc33;
+  desaturate: #80cc33;
 }
 
 <div
@@ -144,8 +144,8 @@ exports[`Decrease the transparency (or increase the opacity) of a color, making 
 
 exports[`Extract and reconstruct an hsl color. 1`] = `
 .c0 {
-  col-before: #80bf40ff;
-  col-after: #80bf40ff;
+  col-before: #80bf40;
+  col-after: #80bf40;
 }
 
 <div
@@ -156,7 +156,7 @@ exports[`Extract and reconstruct an hsl color. 1`] = `
 exports[`Extract and reconstruct an hsl color. 2`] = `
 .c0 {
   col-before: #80ff00;
-  col-after: #80ff00ff;
+  col-after: #80ff00;
 }
 
 <div
@@ -166,8 +166,8 @@ exports[`Extract and reconstruct an hsl color. 2`] = `
 
 exports[`Extract and reconstruct an hsv color. 1`] = `
 .c0 {
-  col-before: #608040ff;
-  col-after: #608040ff;
+  col-before: #608040;
+  col-after: #608040;
 }
 
 <div
@@ -178,7 +178,7 @@ exports[`Extract and reconstruct an hsv color. 1`] = `
 exports[`Extract and reconstruct an hsv color. 2`] = `
 .c0 {
   col-before: #80ff00;
-  col-after: #80ff00ff;
+  col-after: #80ff00;
 }
 
 <div
@@ -332,9 +332,9 @@ exports[`Extracts the value channel of a color object in the HSV color space. 1`
 
 exports[`Increase the lightness of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  lighten: #b3f075ff;
-  lighten: #b3f075ff;
-  lighten: #b3f075ff;
+  lighten: #b3f075;
+  lighten: #b3f075;
+  lighten: #b3f075;
 }
 
 <div
@@ -345,9 +345,9 @@ exports[`Increase the lightness of a color in the HSL color space by an absolute
 
 exports[`Increase the saturation of a color in the HSL color space by an absolute amount. 1`] = `
 .c0 {
-  saturate: #80ff00ff;
-  saturate: #80ff00ff;
-  saturate: #80ff00ff;
+  saturate: #80ff00;
+  saturate: #80ff00;
+  saturate: #80ff00;
 }
 
 <div
@@ -377,8 +377,8 @@ exports[`Increase the transparency (or decrease the opacity) of a color, making 
 
 exports[`Mix color with black in variable proportion. 1`] = `
 .c0 {
-  no-alpha: #004080ff;
-  no-alpha: #004080ff;
+  no-alpha: #004080;
+  no-alpha: #004080;
 }
 
 <div
@@ -389,8 +389,8 @@ exports[`Mix color with black in variable proportion. 1`] = `
 
 exports[`Mix color with white in variable proportion. 1`] = `
 .c0 {
-  no-alpha: #80bfffff;
-  no-alpha: #80bfffff;
+  no-alpha: #80bfff;
+  no-alpha: #80bfff;
 }
 
 <div
@@ -401,9 +401,9 @@ exports[`Mix color with white in variable proportion. 1`] = `
 
 exports[`Mix two colors together in variable proportion. Opacity is included in the calculations. 1`] = `
 .c0 {
-  mix: #800080ff;
-  mix: #800080ff;
-  mix: #323200ff;
+  mix: #800080;
+  mix: #800080;
+  mix: #323200;
 }
 
 <div
@@ -413,8 +413,8 @@ exports[`Mix two colors together in variable proportion. Opacity is included in 
 
 exports[`Remove all saturation from a color in the HSL color space. 1`] = `
 .c0 {
-  greyscale1: #808080ff;
-  greyscale2: #808080ff;
+  greyscale1: #808080;
+  greyscale2: #808080;
 }
 
 <div
@@ -425,14 +425,14 @@ exports[`Remove all saturation from a color in the HSL color space. 1`] = `
 
 exports[`Rotate the hue angle of a color in either direction. 1`] = `
 .c0 {
-  spin: #f2a50dff;
-  spin: #f20d5aff;
-  spin: #f2a50dff;
-  spin: #f20d5aff;
-  spin: #f2a50dff;
-  spin: #f20d5aff;
-  spin: #f2a60dff;
-  spin: #f2330dff;
+  spin: #f2a50d;
+  spin: #f20d5a;
+  spin: #f2a50d;
+  spin: #f20d5a;
+  spin: #f2a50d;
+  spin: #f20d5a;
+  spin: #f2a60d;
+  spin: #f2330d;
 }
 
 <div
