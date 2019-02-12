@@ -205,16 +205,24 @@ test('Increase the saturation of a color in the HSL color space by an absolute a
 		saturate: saturate(hsl(90, 80%, 50%), 20%);
 		saturate: saturate(@color, 20%);
 		saturate: saturate(@color, @p);
+		
+		saturatea: saturate(hsla(90, 80%, 50%, 0.5), 20%);
+		saturatea: saturate(@colora, 20%);
+		saturatea: saturate(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 test('Decrease the saturation of a color in the HSL color space by an absolute amount.', () => {
     const Div = styled.div`
 		desaturate: desaturate(hsl(90, 80%, 50%), 20%);
 		desaturate: desaturate(@color, 20%);
 		desaturate: desaturate(@color, @p);
+		
+		desaturatea: desaturate(hsla(90, 80%, 50%, 0.5), 20%);
+		desaturatea: desaturate(@colora, 20%);
+		desaturatea: desaturate(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -223,16 +231,24 @@ test('Increase the lightness of a color in the HSL color space by an absolute am
 		lighten: lighten(hsl(90, 80%, 50%), 20%);
 		lighten: lighten(@color, 20%);
 		lighten: lighten(@color, @p);
+		
+		lightena: lighten(hsla(90, 80%, 50%, 0.5), 20%);
+		lightena: lighten(@colora, 20%);
+		lightena: lighten(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 test('Decrease the lightness of a color in the HSL color space by an absolute amount.', () => {
     const Div = styled.div`
 		darken: darken(hsl(90, 80%, 50%), 20%);
 		darken: darken(@color, 20%);
 		darken: darken(@color, @p);
+		
+		darkena: darken(hsla(90, 80%, 50%, 0.5), 20%);
+		darkena: darken(@colora, 20%);
+		darkena: darken(@colora, @p);
 	`;
-    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" p="20%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(90, 80%, 50%)" colora="hsla(90, 80%, 50%, 0.5)" p="20%"/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -293,8 +309,12 @@ test('Rotate the hue angle of a color in either direction.', () => {
         spin: spin(@color, @v);
         
         spin: spin(@color, @zero);
+        
+        spina: spin(hsla(10, 90%, 50%, 0.5), @v2);
+        spina: spin(hsla(10, 90%, 50%, 0.5), -@v2);
+        spina: spin(@colora, @v);
 	`;
-    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" colora="hsla(10, 90%, 50%, 0.5)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -303,8 +323,12 @@ test('Mix two colors together in variable proportion. Opacity is included in the
         mix: mix(#ff0000, #0000ff, 50%);
         mix: mix(@a, @b, @p);
         mix: mix(rgba(100, 0, 0, 1.0), rgba(0, 100, 0, 1.0));
+        
+        mixa: mix(#ff000080, #0000ff80, 50%);
+        mixa: mix(@aa, @ba, @p);
+        mixa: mix(rgba(100, 0, 0, 0.5), rgba(0, 100, 0, 0.5));
 	`;
-    expect(renderer.create(<Div a="#ff0000" b="#0000ff" p="50%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a="#ff0000" b="#0000ff" aa="#ff000080" ba="#0000ff80" p="50%"/>).toJSON()).toMatchSnapshot();
 });
 test('Mix color with white in variable proportion.', () => {
     const Div = styled.div`

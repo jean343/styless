@@ -8,7 +8,7 @@ exports[`#20, box-shadow 1`] = `
 
 exports[`#20, box-shadow 2`] = `
 .c0 {
-  box-shadow: inset 0 0 0 30px #ffffff80;
+  box-shadow: inset 0 0 0 30px rgba(255,255,255,0.5);
 }
 
 <div
@@ -167,19 +167,19 @@ exports[`Support SC mixins 1`] = `
 
 exports[`Support placeholder on the root 1`] = `
 .c0::-webkit-input-placeholder {
-  color: #98a3b3ff;
+  color: #98a3b3;
 }
 
 .c0::-moz-placeholder {
-  color: #98a3b3ff;
+  color: #98a3b3;
 }
 
 .c0:-ms-input-placeholder {
-  color: #98a3b3ff;
+  color: #98a3b3;
 }
 
 .c0::placeholder {
-  color: #98a3b3ff;
+  color: #98a3b3;
 }
 
 <div

@@ -2,7 +2,7 @@ import VariableNode from "../tree/VariableNode";
 import {convertNode as c} from "../tree/convert";
 
 const parse = color => {
-    return new VariableNode(`require("tinycolor2")(${c(color)}).toHex8String()`);
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toRgbString()`);
 };
 
 export const rgb = (r, g, b) => {
@@ -10,7 +10,11 @@ export const rgb = (r, g, b) => {
 };
 export const rgba = (r, g, b, a) => {
     if (g) {
-        return new VariableNode(`require("tinycolor2")({ r: ${c(r)}, g: ${c(g)}, b: ${c(b)}, a: ${c(a)} }).toHex8String()`);
+        if (a == 1) {
+            return new VariableNode(`require("tinycolor2")({ r: ${c(r)}, g: ${c(g)}, b: ${c(b)} }).toHexString()`);
+        } else {
+            return new VariableNode(`require("tinycolor2")({ r: ${c(r)}, g: ${c(g)}, b: ${c(b)}, a: ${c(a)} }).toRgbString()`);
+        }
     } else {
         return parse(r);
     }
@@ -20,7 +24,11 @@ export const hsl = (h, s, l) => {
 };
 export const hsla = (h, s, l, a) => {
     if (s) {
-        return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, l: ${c(l)}, a: ${c(a)} }).toHex8String()`);
+        if (a == 1) {
+            return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, l: ${c(l)} }).toHexString()`);
+        } else {
+            return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, l: ${c(l)}, a: ${c(a)} }).toRgbString()`);
+        }
     } else {
         return parse(h);
     }
@@ -30,7 +38,11 @@ export const hsv = (h, s, v) => {
 };
 export const hsva = (h, s, v, a) => {
     if (s) {
-        return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, v: ${c(v)}, a: ${c(a)} }).toHex8String()`);
+        if (a == 1) {
+            return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, v: ${c(v)} }).toHexString()`);
+        } else {
+            return new VariableNode(`require("tinycolor2")({ h: ${c(h)}, s: ${c(s)}, v: ${c(v)}, a: ${c(a)} }).toRgbString()`);
+        }
     } else {
         return parse(h);
     }
@@ -78,17 +90,17 @@ export const luminance = color => {
 };
 
 export const saturate = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).saturate(parseFloat(${c(amount)})).toHex8String()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).saturate(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const desaturate = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).desaturate(parseFloat(${c(amount)})).toHex8String()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).desaturate(parseFloat(${c(amount)})).toRgbString()`);
 };
 
 export const lighten = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).lighten(parseFloat(${c(amount)})).toHex8String()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).lighten(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const darken = (color, amount, method) => {
-    return new VariableNode(`require('tinycolor2')(${c(color)}).darken(parseFloat(${c(amount)})).toHex8String()`);
+    return new VariableNode(`require('tinycolor2')(${c(color)}).darken(parseFloat(${c(amount)})).toRgbString()`);
 };
 
 export const fadein = (color, amount, method) => {
@@ -121,10 +133,10 @@ export const fade = (color, amount) => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).setAlpha(parseFloat(${c(amount)}) / 100).toRgbString()`);
 };
 export const spin = (color, amount) => {
-    return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toHex8String()`);
+    return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const mix = (color1, color2, weight) => {
-    return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toHex8String()`);
+    return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toRgbString()`);
 };
 export const greyscale = color => {
     return desaturate(color, 100);
@@ -159,7 +171,7 @@ export const contrast = (color, dark, light, threshold) => {
 };
 
 export const argb = color => {
-    return new VariableNode(`${c(rgba(color))}.replace(/#(\\w{6})(\\w{2})/, "#$2$1")`);
+    return new VariableNode(`require("tinycolor2")(${c(color)}).toHex8String().replace(/#(\\w{6})(\\w{2})/, "#$2$1")`);
 };
 // color
 export const tint = (color, weight) => {
