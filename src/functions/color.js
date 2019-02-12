@@ -133,10 +133,10 @@ export const fade = (color, amount) => {
     return new VariableNode(`require("tinycolor2")(${c(color)}).setAlpha(parseFloat(${c(amount)}) / 100).toRgbString()`);
 };
 export const spin = (color, amount) => {
-    return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toHexString()`);
+    return new VariableNode(`require("tinycolor2")(${c(color)}).spin(parseFloat(${c(amount)})).toRgbString()`);
 };
 export const mix = (color1, color2, weight) => {
-    return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toHexString()`);
+    return new VariableNode(`require("tinycolor2").mix(${c(color1)}, ${c(color2)}, parseFloat(${c(weight)})).toRgbString()`);
 };
 export const greyscale = color => {
     return desaturate(color, 100);

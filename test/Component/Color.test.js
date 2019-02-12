@@ -309,8 +309,12 @@ test('Rotate the hue angle of a color in either direction.', () => {
         spin: spin(@color, @v);
         
         spin: spin(@color, @zero);
+        
+        spina: spin(hsla(10, 90%, 50%, 0.5), @v2);
+        spina: spin(hsla(10, 90%, 50%, 0.5), -@v2);
+        spina: spin(@colora, @v);
 	`;
-    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div color="hsl(10, 90%, 50%)" colora="hsla(10, 90%, 50%, 0.5)" v="30" v2="30%" zero={0}/>).toJSON()).toMatchSnapshot();
 });
 
 
@@ -319,8 +323,12 @@ test('Mix two colors together in variable proportion. Opacity is included in the
         mix: mix(#ff0000, #0000ff, 50%);
         mix: mix(@a, @b, @p);
         mix: mix(rgba(100, 0, 0, 1.0), rgba(0, 100, 0, 1.0));
+        
+        mixa: mix(#ff000080, #0000ff80, 50%);
+        mixa: mix(@aa, @ba, @p);
+        mixa: mix(rgba(100, 0, 0, 0.5), rgba(0, 100, 0, 0.5));
 	`;
-    expect(renderer.create(<Div a="#ff0000" b="#0000ff" p="50%"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<Div a="#ff0000" b="#0000ff" aa="#ff000080" ba="#0000ff80" p="50%"/>).toJSON()).toMatchSnapshot();
 });
 test('Mix color with white in variable proportion.', () => {
     const Div = styled.div`

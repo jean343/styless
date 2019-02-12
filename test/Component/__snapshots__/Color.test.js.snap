@@ -389,8 +389,8 @@ exports[`Increase the transparency (or decrease the opacity) of a color, making 
 
 exports[`Mix color with black in variable proportion. 1`] = `
 .c0 {
-  no-alpha: #004080;
-  no-alpha: #004080;
+  no-alpha: rgb(0,64,128);
+  no-alpha: rgb(0,64,128);
 }
 
 <div
@@ -401,8 +401,8 @@ exports[`Mix color with black in variable proportion. 1`] = `
 
 exports[`Mix color with white in variable proportion. 1`] = `
 .c0 {
-  no-alpha: #80bfff;
-  no-alpha: #80bfff;
+  no-alpha: rgb(128,191,255);
+  no-alpha: rgb(128,191,255);
 }
 
 <div
@@ -413,9 +413,12 @@ exports[`Mix color with white in variable proportion. 1`] = `
 
 exports[`Mix two colors together in variable proportion. Opacity is included in the calculations. 1`] = `
 .c0 {
-  mix: #800080;
-  mix: #800080;
-  mix: #323200;
+  mix: rgb(128,0,128);
+  mix: rgb(128,0,128);
+  mix: rgb(50,50,0);
+  mixa: rgba(128,0,128,0.5);
+  mixa: rgba(128,0,128,0.5);
+  mixa: rgba(50,50,0,0.5);
 }
 
 <div
@@ -437,14 +440,17 @@ exports[`Remove all saturation from a color in the HSL color space. 1`] = `
 
 exports[`Rotate the hue angle of a color in either direction. 1`] = `
 .c0 {
-  spin: #f2a50d;
-  spin: #f20d5a;
-  spin: #f2a50d;
-  spin: #f20d5a;
-  spin: #f2a50d;
-  spin: #f20d5a;
-  spin: #f2a60d;
-  spin: #f2330d;
+  spin: rgb(242,165,13);
+  spin: rgb(242,13,90);
+  spin: rgb(242,165,13);
+  spin: rgb(242,13,90);
+  spin: rgb(242,165,13);
+  spin: rgb(242,13,90);
+  spin: rgb(242,166,13);
+  spin: rgb(242,51,13);
+  spina: rgba(242,165,13,0.5);
+  spina: rgba(242,13,90,0.5);
+  spina: rgba(242,166,13,0.5);
 }
 
 <div
