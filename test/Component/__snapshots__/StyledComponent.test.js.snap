@@ -34,6 +34,16 @@ exports[`#20, not 2`] = `
 />
 `;
 
+exports[`#39, box-shadow 1`] = `
+.c0 .column.frozen.column:empty::before {
+  content: '\\200B';
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Attaching additional props 1`] = `
 .c0 {
   color: palevioletred;
