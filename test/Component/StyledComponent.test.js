@@ -153,3 +153,14 @@ test('#20, box-shadow', () => {
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
     expect(renderer.create(<Div disabled/>).toJSON()).toMatchSnapshot();
 });
+
+test('#39, box-shadow', () => {
+    const Div = styled.div`
+         .column {
+             &.frozen&:empty::before {
+                 content: '\\200B';
+             }
+         }
+	`;
+    expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
+});
