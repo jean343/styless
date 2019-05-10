@@ -138,5 +138,5 @@ export const nodeParse = less => ({
             return new (less.tree.Element)(c, anonymous, true, self.parserInput.i, self.fileInfo);
         });
     },
-    configurable: true
+    configurable: true,
 });
