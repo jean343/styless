@@ -1,6 +1,5 @@
 import path from "path";
 import findBabelConfig from 'find-babel-config';
-import deasync from "deasync";
 import Less from "less/lib/less/";
 import FileManager from "less/lib/less-node/file-manager";
 import _utils from "less/lib/less/utils";
@@ -29,17 +28,23 @@ const transpile = (less, source, filename, opts = {}) => {
             break;
     }
 
-    const parse = deasync((input, options, callback) =>
-      less.parse(input, options, (e, root, imports, options) =>
-        callback(e, {root, imports, options})));
-
     const parseOpts = Object.assign(
-      {},
-      { math: 0, paths, banner },
-      opts.lessOptions
+        {},
+        {
+            math: 0,
+            paths,
+            banner,
+            syncImport: true,
+        },
+        opts.lessOptions
     );
 
-    const { root, imports, options } = parse(source, parseOpts);
+    let root, imports, options;
+    less.parse(source, parseOpts, (e, _root, _imports, _options) => {
+        root = _root;
+        imports = _imports;
+        options = _options;
+    });
 
     if (!root) {
         console.error("Failed to parse", source);
