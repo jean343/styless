@@ -70,8 +70,6 @@ exports[`Attaching additional props 1`] = `
 <div>
   <input
     className="c0"
-    margin="1em"
-    padding="1em"
     placeholder="A small text input"
     size="1em"
     type="password"
@@ -79,8 +77,6 @@ exports[`Attaching additional props 1`] = `
   <br />
   <input
     className="c1"
-    margin="2em"
-    padding="2em"
     placeholder="A bigger text input"
     size="2em"
     type="password"

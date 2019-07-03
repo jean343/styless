@@ -19,14 +19,14 @@ test('Support the styled-components syntax', () => {
 });
 
 test('Attaching additional props', () => {
-    const Input = styled.input.attrs({
+    const Input = styled.input.attrs(props => ({
         // we can define static props
         type: 'password',
 
         // or we can define dynamic ones
-        margin: props => props.size || '1em',
-        padding: props => props.size || '1em'
-    })`
+        margin: props.size || '1em',
+        padding: props.size || '1em'
+    }))`
         color: palevioletred;
         font-size: 1em;
         border: 2px solid palevioletred;
