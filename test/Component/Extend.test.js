@@ -7,7 +7,7 @@ test('Extend a styled div', () => {
     const Div = styled.div`
 		color: @primary;
 	`;
-    const Div2 = Div.extend`
+    const Div2 = styled(Div)`
 		color: @primary;
 	`;
     expect(renderer.create(<Div primary="red"/>).toJSON()).toMatchSnapshot();
@@ -26,7 +26,7 @@ test('Extend styled-components example', () => {
     `;
 
     // We're extending Button with some extra styles
-    const TomatoButton = Button.extend`
+    const TomatoButton = styled(Button)`
         color: @color;
         border-color: tomato;
     `;

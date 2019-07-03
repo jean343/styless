@@ -1,6 +1,6 @@
 import less from "less";
 
-test('Less should still compile normally', async () => {
+test('Less should still compile normally', () => {
     const transpileLess = require("../../src/visitors/transpileLess").default;
     transpileLess("", "");
 
@@ -11,6 +11,7 @@ test('Less should still compile normally', async () => {
             darken: darken(@color, 20%);
         }
     `;
-    const {css} = await less.render(input);
-    expect(css).toMatchSnapshot();
+    less.render(input).then(({css}) => {
+        expect(css).toMatchSnapshot();
+    });
 });

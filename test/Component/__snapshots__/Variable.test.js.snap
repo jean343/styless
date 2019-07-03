@@ -53,7 +53,7 @@ exports[`#34 1`] = `
 }
 
 <div
-  className="c0 c1 "
+  className="c0 c1"
 />
 `;
 
@@ -81,7 +81,7 @@ exports[`#34 2`] = `
 }
 
 <div
-  className="c0 c1 "
+  className="c0 c1"
 />
 `;
 
