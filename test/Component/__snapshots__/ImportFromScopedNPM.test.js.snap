@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support import from scoped npm 1`] = `
+.c0 {
+  color: yellow;
+}
+
+<div
+  className="c0"
+/>
+`;

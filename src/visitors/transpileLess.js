@@ -58,7 +58,13 @@ const transpile = (less, source, filename, opts = {}) => {
 };
 
 export default (source, filename, opts) => {
-    const less = new Less(undefined, [new FileManager()]);
+    const fileManager = new FileManager();
+    // Adding support for scoped packages by removing the leading '~'
+    fileManager.loadFile = function (filename, currentDirectory, options, environment, callback) {
+        return FileManager.prototype.loadFile.call(this, filename.replace(/^~/, ""), currentDirectory, options, environment, callback);
+    };
+
+    const less = new Less(undefined, [fileManager]);
     const oldGenCSS = less.tree.Expression.prototype.genCSS;
     const oldEval = less.tree.Anonymous.prototype.eval;
     const oldTree = Object.assign({}, less.tree);

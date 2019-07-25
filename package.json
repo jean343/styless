@@ -30,6 +30,7 @@
     "@babel/cli": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@scoped/package": "link:./test/packages/scoped-package",
     "jest": "^24.8.0",
     "jest-styled-components": "^6.3.3",
     "react": "^16.8.6",
