@@ -1481,6 +1481,10 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
+"@scoped/package@link:./test/packages/scoped-package":
+  version "0.0.0"
+  uid ""
+
 "@semantic-release/commit-analyzer@^6.1.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-6.2.0.tgz#5cd25ce67ba9ba5b46e47457505e63629e186695"
