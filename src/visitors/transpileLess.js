@@ -58,13 +58,18 @@ const transpile = (less, source, filename, opts = {}) => {
 };
 
 export default (source, filename, opts) => {
-    const less = new Less(undefined, [new FileManager()]);
+    const fileManager = new FileManager();
+    // Adding support for scoped packages by removing the leading '~'
+    fileManager.loadFile = function (filename, currentDirectory, options, environment, callback) {
+        return FileManager.prototype.loadFile.call(this, filename.replace(/^~/, ""), currentDirectory, options, environment, callback);
+    };
+
+    const less = new Less(undefined, [fileManager]);
     const oldGenCSS = less.tree.Expression.prototype.genCSS;
     const oldEval = less.tree.Anonymous.prototype.eval;
     const oldTree = Object.assign({}, less.tree);
     const oldFunctionRegistry = Object.assign({}, less.functions.functionRegistry._data);
     const oldJoinSelector = less.tree.Ruleset.prototype.joinSelector;
-    const oldLoadFile = FileManager.prototype.loadFile;
     try {
         Object.defineProperty(less.tree.Node.prototype, 'parse', nodeParse(less));
         less.tree.Variable = Variable;
@@ -85,11 +90,6 @@ export default (source, filename, opts) => {
         less.PluginLoader = class PluginLoader {
         };
 
-        // Adding support for scoped packages by removing the leading '~'
-        FileManager.prototype.loadFile = function (filename, currentDirectory, options, environment, callback) {
-            return oldLoadFile.call(this, filename.replace(/^~/, ""), currentDirectory, options, environment, callback);
-        };
-
         return transpile(less, source, filename, opts);
     } finally {
         delete less.tree.Node.prototype.parse;
@@ -98,6 +98,5 @@ export default (source, filename, opts) => {
         less.tree.Anonymous.prototype.eval = oldEval;
         less.tree.Ruleset.prototype.joinSelector = oldJoinSelector;
         less.functions.functionRegistry._data = oldFunctionRegistry;
-        FileManager.prototype.loadFile = oldLoadFile;
     }
 }
