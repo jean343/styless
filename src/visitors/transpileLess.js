@@ -86,8 +86,8 @@ export default (source, filename, opts) => {
         };
 
         // Adding support for scoped packages by removing the leading '~'
-        FileManager.prototype.loadFile = (filename, currentDirectory, options, environment, callback) => {
-            return oldLoadFile.call(this, filename.replace(/~/, ""), currentDirectory, options, environment, callback);
+        FileManager.prototype.loadFile = function (filename, currentDirectory, options, environment, callback) {
+            return oldLoadFile.call(this, filename.replace(/^~/, ""), currentDirectory, options, environment, callback);
         };
 
         return transpile(less, source, filename, opts);
