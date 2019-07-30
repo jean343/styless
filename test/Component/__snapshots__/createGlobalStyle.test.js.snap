@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should theme the global style 1`] = `
+"
+/* sc-component-id: sc-global-2534925725 */
+html{color:color;}"
+`;
