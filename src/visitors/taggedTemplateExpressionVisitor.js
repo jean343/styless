@@ -1,11 +1,11 @@
-import {isStyled, isHelper} from "../utils/detectors";
+import {isStyled, isHelper, isPureHelper} from "../utils/detectors";
 import transpileLess from "./transpileLess";
 import generate from '@babel/generator';
 
 const regex = /`([\s\S]*)`/;
 
 export default (path, state, {types: t}) => {
-    if (!(isStyled(t)(path.node.tag, state) || isHelper(t)(path.node.tag, state))) {
+    if (!(isStyled(t)(path.node.tag, state) || isHelper(t)(path.node.tag, state) || isPureHelper(t)(path.node.tag || path.node.callee, state))) {
         return;
     }
 

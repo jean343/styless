@@ -10,14 +10,18 @@ export const isValidTopLevelImport = x =>
 
 const localNameCache = {};
 
-const importLocalName = (name, state) => {
-    const cacheKey = name + state.file.opts.filename;
+export const importLocalName = (name, state, bypassCache = false) => {
+    const cacheKey = name + state.file.opts.filename
 
-    if (localNameCache[cacheKey]) {
+    if (!bypassCache && cacheKey in localNameCache) {
         return localNameCache[cacheKey]
     }
 
-    let localName = name === 'default' ? 'styled' : name;
+    let localName = state.styledRequired
+        ? name === 'default'
+            ? 'styled'
+            : name
+        : false
 
     state.file.path.traverse({
         ImportDeclaration: {
