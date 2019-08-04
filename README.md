@@ -73,6 +73,13 @@ Note that `styless` should appear before `babel-plugin-styled-components` if use
     `;
 ```
 
+- Supports css props, do not forget the semi-colon!
+```less
+    <button css="color: @color;"/>
+    <button css={`color: @color;`}/>
+    <button css={css`color: @color;`}/>
+```
+
 - Still supports the styled-components syntax for more complex jobs!
 ```jsx
     `${props => props.main}`
