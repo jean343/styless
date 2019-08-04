@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "yarn run clean && yarn run build && jest",
-    "watch": "jest --watch",
+    "watch": "jest --watch --no-cache",
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
     "prepare": "yarn run build",

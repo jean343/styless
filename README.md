@@ -20,6 +20,8 @@ $ yarn add --dev babel-plugin-styless
 }
 ```
 
+Note that `styless` should appear before `babel-plugin-styled-components` if used.
+
 ## Key features
 - Simplifies the code
 

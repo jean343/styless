@@ -4,14 +4,7 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "babel-plugin-styled-components",
-    [
-      "../../../",
-      {
-        "lessOptions": {
-          "javascriptEnabled": true
-        }
-      }
-    ]
+    "../../../",
+    "babel-plugin-styled-components"
   ]
 }
