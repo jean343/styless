@@ -164,3 +164,10 @@ test('#39, box-shadow', () => {
 	`;
     expect(renderer.create(<Div/>).toJSON()).toMatchSnapshot();
 });
+
+test('Allow rules missing the last semi-colon', () => {
+    const Div = styled.div`
+        missing-semi-colon: @yes
+    `;
+    expect(renderer.create(<Div yes="yes"/>).toJSON()).toMatchSnapshot();
+});
