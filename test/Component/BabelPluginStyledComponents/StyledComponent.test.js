@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import styled, {css} from "styled-components";
 import 'jest-styled-components';
 
-test('Css prop', () => {
+test('Basic css prop', () => {
     // https://www.styled-components.com/docs/api#css-prop
     expect(renderer.create(<div
         css={`

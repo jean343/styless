@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Css prop 1`] = `
+exports[`Basic css prop 1`] = `
 .c0 {
   background: papayawhip;
   color: green;
@@ -11,7 +11,7 @@ exports[`Css prop 1`] = `
 />
 `;
 
-exports[`Css prop 2`] = `
+exports[`Basic css prop 2`] = `
 .c0 {
   padding: 0.5em 1em;
 }
@@ -21,7 +21,7 @@ exports[`Css prop 2`] = `
 />
 `;
 
-exports[`Css prop 3`] = `
+exports[`Basic css prop 3`] = `
 .c0 {
   background: papayawhip;
   color: green;
@@ -32,7 +32,7 @@ exports[`Css prop 3`] = `
 />
 `;
 
-exports[`Css prop 4`] = `
+exports[`Basic css prop 4`] = `
 .c0 {
   padding: 0.5em 1em;
 }
