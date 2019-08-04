@@ -44,6 +44,16 @@ exports[`#39, box-shadow 1`] = `
 />
 `;
 
+exports[`Allow rules missing the last semi-colon 1`] = `
+.c0 {
+  missing-semi-colon: yes;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`Attaching additional props 1`] = `
 .c0 {
   color: palevioletred;

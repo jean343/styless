@@ -73,7 +73,7 @@ Note that `styless` should appear before `babel-plugin-styled-components` if use
     `;
 ```
 
-- Supports css props, do not forget the semi-colon!
+- Supports css props
 ```less
     <button css="color: @color;"/>
     <button css={`color: @color;`}/>
