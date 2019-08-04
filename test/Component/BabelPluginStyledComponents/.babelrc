@@ -4,7 +4,12 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "../../../",
+    [
+      "../../../",
+      {
+        "import": "../base.less"
+      }
+    ],
     "babel-plugin-styled-components"
   ]
 }

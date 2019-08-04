@@ -83,3 +83,33 @@ exports[`Styless css prop 4`] = `
   className="c0"
 />
 `;
+
+exports[`Styless css prop from import 1`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop from import 2`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop from import 3`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;

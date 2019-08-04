@@ -52,3 +52,9 @@ test('Styless css prop', () => {
         p="1px"
     />).toJSON()).toMatchSnapshot();
 });
+
+test('Styless css prop from import', () => {
+    expect(renderer.create(<button css="color: @base-color;"/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<button css={`color: @base-color;`}/>).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<button css={css`color: @base-color;`}/>).toJSON()).toMatchSnapshot();
+});
