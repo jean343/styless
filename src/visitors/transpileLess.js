@@ -18,6 +18,12 @@ const transpile = (less, source, filename, opts = {}) => {
     }
     const paths = [path.dirname(filename)];
 
+    // Add the last semi-colon if needed
+    source = source.trim();
+    if (!source.endsWith(";")) {
+        source += ";";
+    }
+
     switch (opts.cwd) {
         case "babelrc":
             paths.push(path.dirname(findBabelConfig.sync(filename).file));
