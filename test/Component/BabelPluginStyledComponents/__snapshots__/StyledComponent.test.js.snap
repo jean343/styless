@@ -45,11 +45,12 @@ exports[`Basic css prop 4`] = `
 exports[`Styless css prop 1`] = `
 .c0 {
   background: papayawhip;
-  color: green;
+  color: yellow;
 }
 
 <div
   className="c0"
+  color="yellow"
 />
 `;
 
@@ -77,7 +78,7 @@ exports[`Styless css prop 3`] = `
 
 exports[`Styless css prop 4`] = `
 .c0 {
-  padding: 0.5em 1em;
+  padding: 1px;
 }
 
 <button
