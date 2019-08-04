@@ -213,7 +213,7 @@ exports[`Returns the value of the first argument modulus second argument. 1`] = 
 exports[`Returns the value of the first argument raised to the power of the second argument. 1`] = `
 .c0 {
   pow: 1cm;
-  pow: 0.0016;
+  pow: 0.04;
   pow: 5;
   pow: NaN;
   pow: NaN%;
