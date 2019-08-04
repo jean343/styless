@@ -31,23 +31,24 @@ test('Styless css prop', () => {
     expect(renderer.create(<div
         css={`
             background: papayawhip;
-            color: @color;
+            color1: @c;
         `}
-        color="yellow"
+        c="yellow"
     />).toJSON()).toMatchSnapshot();
     expect(renderer.create(<button
-        css="padding: 0.5em 1em;"
+        css="padding1: @p;"
+        p="20px"
     />).toJSON()).toMatchSnapshot();
 
     expect(renderer.create(<div
         css={css`
             background: papayawhip;
-            color: @color;
+            color2: @c;
         `}
-        color="blue"
+        c="blue"
     />).toJSON()).toMatchSnapshot();
     expect(renderer.create(<button
-        css={css`padding: @padding;`}
-        padding="1px"
+        css={css`padding2: @p;`}
+        p="1px"
     />).toJSON()).toMatchSnapshot();
 });
