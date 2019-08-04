@@ -146,7 +146,7 @@ test('PI', () => {
 test('Returns the value of the first argument raised to the power of the second argument.', () => {
     const Div = styled.div`
         pow: pow(0cm, 0px);
-        pow: pow(25, -2);
+        pow: pow(25, -1);
         pow: pow(25, 0.5);
         pow: pow(-25, 0.5);
         pow: pow(-25%, -0.5);

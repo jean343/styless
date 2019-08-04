@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "yarn run clean && yarn run build && jest",
-    "watch": "jest --watch",
+    "watch": "jest --watch --no-cache",
     "clean": "jest --clearCache",
     "build": "babel -d dist/ src/",
     "prepare": "yarn run build",
@@ -21,22 +21,23 @@
     "testURL": "http://localhost/"
   },
   "dependencies": {
-    "@babel/generator": "^7.4.4",
+    "@babel/generator": "^7.5.5",
     "find-babel-config": "^1.2.0",
     "less": "^3.9.0",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@scoped/package": "link:./test/packages/scoped-package",
+    "babel-plugin-styled-components": "^1.10.6",
     "jest": "^24.8.0",
     "jest-styled-components": "^6.3.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "semantic-release": "^15.13.18",
+    "semantic-release": "^15.13.19",
     "styled-components": "^4.3.2",
     "travis-deploy-once": "^5.0.11"
   }

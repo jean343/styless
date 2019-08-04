@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic css prop 1`] = `
+.c0 {
+  background: papayawhip;
+  color: green;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Basic css prop 2`] = `
+.c0 {
+  padding: 0.5em 1em;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Basic css prop 3`] = `
+.c0 {
+  background: papayawhip;
+  color: green;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Basic css prop 4`] = `
+.c0 {
+  padding: 0.5em 1em;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop 1`] = `
+.c0 {
+  background: papayawhip;
+  color1: yellow;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop 2`] = `
+.c0 {
+  padding1: 20px;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop 3`] = `
+.c0 {
+  background: papayawhip;
+  color2: blue;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop 4`] = `
+.c0 {
+  padding2: 1px;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop from import 1`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop from import 2`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`Styless css prop from import 3`] = `
+.c0 {
+  color: #b5483d;
+}
+
+<button
+  className="c0"
+/>
+`;

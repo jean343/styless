@@ -20,6 +20,8 @@ $ yarn add --dev babel-plugin-styless
 }
 ```
 
+Note that `styless` should appear before `babel-plugin-styled-components` if used.
+
 ## Key features
 - Simplifies the code
 
@@ -69,6 +71,13 @@ $ yarn add --dev babel-plugin-styless
         @import (reference) "variables";
         .bg-light-blue;
     `;
+```
+
+- Supports css props, do not forget the semi-colon!
+```less
+    <button css="color: @color;"/>
+    <button css={`color: @color;`}/>
+    <button css={css`color: @color;`}/>
 ```
 
 - Still supports the styled-components syntax for more complex jobs!
