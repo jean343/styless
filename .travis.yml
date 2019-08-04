@@ -3,9 +3,9 @@ cache:
   directories:
     - ~/.npm
 node_js:
-  - 6
   - 8
   - 10
+  - 12
 install:
   - yarn install --ignore-engines
 after_success:
