@@ -21,24 +21,24 @@
     "testURL": "http://localhost/"
   },
   "dependencies": {
-    "@babel/generator": "^7.5.5",
+    "@babel/generator": "^7.6.4",
     "find-babel-config": "^1.2.0",
     "less": "3.9.0",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/cli": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@scoped/package": "link:./test/packages/scoped-package",
     "babel-plugin-styled-components": "^1.10.6",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-test-renderer": "^16.9.0",
-    "semantic-release": "^15.13.24",
-    "styled-components": "^4.3.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-test-renderer": "^16.11.0",
+    "semantic-release": "^15.13.30",
+    "styled-components": "^4.4.1",
     "travis-deploy-once": "^5.0.11"
   }
 }
