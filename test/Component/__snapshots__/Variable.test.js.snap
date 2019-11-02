@@ -31,7 +31,7 @@ exports[`#32, Fail to escape variable with string and variable from import 2`] =
 `;
 
 exports[`#34 1`] = `
-.c1.ant-btn {
+.c0.ant-btn {
   font-size: 3.2rem;
   font-weight: 700;
   width: 40px;
@@ -39,16 +39,16 @@ exports[`#34 1`] = `
   text-decoration: none;
 }
 
-.c1.ant-btn,
-.c1.ant-btn:hover,
-.c1.ant-btn:focus,
-.c1.ant-btn:active,
-.c1.ant-btn.active {
+.c0.ant-btn,
+.c0.ant-btn:hover,
+.c0.ant-btn:focus,
+.c0.ant-btn:active,
+.c0.ant-btn.active {
   background: none;
   border-color: transparent;
 }
 
-.c0.c0 {
+.c1.c1 {
   width: auto;
 }
 
@@ -58,7 +58,7 @@ exports[`#34 1`] = `
 `;
 
 exports[`#34 2`] = `
-.c1.ant-btn {
+.c0.ant-btn {
   font-size: 3.2rem;
   font-weight: 700;
   width: 40px;
@@ -67,16 +67,16 @@ exports[`#34 2`] = `
   padding: 1rem;
 }
 
-.c1.ant-btn,
-.c1.ant-btn:hover,
-.c1.ant-btn:focus,
-.c1.ant-btn:active,
-.c1.ant-btn.active {
+.c0.ant-btn,
+.c0.ant-btn:hover,
+.c0.ant-btn:focus,
+.c0.ant-btn:active,
+.c0.ant-btn.active {
   background: none;
   border-color: transparent;
 }
 
-.c0.c0 {
+.c1.c1 {
   width: 100%;
 }
 
