@@ -169,3 +169,16 @@ const Button = styled.button`
    }
  ]
 ```
+- Can this be used to load variable sheets such as Antd.
+Yes, in `.babelrc`, add the following or see https://stackoverflow.com/a/59472390/3666615 for more detals.
+```
+[
+  "styless",
+  {
+    "import": "~antd/lib/style/themes/default.less",
+    "lessOptions": {
+      "javascriptEnabled": true
+    }
+  }
+]
+```
